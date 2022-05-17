@@ -1,5 +1,15 @@
 import React from "react"
+import { BlogGrid, Projects, Banner } from "../components"
+import Layout from "../components/Layout"
 
-export default function Home() {
-  return <div>Hello world!</div>
+const HomePage = () => {
+  return (
+    <Layout>
+      <BlogGrid title="Latest News" />
+      <Banner />
+      <Projects title="Projects" />
+    </Layout>
+  )
 }
+
+export default HomePage
