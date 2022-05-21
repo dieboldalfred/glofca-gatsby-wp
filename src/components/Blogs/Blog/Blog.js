@@ -5,26 +5,7 @@ import { StaticImage } from "gatsby-plugin-image"
 // styles
 import "./blog.css"
 
-const Blog = ({ title, imageName, content }) => {
-  const res = useStaticQuery(
-    graphql`
-      query ImageQuery($imageName: String!) {
-        image: file(
-          relativePath: { eq: $imageName} }
-        ) {
-          childImageSharp {
-            resize(width: 350) {
-              src
-            }
-            gatsbyImageData(width: 300)
-          }
-        }
-      }
-    `
-  )
-
-  const src = res.image.childImageSharp.resize.src
-
+const Blog = ({ title, content }) => {
   return (
     <article className="blog">
       {/* <StaticImage src={src} className="card-image" alt="logo" /> */}

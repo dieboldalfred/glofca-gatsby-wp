@@ -23,7 +23,14 @@ const Blogs = ({ title, page }) => {
         {blogs.map(blog => {
           const { id, image, title, content } = blog
           return (
-            <Blog key={id} imageName={image} title={title} content={content} />
+            <Link to={`/blog/${title}`}>
+              <Blog
+                key={id}
+                imageName={image}
+                title={title}
+                content={content}
+              />
+            </Link>
           )
         })}
       </div>

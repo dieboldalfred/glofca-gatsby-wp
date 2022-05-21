@@ -7,7 +7,9 @@ export const useGetBlogsQuery = () => {
         blogs {
           id
           title
-          image
+          image {
+            publicURL
+          }
           content
         }
       }
