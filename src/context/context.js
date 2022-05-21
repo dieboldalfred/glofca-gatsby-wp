@@ -1,5 +1,7 @@
 import React, { useState } from "react"
-import sublinks from "../constants/links"
+import subLinks from "../data/links"
+import subProjects from "../data/projects"
+import subThemes from "../data/themes"
 
 const GatsbyContext = React.createContext()
 
@@ -8,7 +10,9 @@ const GatsbyContext = React.createContext()
 // make component to wrap application
 const GatsbyProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const [links, setLinks] = useState(sublinks)
+  const [links, setLinks] = useState(subLinks)
+  const [projects, setProjects] = useState(subProjects)
+  const [themes, setThemes] = useState(subThemes)
 
   const openSidebar = () => {
     setIsSidebarOpen(true)
@@ -20,7 +24,13 @@ const GatsbyProvider = ({ children }) => {
 
   return (
     <GatsbyContext.Provider
-      value={{ isSidebarOpen, links, openSidebar, closeSidebar }}
+      value={{
+        isSidebarOpen,
+        openSidebar,
+        closeSidebar,
+        links,
+        projects,
+      }}
     >
       {children}
     </GatsbyContext.Provider>

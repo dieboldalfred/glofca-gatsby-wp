@@ -1,6 +1,7 @@
-import BlogGrid from "./BlogGrid/BlogGrid"
+import Blogs from "./Blogs/Blogs"
 import Title from "./Title/Title"
-import Projects from "./Projects/Projects"
+import Cards from "./Cards/Cards"
 import Banner from "./Banner/Banner"
+import Hero from "./Hero/Hero"
 
-export { BlogGrid, Title, Projects, Banner }
+export { Blogs, Title, Cards, Banner, Hero }

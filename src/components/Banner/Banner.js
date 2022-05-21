@@ -5,10 +5,11 @@ import italy from "../../assets/images/italy.jpg"
 // styles
 import "./banner.css"
 
-const Banner = () => (
+const Banner = ({ title, blurb }) => (
   <Parallax className="banner-image" bgImage={italy} strength={300}>
     <div className="banner-content">
-      <span className="banner-caption">A Trip to Space</span>
+      <div className="banner-caption">{title}</div>
+      {blurb && <div className="blurb-caption">{blurb}</div>}
     </div>
   </Parallax>
 )

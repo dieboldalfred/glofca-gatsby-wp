@@ -1,0 +1,62 @@
+{
+  "image": "../assets/images/italy.jpg",
+  "blogs": [
+    {
+      "id": "1",
+      "title": "New Director of the Central Asian Regional Glaciological Centre category 2 under the auspices of UNESCO",
+      "image": "../assets/images/italy.jpg",
+      "content": "UNESCO Almaty Office would like to congratulate Mr. Takir Balykbayev to his appointment as the Director of the LLP “Central Asian Regional Glaciological Centre category 2 under the auspices of UNESCO”. We look forward to further strengthen our cooperation specially in the context of the regional project funded by the Adaptation Fund and implemented by the UNESCO Almaty Cluster Office with the name “Reducing vulnerabilities of populations in Central Asia region from glacier lake outburst floods in a changing climate” (GLOFCA). ",
+      "readMore": "more"
+    },
+    {
+      "id": "2",
+      "title": "New Director of the Central Asian Regional Glaciological Centre category 2 under the auspices of UNESCO",
+      "image": "../assets/images/italy.jpg",
+      "content": "UNESCO Almaty Office would like to congratulate Mr. Takir Balykbayev to his appointment as the Director of the LLP “Central Asian Regional Glaciological Centre category 2 under the auspices of UNESCO”. We look forward to further strengthen our cooperation specially in the context of the regional project funded by the Adaptation Fund and implemented by the UNESCO Almaty Cluster Office with the name “Reducing vulnerabilities of populations in Central Asia region from glacier lake outburst floods in a changing climate” (GLOFCA). ",
+      "readMore": "more"
+    },
+    {
+      "id": "3",
+      "title": "New Director of the Central Asian Regional Glaciological Centre category 2 under the auspices of UNESCO",
+      "image": "./../assets/images/tajikistan.jpg",
+      "content": "UNESCO Almaty Office would like to congratulate Mr. Takir Balykbayev to his appointment as the Director of the LLP “Central Asian Regional Glaciological Centre category 2 under the auspices of UNESCO”. We look forward to further strengthen our cooperation specially in the context of the regional project funded by the Adaptation Fund and implemented by the UNESCO Almaty Cluster Office with the name “Reducing vulnerabilities of populations in Central Asia region from glacier lake outburst floods in a changing climate” (GLOFCA). ",
+      "readMore": "more"
+    }
+  ],
+  "databases": [
+    {
+      "id": "1",
+      "title": "e-Library",
+      "image": "./../assets/images/tajikistan.jpg"
+    },
+    {
+      "id": "2",
+      "title": "stakeholders",
+      "image": "./../assets/images/tajikistan.jpg"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "introduction",
+      "image": "./../assets/images/tajikistan.jpg"
+    },
+    {
+      "id": "2",
+      "title": "pilot sites",
+      "image": "./../assets/images/tajikistan.jpg"
+    }
+  ],
+  "themes": [
+    {
+      "id": "1",
+      "title": "theme1",
+      "image": "./../assets/images/tajikistan.jpg"
+    },
+    {
+      "id": "2",
+      "title": "theme2",
+      "image": "./../assets/images/tajikistan.jpg"
+    }
+  ]
+}

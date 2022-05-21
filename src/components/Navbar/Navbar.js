@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import NavLink from "./NavLink/NavLink"
 import { GoThreeBars } from "react-icons/go"
 import { GatsbyContext } from "../../context/context"
+import { StaticImage } from "gatsby-plugin-image"
 
 // styles
 import "./navbar.css"
@@ -22,7 +23,13 @@ const Navbar = () => {
     <nav>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">{/* <img src={logo} alt="logo" /> */}</Link>
+          <Link to="/">
+            <StaticImage
+              src="../../assets/images/logo.png"
+              className="logo"
+              alt="logo"
+            />
+          </Link>
           {!isSidebarOpen && (
             <button className="toggle-btn" onClick={openSidebar}>
               <GoThreeBars />

@@ -17,8 +17,8 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-.nav-header img {
-  width: auto;
+.nav-header .logo {
+  height: 25px;
 }
 .nav-header .toggle-btn {
   width: 3.5rem;
