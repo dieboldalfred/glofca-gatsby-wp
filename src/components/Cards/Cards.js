@@ -1,22 +1,28 @@
 import React from "react"
+import { Link } from "gatsby"
 import Title from "../Title/Title"
 import Card from "./Card/Card"
 
 // styles
 import "./cards.css"
 
+// components
+import { Section, SectionContent } from "../../components"
+
 const Cards = ({ title, items }) => {
   return (
-    <section className="section cards">
-      <Title title={title} />
-
-      <div className="section-center cards-center">
+    <Section customClass="cards" title={title}>
+      <SectionContent customClass="cards-center">
         {items.map(item => {
-          const { id, title } = item
-          return <Card key={id} title={title} />
+          const { id, title, image } = item
+          return (
+            <Link to={`/databases/${title}`}>
+              <Card key={id} title={title} image={image} />
+            </Link>
+          )
         })}
-      </div>
-    </section>
+      </SectionContent>
+    </Section>
   )
 }
 export default Cards

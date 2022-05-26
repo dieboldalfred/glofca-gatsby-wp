@@ -6,6 +6,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const themeTemplate = path.resolve("./src/templates/ThemeTemplate.js")
   const projectTemplate = path.resolve("./src/templates/ProjectTemplate.js")
+  const databaseTemplate = path.resolve("./src/templates/DatabaseTemplate.js")
   const blogTemplate = path.resolve("./src/templates/BlogTemplate.js")
 
   const result = await graphql(`
@@ -14,6 +15,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         nodes {
           blogs {
             title
+            content
+            image {
+              childImageSharp {
+                gatsbyImageData(placeholder: BLURRED)
+              }
+            }
+          }
+          databases {
+            title
+            image {
+              childImageSharp {
+                gatsbyImageData(placeholder: BLURRED)
+              }
+            }
           }
         }
       }
@@ -21,7 +36,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   `)
 
   console.log("-------------------data------------------")
-  console.log(result.data.allGlofcaJson.nodes[0].blogs)
+  console.log(result.data.allGlofcaJson.nodes[0].databases)
 
   // Check for errors
   if (result.errors) {
@@ -65,12 +80,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   result.data.allGlofcaJson.nodes.forEach(item => {
     item.blogs.forEach(blog => {
-      // const tagSlug = slugify(tag, { lower: true })
+      // const slug = slugify(blog.title, { lower: true })
       createPage({
         path: `/blog/${blog.title}`,
         component: blogTemplate,
         context: {
           blog,
+        },
+      })
+    })
+  })
+
+  result.data.allGlofcaJson.nodes.forEach(item => {
+    item.databases.forEach(database => {
+      // const slug = slugify(blog.title, { lower: true })
+      createPage({
+        path: `/databases/${database.title}`,
+        component: databaseTemplate,
+        context: {
+          database,
         },
       })
     })

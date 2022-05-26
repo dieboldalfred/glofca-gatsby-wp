@@ -1,5 +1,10 @@
 .blogs-center {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-  gap: 2rem 1rem;
+  grid-gap: 2rem 1rem;
+}
+@media screen and (min-width: 992px) {
+  .blogs-center {
+    grid-auto-rows: 1fr;
+  }
 }

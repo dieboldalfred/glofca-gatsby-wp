@@ -7,6 +7,11 @@ export const useGetDatabasesQuery = () => {
         databases {
           id
           title
+          image {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
         }
       }
     }

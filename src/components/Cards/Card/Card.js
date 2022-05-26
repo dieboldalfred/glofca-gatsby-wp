@@ -1,4 +1,5 @@
 import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // styles
 import "./card.css"
@@ -6,13 +7,8 @@ import "./card.css"
 const Card = ({ id, title, image }) => {
   return (
     <article className="card-article" key={id}>
-      {/* <img src={image} alt={title} /> */}
-      {/* <StaticImage
-                src="../../assets/images/tajikistan.jpg"
-                className="card-img"
-                alt={title}
-              /> */}
       <div className="card-container">
+        <GatsbyImage image={getImage(image)} alt={title} className="card-img" />
         <div className="card-info">
           <h3>{title}</h3>
         </div>

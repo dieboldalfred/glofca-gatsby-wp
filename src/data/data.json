@@ -19,7 +19,7 @@
       "id": "3",
       "title": "title3",
       "image": "./../assets/images/tajikistan.jpg",
-      "content": "UNESCO Almaty Office would like to congratulate Mr. Takir Balykbayev to his appointment as the Director of the LLP “Central Asian Regional Glaciological Centre category 2 under the auspices of UNESCO”. We look forward to further strengthen our cooperation specially in the context of the regional project funded by the Adaptation Fund and implemented by the UNESCO Almaty Cluster Office with the name “Reducing vulnerabilities of populations in Central Asia region from glacier lake outburst floods in a changing climate” (GLOFCA). ",
+      "content": "UNESCO Almaty Office would like to congratulate Mr. Takir Balykbayev to his appointment as the Director of the LLP “Central Asian Regional Glaciological Centre category  ",
       "readMore": "more"
     }
   ],
@@ -58,5 +58,11 @@
       "title": "theme2",
       "image": "./../assets/images/tajikistan.jpg"
     }
-  ]
+  ],
+  "mission": {
+    "id": "1",
+    "title": "OUR MISSION",
+    "content": "Our mission is to provide reliable and credible information and knowledge about Glacier lake outburst floods, disaster risk reduction, and early warning systems in Central Asia to all stakeholders in the interested public.",
+    "image": "../assets/images/italy.jpg"
+  }
 }

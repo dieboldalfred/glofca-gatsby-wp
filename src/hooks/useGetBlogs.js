@@ -8,7 +8,9 @@ export const useGetBlogsQuery = () => {
           id
           title
           image {
-            publicURL
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
           }
           content
         }

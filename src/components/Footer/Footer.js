@@ -6,7 +6,13 @@ import "./footer.css"
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>&copy; {new Date().getFullYear()} GLOFCA. All rights reserved.</p>
+      <div className="footer--menu">
+        <div className="footer--col"></div>
+        <div className="footer--col"></div>
+        <div className="footer--col"></div>
+        <div className="footer--col"></div>
+      </div>
+      {/* <p>&copy; {new Date().getFullYear()} GLOFCA. All rights reserved.</p> */}
     </footer>
   )
 }

@@ -39,7 +39,7 @@ Variables
   --clr-black: #222;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
-  --radius: 0.25rem;
+  --radius: 0.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
@@ -83,7 +83,7 @@ h3,
 h4 {
   letter-spacing: var(--spacing);
   text-transform: capitalize;
-  line-height: 1.25;
+  line-height: 1.5;
   margin-bottom: 0.75rem;
   font-weight: 400;
 }
@@ -123,7 +123,7 @@ p {
   h2,
   h3,
   h4 {
-    line-height: 1;
+    line-height: 1.25;
   }
 }
 /*  global classes */
@@ -149,18 +149,8 @@ p {
 }
 
 /* section */
-.section {
-  padding: 5rem 0;
-  position: relative;
-}
 
-.section-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: var(--max-width);
-}
-@media screen and (min-width: 992px) {
-  .section-center {
-    width: 95vw;
-  }
+.blog-center {
+  padding: 32px 0;
+  width: 80vw;
 }

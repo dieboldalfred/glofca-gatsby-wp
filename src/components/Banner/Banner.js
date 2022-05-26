@@ -5,7 +5,7 @@ import italy from "../../assets/images/italy.jpg"
 // styles
 import "./banner.css"
 
-const Banner = ({ title, blurb }) => (
+const Banner = ({ title, blurb, image }) => (
   <Parallax className="banner-image" bgImage={italy} strength={300}>
     <div className="banner-content">
       <div className="banner-caption">{title}</div>

@@ -1,7 +1,7 @@
 .hero {
-  height: 100vh;
-  margin-top: -5rem;
+  height: 75vh;
   position: relative;
+  overflow: hidden;
 }
 .hero-img {
   height: 100%;
@@ -14,10 +14,11 @@
   height: 100%;
   display: grid;
   place-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
 }
 .hero-article {
-  width: 85vw;
+  padding: 70px 0;
+  width: 80vw;
   max-width: 800px;
   color: var(--clr-white);
   text-align: center;
@@ -32,7 +33,6 @@
 }
 .hero-article h3 {
   font-weight: 400;
-  font-family: "Caveat", cursive;
   color: var(--clr-white);
 }
 

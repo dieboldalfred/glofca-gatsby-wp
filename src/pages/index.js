@@ -1,7 +1,7 @@
 import React from "react"
-import { Blogs, Cards, Banner } from "../components"
+import { Blogs, Cards, Banner, Banner2, Hero } from "../components"
 import Layout from "../components/Layout"
-import { GatsbyContext } from "../context/context"
+import { useStaticQuery, graphql } from "gatsby"
 
 // hooks
 import { useGetProjectsQuery } from "../hooks/useGetProjects"
@@ -12,18 +12,34 @@ const HomePage = () => {
   const projects = useGetProjectsQuery()
   const databases = useGetDatabasesQuery()
 
-  const blurb =
-    "Our mission is to provide reliable and credible information and knowledge about Glacier lake outburst floods, disaster risk reduction, and early warning systems in Central Asia to all stakeholders in the interested public."
+  const data = useStaticQuery(graphql`
+    {
+      allGlofcaJson {
+        nodes {
+          mission {
+            content
+            title
+            image {
+              childImageSharp {
+                gatsbyImageData(placeholder: TRACED_SVG)
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const mission = data.allGlofcaJson.nodes[0].mission
 
   return (
     <Layout>
-      {/* <Hero /> */}
       <Blogs title="Latest News" />
-      <Banner title="Our Mission" />
-      <Cards title="Projects" items={projects} />
-      {/* <Banner title="Our Vision" />
-      <Cards title="Themes" items={projects} /> */}
-      <Banner title="Our Mission" />
+      <Hero
+        title={mission.title}
+        image={mission.image}
+        content={mission.content}
+      />
       <Cards title="Databases" items={databases} />
     </Layout>
   )
