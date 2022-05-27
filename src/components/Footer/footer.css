@@ -1,24 +1,32 @@
 .footer {
-  background: aquamarine;
   color: var(--clr-white);
+  background-color: var(--clr-primary-8);
+  padding: 16px 0;
 }
 .footer--menu {
-  background-color: bisque;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 .footer--col {
-  background-color: blueviolet;
   padding: 16px;
+  text-align: right;
+}
+.footer--logo {
+  text-align: left;
 }
 .footer--logo-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
-  background-color: cornflowerblue;
+}
+.footer--col h4 {
+  color: var(--clr-black);
 }
 .footer--links ul {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+.footer--links ul li {
+  color: var(--clr-black);
 }

@@ -15,7 +15,10 @@ const Footer = () => {
     <footer className="footer">
       <SectionContent customClass="footer--menu">
         <div className="footer--col">
-          <Logo text="Glacier Lake Outburst Floods in Central Asia" />
+          <Logo
+            text="Glacier Lake Outburst Floods in Central Asia"
+            customClass="footer--logo"
+          />
         </div>
         <div className="footer--col">
           <FooterMenu menuName="Knowledge" list={links} />

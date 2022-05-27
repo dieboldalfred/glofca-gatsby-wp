@@ -1,13 +1,18 @@
 import React from "react"
+import classNames from "classnames"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 // styles
 import "./logo.css"
 
-const Logo = ({ text }) => {
+const Logo = ({ text, customClass }) => {
   return (
-    <div className="logo">
+    <div
+      className={classNames("logo", {
+        [customClass]: customClass,
+      })}
+    >
       <div className="logo--image">
         <Link to="/">
           <StaticImage

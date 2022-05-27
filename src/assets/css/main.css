@@ -68,6 +68,10 @@ body {
 }
 ul {
   list-style-type: none;
+  margin: 0;
+}
+li {
+  padding: 0;
 }
 a {
   text-decoration: none;

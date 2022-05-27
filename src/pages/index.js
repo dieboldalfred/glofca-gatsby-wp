@@ -34,12 +34,12 @@ const HomePage = () => {
 
   return (
     <Layout>
+      <Hero title="GLOFCA" image={mission.image} align="left" />
       <Blogs title="Latest News" />
       <Hero
         title={mission.title}
         image={mission.image}
         content={mission.content}
-        align="center"
       />
       <Cards title="Databases" items={databases} />
     </Layout>
