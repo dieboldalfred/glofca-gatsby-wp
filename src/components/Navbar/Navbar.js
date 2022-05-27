@@ -1,47 +1,36 @@
-import React, { useContext } from "react"
-import { Link } from "gatsby"
-import NavLink from "./NavLink/NavLink"
+import React from "react"
 import { GoThreeBars } from "react-icons/go"
-import { GatsbyContext } from "../../context/context"
 import { StaticImage } from "gatsby-plugin-image"
 
 // styles
 import "./navbar.css"
 
-const Navbar = () => {
-  const { isSidebarOpen, openSidebar, links } = useContext(GatsbyContext)
+// components
+import { Logo, SectionContent } from "../../components"
 
-  const tempLinks = [
-    ...new Set(
-      links.map(link => {
-        return link.page
-      })
-    ),
-  ]
-
+const Navbar = ({ toggleSidebar }) => {
   return (
-    <nav>
-      <div className="nav-center">
+    <nav className="navbar">
+      <SectionContent customClass="nav-center">
         <div className="nav-header">
-          <Link to="/">
+          <div className="toggle-button" onClick={toggleSidebar}>
+            <GoThreeBars />
+          </div>
+          {/* <div className="nav-extra-logos">
             <StaticImage
-              src="../../assets/images/logo.png"
+              src="../../assets/images/unesco-large.png"
               className="logo"
               alt="logo"
             />
-          </Link>
-          {!isSidebarOpen && (
-            <button className="toggle-btn" onClick={openSidebar}>
-              <GoThreeBars />
-            </button>
-          )}
+            <StaticImage
+              src="../../assets/images/AF-Logo.jpeg"
+              className="logo"
+              alt="logo"
+            />
+          </div> */}
         </div>
-        <ul className="nav-links">
-          {tempLinks.map((page, index) => {
-            return <NavLink key={index} page={page} />
-          })}
-        </ul>
-      </div>
+        <Logo />
+      </SectionContent>
     </nav>
   )
 }

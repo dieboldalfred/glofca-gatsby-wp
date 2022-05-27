@@ -1,24 +1,28 @@
 import React from "react"
-import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // styles
 import "./hero.css"
 
-const Hero = ({ title, image, content }) => {
+const Hero = ({
+  title,
+  image,
+  content,
+  align = "center",
+  height = "large",
+}) => {
   return (
-    <section className="hero">
+    <section className={`hero hero-size-${height}`}>
       <GatsbyImage
         image={getImage(image)}
         alt={title}
-        className="hero-img"
+        className="hero--image"
         objectFit="cover"
       />
-      <div className="hero-info">
-        <article className="hero-article">
+      <div className="hero--info">
+        <article className={`hero--article hero--article-align-${align}`}>
           <h1>{title}</h1>
           <h3>{content}</h3>
-          {/* <Link to="/projects">projects</Link> */}
         </article>
       </div>
     </section>

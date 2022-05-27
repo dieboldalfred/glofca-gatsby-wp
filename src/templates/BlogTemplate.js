@@ -1,5 +1,5 @@
 import React from "react"
-import { Title } from "../components"
+import { Title, Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -18,13 +18,14 @@ const BlogTemplate = ({ pageContext: { blog } }) => {
    */
   return (
     <Layout>
-      <section className="section">
-        <Title title={title} />
-        <GatsbyImage image={getImage(image)} alt={title} />
-        <div className="section-center blog-center">
+      <Section title={title}>
+        <SectionContent>
+          <GatsbyImage image={getImage(image)} alt={title} />
+        </SectionContent>
+        <SectionContent customClass="blog-center">
           <p>{content}</p>
-        </div>
-      </section>
+        </SectionContent>
+      </Section>
     </Layout>
   )
 }

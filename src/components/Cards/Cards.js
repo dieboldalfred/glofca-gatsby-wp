@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import Title from "../Title/Title"
 import Card from "./Card/Card"
 
 // styles
@@ -16,8 +15,8 @@ const Cards = ({ title, items }) => {
         {items.map(item => {
           const { id, title, image } = item
           return (
-            <Link to={`/databases/${title}`}>
-              <Card key={id} title={title} image={image} />
+            <Link key={id} to={`/databases/${title}`}>
+              <Card title={title} image={image} />
             </Link>
           )
         })}

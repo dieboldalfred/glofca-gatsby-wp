@@ -1,17 +1,24 @@
 .footer {
-  height: 5rem;
-  display: grid;
-  place-items: center;
-  background: var(--clr-black);
-  text-align: center;
-  padding: 1rem;
-}
-.footer p {
+  background: aquamarine;
   color: var(--clr-white);
-  margin-bottom: 0;
 }
-@media (max-width: 576px) {
-  .footer p {
-    font-size: 0.75rem;
-  }
+.footer--menu {
+  background-color: bisque;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.footer--col {
+  background-color: blueviolet;
+  padding: 16px;
+}
+.footer--logo-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  background-color: cornflowerblue;
+}
+.footer--links ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }

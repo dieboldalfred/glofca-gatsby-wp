@@ -39,6 +39,7 @@ const HomePage = () => {
         title={mission.title}
         image={mission.image}
         content={mission.content}
+        align="center"
       />
       <Cards title="Databases" items={databases} />
     </Layout>
