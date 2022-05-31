@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Hero, TableContainer } from "../components"
+import { Hero, TableContainer, Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 import { SelectColumnFilter } from "../utils/filters"
 
@@ -76,7 +76,7 @@ const DatabaseTemplate = ({ pageContext: { database } }) => {
       cell,
     } = row.original
     return (
-      <Card style={{ width: "18rem", margin: "0 auto" }}>
+      <Card>
         <CardBody>
           <CardTitle>
             <strong>{`${first} ${last}`} </strong>
@@ -93,14 +93,18 @@ const DatabaseTemplate = ({ pageContext: { database } }) => {
 
   return (
     <Layout>
-      <Hero title={title} image={image} height="medium" />
-      <Container style={{ marginTop: 50, marginBottom: 50 }}>
-        <TableContainer
-          columns={columns}
-          data={data}
-          renderRowSubComponent={renderRowSubComponent}
-        />
-      </Container>
+      {/* <Hero title={title} image={image} height="medium" /> */}
+      <Section title={title}>
+        <SectionContent>
+          <Container style={{ marginTop: 50, marginBottom: 50 }}>
+            <TableContainer
+              columns={columns}
+              data={data}
+              renderRowSubComponent={renderRowSubComponent}
+            />
+          </Container>
+        </SectionContent>
+      </Section>
     </Layout>
   )
 }
