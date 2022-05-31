@@ -16,7 +16,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 90vw;
   height: 100%;
   display: grid;
   place-items: center;
@@ -27,7 +27,6 @@
   width: var(--max-width);
   /* max-width: 800px; */
   color: var(--clr-white);
-  background-color: cornflowerblue;
 }
 .hero--article-align-left {
   text-align: left;

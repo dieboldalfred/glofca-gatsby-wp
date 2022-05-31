@@ -1,5 +1,5 @@
 import React from "react"
-import { Blogs, Cards, Banner, Banner2, Hero } from "../components"
+import { Blogs, Cards, Hero, LogoBanner, Video } from "../components"
 import Layout from "../components/Layout"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -34,8 +34,18 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <Hero title="GLOFCA" image={mission.image} align="left" />
-      <Blogs title="Latest News" />
+      <Hero
+        title="GLOFCA"
+        image={mission.image}
+        content="Glacier Lake Outburst Floods in Central Asia"
+        align="left"
+      />
+      <LogoBanner />
+      <Video
+        title="GLOFCA Project in Action during the First Year – 2021/2022"
+        videoURL="https://www.youtube.com/watch?v=avvNRswHDks"
+      />
+      <Blogs title="Latest News" showLink />
       <Hero
         title={mission.title}
         image={mission.image}

@@ -3,6 +3,16 @@
   border-radius: var(--radius);
   transition: var(--transition);
 }
+.card-img:after {
+  content: "";
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: background-color 500ms linear;
+  left: 0;
+}
 .card-article {
   box-shadow: var(--light-shadow);
   border-radius: var(--radius);

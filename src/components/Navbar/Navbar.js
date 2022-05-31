@@ -38,13 +38,13 @@ const Navbar = ({ toggleSidebar }) => {
           <div className="navbar--links">
             <ul>
               <li>
-                <Link>Home</Link>
+                <Link to="/news">News</Link>
               </li>
               <li>
-                <Link>News</Link>
+                <Link to="/team">Team</Link>
               </li>
               <li>
-                <Link>About</Link>
+                <Link to="/about">About</Link>
               </li>
             </ul>
           </div>

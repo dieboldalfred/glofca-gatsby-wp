@@ -23,7 +23,7 @@ const BlogTemplate = ({ pageContext: { blog } }) => {
           <GatsbyImage image={getImage(image)} alt={title} />
         </SectionContent>
         <SectionContent customClass="blog-center">
-          <p>{content}</p>
+          <div className="blog--content">{content}</div>
         </SectionContent>
       </Section>
     </Layout>

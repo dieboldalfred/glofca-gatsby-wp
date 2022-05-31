@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 // hooks
 import { useGetBlogsQuery } from "../../hooks/useGetBlogs"
@@ -10,7 +11,7 @@ import { Section, SectionContent } from "../../components"
 // styles
 import "./blogs.css"
 
-const Blogs = ({ title, page }) => {
+const Blogs = ({ title, showLink }) => {
   // blogs from graphql
   const blogs = useGetBlogsQuery()
 
@@ -23,12 +24,13 @@ const Blogs = ({ title, page }) => {
           return <Blog key={id} image={image} title={title} content={content} />
         })}
       </SectionContent>
-
-      {/* {!page && (
-        <Link to="/blog" className="btn btn-more-posts">
-          more posts
-        </Link>
-      )} */}
+      <SectionContent>
+        {showLink && (
+          <Link to="/blog" className="btn center-btn">
+            more posts
+          </Link>
+        )}
+      </SectionContent>
     </Section>
   )
 }

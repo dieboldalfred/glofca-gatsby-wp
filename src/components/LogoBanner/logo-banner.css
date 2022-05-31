@@ -1,0 +1,14 @@
+.logo-banner {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+  background-color: var(--clr-primary-8);
+}
+.logo-banner--container {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+.logo-banner--container h5 {
+  margin-right: 16px;
+}

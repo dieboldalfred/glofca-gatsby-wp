@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import "./footer.css"
 
 // comps
-import { Logo, SectionContent } from "../index"
+import { Logo, SectionContent, LogoBanner } from "../index"
 import FooterMenu from "./Footer-Menu/FooterMenu"
 
 const links = ["item1", "item2", "item3"]
@@ -30,10 +30,7 @@ const Footer = () => {
           <FooterMenu menuName="Themes" list={links} />
         </div>
       </SectionContent>
-      <SectionContent customClass="footer--logo-container">
-        <div className="footer--col">UNESCO</div>
-        <div className="footer--col">AF</div>
-      </SectionContent>
+      <LogoBanner />
       <SectionContent customClass="footer--links">
         <ul>
           <li>

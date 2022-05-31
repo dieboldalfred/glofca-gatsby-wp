@@ -8,6 +8,9 @@ import Logo from "./Logo/Logo"
 import Section from "./Section/Section"
 import SectionContent from "./SectionContent/SectionContent"
 import TableContainer from "./TableContainer/TableContainer"
+import LogoBanner from "./LogoBanner/LogoBanner"
+import Video from "./Video/Video"
+import Member from "./Member/Member"
 
 export {
   Blogs,
@@ -20,4 +23,7 @@ export {
   Section,
   SectionContent,
   TableContainer,
+  LogoBanner,
+  Video,
+  Member,
 }

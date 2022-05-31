@@ -11,10 +11,14 @@ const Blog = ({ title, content, image }) => {
   return (
     <article className="blog">
       <div className="blog-img">
-        <GatsbyImage image={getImage(image)} alt={title} />
+        <Link to={`/blog/${title}`}>
+          <GatsbyImage image={getImage(image)} alt={title} />
+        </Link>
       </div>
       <div className="blog-info">
-        <h4 className="blog-info__h4">{cutString(title, 50)}</h4>
+        <Link to={`/blog/${title}`}>
+          <h4 className="blog-info__h4">{cutString(title, 50)}</h4>
+        </Link>
 
         <p className="blog-info__p">{cutString(content, 250)}</p>
         <Link to={`/blog/${title}`}>

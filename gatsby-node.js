@@ -1,5 +1,4 @@
 const path = require("path")
-// const slugify = require("slugify")
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
@@ -8,6 +7,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const projectTemplate = path.resolve("./src/templates/ProjectTemplate.js")
   const databaseTemplate = path.resolve("./src/templates/DatabaseTemplate.js")
   const blogTemplate = path.resolve("./src/templates/BlogTemplate.js")
+  const memberTemplate = path.resolve("./src/templates/MemberTemplate.js")
 
   const result = await graphql(`
     {
@@ -30,13 +30,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               }
             }
           }
+          team {
+            id
+            name
+          }
+          kazakhstanPartners {
+            id
+            name
+          }
         }
       }
     }
   `)
-
-  console.log("-------------------data------------------")
-  console.log(result.data.allGlofcaJson.nodes[0].databases)
 
   // Check for errors
   if (result.errors) {
@@ -99,6 +104,32 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: databaseTemplate,
         context: {
           database,
+        },
+      })
+    })
+  })
+
+  result.data.allGlofcaJson.nodes.forEach(item => {
+    item.team.forEach(member => {
+      // const slug = slugify(blog.title, { lower: true })
+      createPage({
+        path: `/${member.name}`,
+        component: memberTemplate,
+        context: {
+          member,
+        },
+      })
+    })
+  })
+
+  result.data.allGlofcaJson.nodes.forEach(item => {
+    item.kazakhstanPartners.forEach(member => {
+      // const slug = slugify(blog.title, { lower: true })
+      createPage({
+        path: `/${member.name}`,
+        component: memberTemplate,
+        context: {
+          member,
         },
       })
     })

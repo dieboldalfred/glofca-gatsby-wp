@@ -8,7 +8,7 @@ const FooterMenu = ({ menuName, list }) => {
   return (
     <>
       <h4>{menuName}</h4>
-      <ul>
+      <ul className="footer--col-menu">
         {list.map((item, index) => {
           return (
             <li key={index}>

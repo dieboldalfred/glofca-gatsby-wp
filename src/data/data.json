@@ -1,5 +1,54 @@
 {
   "image": "../assets/images/italy.jpg",
+  "team": [
+    {
+      "id": "1",
+      "name": "Kristine Tovmasyan",
+      "position": "Programme Specialist",
+      "company": "UNESCO Almaty",
+      "image": "../assets/images/kristine.jpeg"
+    },
+    {
+      "id": "2",
+      "name": "Kristine",
+      "position": "Programme Specialist",
+      "company": "UNESCO Almaty",
+      "image": "../assets/images/kristine.jpeg"
+    },
+    {
+      "id": "3",
+      "name": " Tovmasyan",
+      "position": "Programme Specialist",
+      "company": "UNESCO Almaty",
+      "image": "../assets/images/kristine.jpeg"
+    },
+    {
+      "id": "4",
+      "name": "Kristine Toma",
+      "position": "Programme Specialist",
+      "company": "UNESCO Almaty",
+      "image": "../assets/images/kristine.jpeg"
+    },
+    {
+      "id": "5",
+      "name": "Kristine Tovmasyannnn",
+      "position": "Programme Specialist",
+      "company": "UNESCO Almaty",
+      "image": "../assets/images/kristine.jpeg"
+    }
+  ],
+  "kazakhstanPartners": [
+    {
+      "id": "1",
+      "name": "Ministry of Ecology, Geology and Natural Resources",
+      "image": "../assets/images/ministry.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Ministry of Ecology, Geology and Natural Resources",
+      "image": "../assets/images/ministry.jpg"
+    }
+  ],
   "blogs": [
     {
       "id": "1",
