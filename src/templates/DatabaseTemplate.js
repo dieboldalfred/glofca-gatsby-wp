@@ -96,7 +96,7 @@ const DatabaseTemplate = ({ pageContext: { database } }) => {
       {/* <Hero title={title} image={image} height="medium" /> */}
       <Section title={title}>
         <SectionContent>
-          <Container style={{ marginTop: 50, marginBottom: 50 }}>
+          <Container>
             <TableContainer
               columns={columns}
               data={data}
