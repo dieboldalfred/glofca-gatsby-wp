@@ -6,11 +6,13 @@ import { useStaticQuery, graphql } from "gatsby"
 // hooks
 import { useGetProjectsQuery } from "../hooks/useGetProjects"
 import { useGetDatabasesQuery } from "../hooks/useGetDatabases"
+import { useLatestPostsQuery } from "../hooks/useLatestPostsQuery"
 
 const HomePage = () => {
   // Graphql
   const projects = useGetProjectsQuery()
   const databases = useGetDatabasesQuery()
+  const posts = useLatestPostsQuery()
 
   const data = useStaticQuery(graphql`
     {
@@ -45,7 +47,7 @@ const HomePage = () => {
         title="GLOFCA Project in Action during the First Year – 2021/2022"
         videoURL="https://www.youtube.com/watch?v=avvNRswHDks"
       />
-      <Blogs title="Latest News" showLink />
+      <Blogs title="Latest News" posts={posts} showLink />
       <Hero
         title={mission.title}
         image={mission.image}

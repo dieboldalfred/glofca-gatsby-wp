@@ -5,6 +5,11 @@
  */
 
 module.exports = {
+  siteMetadata: {
+    title: `Glofca`,
+    description: `Description`,
+    author: `Eanna Freeney`,
+  },
   /* Your site config here */
   plugins: [
     `gatsby-plugin-image`,
@@ -29,5 +34,11 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        url: `http://glofca-wp.local/graphql`,
+      },
+    },
   ],
 }

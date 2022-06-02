@@ -11,17 +11,27 @@ import { Section, SectionContent } from "../../components"
 // styles
 import "./blogs.css"
 
-const Blogs = ({ title, showLink }) => {
+const Blogs = ({ title, posts, showLink }) => {
   // blogs from graphql
-  const blogs = useGetBlogsQuery()
+  // const blogs = useGetBlogsQuery()
 
   return (
     // <section className="section blogs">
     <Section customClass="blogs" title={title}>
       <SectionContent customClass="blogs-center">
-        {blogs.map(blog => {
-          const { id, image, title, content } = blog
-          return <Blog key={id} image={image} title={title} content={content} />
+        {posts.map(post => {
+          const { id, title, featuredImage, content, slug } = post
+          const imageData = post.featuredImage.node.publicUrl
+
+          return (
+            <Blog
+              key={id}
+              title={title}
+              content={content}
+              image={imageData}
+              slug={slug}
+            />
+          )
         })}
       </SectionContent>
       <SectionContent>
