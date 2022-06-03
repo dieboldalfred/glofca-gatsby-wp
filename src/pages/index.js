@@ -15,7 +15,6 @@ const HomePage = () => {
   const databases = useGetDatabasesQuery()
   const posts = useLatestPostsQuery()
   const banners = useGetBannersQuery()
-  console.log(themes)
 
   return (
     <Layout>

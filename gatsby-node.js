@@ -11,37 +11,51 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      allGlofcaJson {
+      allWpCategory {
         nodes {
-          blogs {
-            title
-            content
-            image {
-              childImageSharp {
-                gatsbyImageData(placeholder: BLURRED)
-              }
+          pages {
+            nodes {
+              slug
             }
-          }
-          databases {
-            title
-            image {
-              childImageSharp {
-                gatsbyImageData(placeholder: BLURRED)
-              }
-            }
-          }
-          team {
-            id
-            name
-          }
-          kazakhstanPartners {
-            id
-            name
           }
         }
       }
     }
   `)
+
+  // const result = await graphql(`
+  //   {
+  //     allGlofcaJson {
+  //       nodes {
+  //         blogs {
+  //           title
+  //           content
+  //           image {
+  //             childImageSharp {
+  //               gatsbyImageData(placeholder: BLURRED)
+  //             }
+  //           }
+  //         }
+  //         databases {
+  //           title
+  //           image {
+  //             childImageSharp {
+  //               gatsbyImageData(placeholder: BLURRED)
+  //             }
+  //           }
+  //         }
+  //         team {
+  //           id
+  //           name
+  //         }
+  //         kazakhstanPartners {
+  //           id
+  //           name
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
   // Check for errors
   if (result.errors) {
@@ -49,55 +63,68 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allGlofcaJson.nodes.forEach(item => {
-    item.blogs.forEach(blog => {
-      // const slug = slugify(blog.title, { lower: true })
+  result.data.allWpCategory.nodes.forEach(node => {
+    node.pages.nodes.forEach(page => {
+      const { slug } = page
       createPage({
-        path: `/blog/${blog.title}`,
-        component: blogTemplate,
+        path: `/theme/${slug}`,
+        component: themeTemplate,
         context: {
-          blog,
+          page,
         },
       })
     })
   })
 
-  result.data.allGlofcaJson.nodes.forEach(item => {
-    item.databases.forEach(database => {
-      // const slug = slugify(blog.title, { lower: true })
-      createPage({
-        path: `/databases/${database.title}`,
-        component: databaseTemplate,
-        context: {
-          database,
-        },
-      })
-    })
-  })
+  // result.data.allGlofcaJson.nodes.forEach(item => {
+  //   item.blogs.forEach(blog => {
+  //     // const slug = slugify(blog.title, { lower: true })
+  //     createPage({
+  //       path: `/blog/${blog.title}`,
+  //       component: blogTemplate,
+  //       context: {
+  //         blog,
+  //       },
+  //     })
+  //   })
+  // })
 
-  result.data.allGlofcaJson.nodes.forEach(item => {
-    item.team.forEach(member => {
-      // const slug = slugify(blog.title, { lower: true })
-      createPage({
-        path: `/${member.name}`,
-        component: memberTemplate,
-        context: {
-          member,
-        },
-      })
-    })
-  })
+  // result.data.allGlofcaJson.nodes.forEach(item => {
+  //   item.databases.forEach(database => {
+  //     // const slug = slugify(blog.title, { lower: true })
+  //     createPage({
+  //       path: `/databases/${database.title}`,
+  //       component: databaseTemplate,
+  //       context: {
+  //         database,
+  //       },
+  //     })
+  //   })
+  // })
 
-  result.data.allGlofcaJson.nodes.forEach(item => {
-    item.kazakhstanPartners.forEach(member => {
-      // const slug = slugify(blog.title, { lower: true })
-      createPage({
-        path: `/${member.name}`,
-        component: memberTemplate,
-        context: {
-          member,
-        },
-      })
-    })
-  })
+  // result.data.allGlofcaJson.nodes.forEach(item => {
+  //   item.team.forEach(member => {
+  //     // const slug = slugify(blog.title, { lower: true })
+  //     createPage({
+  //       path: `/${member.name}`,
+  //       component: memberTemplate,
+  //       context: {
+  //         member,
+  //       },
+  //     })
+  //   })
+  // })
+
+  // result.data.allGlofcaJson.nodes.forEach(item => {
+  //   item.kazakhstanPartners.forEach(member => {
+  //     // const slug = slugify(blog.title, { lower: true })
+  //     createPage({
+  //       path: `/${member.name}`,
+  //       component: memberTemplate,
+  //       context: {
+  //         member,
+  //       },
+  //     })
+  //   })
+  // })
 }
