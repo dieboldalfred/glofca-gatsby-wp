@@ -1,5 +1,5 @@
 import React from "react"
-import { Title, Section, SectionContent } from "../components"
+import { Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 
 import { GatsbyImage, getImage } from "gatsby-plugin-image"

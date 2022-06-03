@@ -14,7 +14,7 @@ const Hero = ({
   return (
     <section className={`hero hero-size-${height}`}>
       <GatsbyImage
-        image={getImage(image?.localFile)}
+        image={getImage(image)}
         alt={title}
         className="hero--image"
         objectFit="cover"

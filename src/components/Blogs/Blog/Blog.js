@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // utils
 import { clearHtml, cutString } from "../../../utils/typography"
+
 // styles
 import "./blog.css"
 

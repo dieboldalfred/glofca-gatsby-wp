@@ -20,7 +20,7 @@ const HomePage = () => {
     <Layout>
       <Hero
         title={banners.heroTitle}
-        image={banners.heroImage}
+        image={banners.heroImage.localFile}
         content={banners.heroText}
         align="left"
       />
@@ -33,15 +33,15 @@ const HomePage = () => {
       <Hero
         title={banners.ourMissionTitle}
         content={banners.ourMissionText}
-        image={banners.ourMissionImage}
+        image={banners.ourMissionImage.localFile}
       />
       <Cards title="Databases" items={databases} />
       <Hero
         title={banners.ourVisionTitle}
         content={banners.ourVisionText}
-        image={banners.ourVisionImage}
+        image={banners.ourVisionImage.localFile}
       />
-      <Cards title="Themes" items={themes} />
+      <Cards title="Themes" link="theme" items={themes} />
     </Layout>
   )
 }

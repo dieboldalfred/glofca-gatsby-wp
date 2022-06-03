@@ -64,13 +64,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   result.data.allWpCategory.nodes.forEach(node => {
-    node.pages.nodes.forEach(page => {
-      const { slug } = page
+    node.pages.nodes.forEach(theme => {
+      const { slug } = theme
       createPage({
         path: `/theme/${slug}`,
         component: themeTemplate,
         context: {
-          page,
+          theme,
+          slug: { eq: slug },
         },
       })
     })

@@ -8,14 +8,14 @@ import "./cards.css"
 // components
 import { Section, SectionContent } from "../../components"
 
-const Cards = ({ title, items }) => {
+const Cards = ({ title, items, link }) => {
   return (
     <Section customClass="cards" title={title}>
       <SectionContent customClass="cards-center">
         {items.map(item => {
           const { id, title, slug, featuredImage } = item
           return (
-            <Link key={id} to={`/${slug}`}>
+            <Link key={id} to={`/${link}/${slug}`}>
               <Card title={title} image={featuredImage} />
             </Link>
           )
