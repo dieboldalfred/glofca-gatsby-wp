@@ -21,7 +21,7 @@ const HomePage = () => {
     <Layout>
       <Hero
         title={banners.heroTitle}
-        image={banners.image}
+        image={banners.heroImage}
         content={banners.heroText}
         align="left"
       />
@@ -33,14 +33,14 @@ const HomePage = () => {
       <Blogs title="Latest News" posts={posts} showLink />
       <Hero
         title={banners.ourMissionTitle}
-        image={banners.ourMissionText}
         content={banners.ourMissionText}
+        image={banners.ourMissionImage}
       />
       <Cards title="Databases" items={databases} />
       <Hero
         title={banners.ourVisionTitle}
-        image={banners.ourVisionText}
         content={banners.ourVisionText}
+        image={banners.ourVisionImage}
       />
       <Cards title="Themes" items={themes} />
     </Layout>

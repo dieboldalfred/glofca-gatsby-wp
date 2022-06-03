@@ -5,7 +5,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "./card.css"
 
 const Card = ({ id, title, image }) => {
-  console.log(image)
   // image = { node: { localFile: { childImageSharp: { ... }}}}
   // { childImageSharp: {...}}
   return (

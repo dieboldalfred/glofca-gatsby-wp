@@ -49,40 +49,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  // const themes = [
-  //   {
-  //     id: 1,
-  //     title: "Glacier Lake Outburst Floods",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Early Warning Systems",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Disaster Risk Reduction",
-  //   },
-  // ]
-
-  // themes.forEach(theme => {
-  //   createPage({
-  //     path: `/themes/${theme.title}`,
-  //     component: themeTemplate,
-  //     context: { theme },
-  //   })
-  // })
-
-  // result.data.allGlofcaJson.nodes.forEach(blog => {
-  //   // const blogSlug = slugify(blog.title, { lower: true })
-  //   createPage({
-  //     path: `/blog/${blog.title}`,
-  //     component: projectTemplate,
-  //     context: {
-  //       blog,
-  //     },
-  //   })
-  // })
-
   result.data.allGlofcaJson.nodes.forEach(item => {
     item.blogs.forEach(blog => {
       // const slug = slugify(blog.title, { lower: true })

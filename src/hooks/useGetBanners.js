@@ -7,6 +7,13 @@ export const useGetBannersQuery = () => {
         homeBanners {
           heroTitle
           heroText
+          heroImage {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(placeholder: TRACED_SVG)
+              }
+            }
+          }
           ourMissionTitle
           ourMissionText
           ourMissionImage {
