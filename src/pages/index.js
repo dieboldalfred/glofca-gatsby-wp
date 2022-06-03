@@ -1,45 +1,28 @@
 import React from "react"
 import { Blogs, Cards, Hero, LogoBanner, Video } from "../components"
 import Layout from "../components/Layout"
-import { useStaticQuery, graphql } from "gatsby"
+import subThemes from "../constants/themes"
 
 // hooks
-import { useGetProjectsQuery } from "../hooks/useGetProjects"
+import { useGetThemesQuery } from "../hooks/useGetThemes"
 import { useGetDatabasesQuery } from "../hooks/useGetDatabases"
 import { useLatestPostsQuery } from "../hooks/useLatestPostsQuery"
+import { useGetBannersQuery } from "../hooks/useGetBanners"
 
 const HomePage = () => {
   // Graphql
-  const projects = useGetProjectsQuery()
+  const themes = useGetThemesQuery()
   const databases = useGetDatabasesQuery()
   const posts = useLatestPostsQuery()
-
-  const data = useStaticQuery(graphql`
-    {
-      allGlofcaJson {
-        nodes {
-          mission {
-            content
-            title
-            image {
-              childImageSharp {
-                gatsbyImageData(placeholder: TRACED_SVG)
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const mission = data.allGlofcaJson.nodes[0].mission
+  const banners = useGetBannersQuery()
+  console.log(themes)
 
   return (
     <Layout>
       <Hero
-        title="GLOFCA"
-        image={mission.image}
-        content="Glacier Lake Outburst Floods in Central Asia"
+        title={banners.heroTitle}
+        image={banners.image}
+        content={banners.heroText}
         align="left"
       />
       <LogoBanner />
@@ -49,11 +32,17 @@ const HomePage = () => {
       />
       <Blogs title="Latest News" posts={posts} showLink />
       <Hero
-        title={mission.title}
-        image={mission.image}
-        content={mission.content}
+        title={banners.ourMissionTitle}
+        image={banners.ourMissionText}
+        content={banners.ourMissionText}
       />
       <Cards title="Databases" items={databases} />
+      <Hero
+        title={banners.ourVisionTitle}
+        image={banners.ourVisionText}
+        content={banners.ourVisionText}
+      />
+      <Cards title="Themes" items={themes} />
     </Layout>
   )
 }

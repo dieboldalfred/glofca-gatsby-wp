@@ -1,7 +1,7 @@
 import React from "react"
 import { GoThreeBars } from "react-icons/go"
 import { StaticImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 // styles
 import "./navbar.css"
@@ -10,6 +10,21 @@ import "./navbar.css"
 import { Logo, SectionContent } from "../../components"
 
 const Navbar = ({ toggleSidebar }) => {
+  const data = useStaticQuery(graphql`
+    {
+      wpMenu(name: { eq: "topMenu" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            target
+            id
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <nav className="navbar">
       <SectionContent customClass="navbar--content">
@@ -37,15 +52,13 @@ const Navbar = ({ toggleSidebar }) => {
         <div className="navbar--right">
           <div className="navbar--links">
             <ul>
-              <li>
-                <Link to="/news">News</Link>
-              </li>
-              <li>
-                <Link to="/team">Team</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
+              {data.wpMenu.menuItems.nodes.map(item => {
+                return (
+                  <li>
+                    <Link to={item.path}>{item.label}</Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           <Logo />

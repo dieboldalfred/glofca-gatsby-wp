@@ -13,10 +13,10 @@ const Cards = ({ title, items }) => {
     <Section customClass="cards" title={title}>
       <SectionContent customClass="cards-center">
         {items.map(item => {
-          const { id, title, image } = item
+          const { id, title, slug, featuredImage } = item
           return (
-            <Link key={id} to={`/databases/${title}`}>
-              <Card title={title} image={image} />
+            <Link key={id} to={`/${slug}`}>
+              <Card title={title} image={featuredImage} />
             </Link>
           )
         })}

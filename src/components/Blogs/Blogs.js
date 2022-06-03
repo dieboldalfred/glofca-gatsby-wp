@@ -20,16 +20,16 @@ const Blogs = ({ title, posts, showLink }) => {
     <Section customClass="blogs" title={title}>
       <SectionContent customClass="blogs-center">
         {posts.map(post => {
-          const { id, title, featuredImage, content, slug } = post
-          const imageData = post.featuredImage.node.publicUrl
+          const { id, title, featuredImage, content, excerpt, slug } = post
 
           return (
             <Blog
               key={id}
               title={title}
               content={content}
-              image={imageData}
+              image={featuredImage}
               slug={slug}
+              excerpt={excerpt}
             />
           )
         })}

@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import subLinks from "../data/links"
 import subProjects from "../data/projects"
-import subThemes from "../data/themes"
 
 const GatsbyContext = React.createContext()
 
@@ -12,7 +11,6 @@ const GatsbyProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [links, setLinks] = useState(subLinks)
   const [projects, setProjects] = useState(subProjects)
-  const [themes, setThemes] = useState(subThemes)
 
   const openSidebar = () => {
     setIsSidebarOpen(true)

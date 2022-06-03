@@ -7,13 +7,12 @@ import { clearHtml, cutString } from "../../../utils/typography"
 // styles
 import "./blog.css"
 
-const Blog = ({ title, content, image, slug }) => {
+const Blog = ({ title, content, excerpt, image, slug }) => {
   return (
     <article className="blog">
       <div className="blog-img">
         <Link to={`/blog/${slug}`}>
-          {/* <GatsbyImage image={image} alt={title} /> */}
-          <div>{image}</div>
+          <GatsbyImage image={getImage(image)} alt={title} />
         </Link>
       </div>
       <div className="blog-info">
@@ -21,7 +20,7 @@ const Blog = ({ title, content, image, slug }) => {
           <h4 className="blog-info__h4">{cutString(title, 50)}</h4>
         </Link>
 
-        <p className="blog-info__p">{cutString(clearHtml(content), 250)}</p>
+        <p className="blog-info__p">{cutString(clearHtml(excerpt), 250)}</p>
         <Link to={`/blog/${title}`}>
           <button className="btn">Read More</button>
         </Link>

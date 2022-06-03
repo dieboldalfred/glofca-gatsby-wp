@@ -8,24 +8,30 @@ import {
   CardTitle,
 } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Hero, TableContainer, Section, SectionContent } from "../components"
+import { TableContainer, Section, SectionContent } from "../components"
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { SelectColumnFilter } from "../utils/filters"
 
-const DatabaseTemplate = ({ pageContext: { database } }) => {
-  const { title, image } = database
-  const [data, setData] = useState([])
+// hooks
+import { useGetStakeholdersQuery } from "../hooks/useGetStakeholders"
 
-  // grab data for table
-  useEffect(() => {
-    const doFetch = async () => {
-      const response = await fetch("https://randomuser.me/api/?results=5")
-      const body = await response.json()
-      const contacts = body.results
-      setData(contacts)
-    }
-    doFetch()
-  }, [])
+const DatabaseTemplate = ({ pageContext: { database } }) => {
+  const { title } = database
+  // const [data, setData] = useState([])
+
+  // // grab data for table
+  // useEffect(() => {
+  //   const doFetch = async () => {
+  //     const response = await fetch("https://randomuser.me/api/?results=5")
+  //     const body = await response.json()
+  //     const contacts = body.results
+  //     setData(contacts)
+  //   }
+  //   doFetch()
+  // }, [])
+
+  const data = useGetStakeholdersQuery()
 
   // set up columns
   const columns = useMemo(
@@ -40,28 +46,23 @@ const DatabaseTemplate = ({ pageContext: { database } }) => {
         ),
       },
       {
-        Header: "Title",
-        accessor: "name.title",
+        Header: "Country",
+        accessor: "country",
         disableSortBy: true,
         // Filter: SelectColumnFilter,
         filter: "equals",
       },
       {
-        Header: "First Name",
-        accessor: "name.first",
+        Header: "Region",
+        accessor: "region",
       },
       {
-        Header: "Last Name",
-        accessor: "name.last",
-        disableFilters: true,
+        Header: "Name",
+        accessor: "name",
       },
       {
-        Header: "Email",
-        accessor: "email",
-      },
-      {
-        Header: "City",
-        accessor: "location.city",
+        Header: "Role",
+        accessor: "role",
       },
     ],
     []
@@ -69,22 +70,16 @@ const DatabaseTemplate = ({ pageContext: { database } }) => {
 
   // render sub component upon click
   const renderRowSubComponent = row => {
-    const {
-      name: { first, last },
-      location: { city, street, postcode },
-      picture,
-      cell,
-    } = row.original
+    const { region, country, role, name } = row.original
     return (
       <Card>
         <CardBody>
           <CardTitle>
-            <strong>{`${first} ${last}`} </strong>
+            <strong>{name} </strong>
           </CardTitle>
           <CardText>
-            <strong>Phone</strong>: {cell} <br />
-            <strong>Address:</strong>{" "}
-            {`${street.name} ${street.number} - ${postcode} - ${city}`}
+            <strong>Role</strong>: {role} <br />
+            <strong>Address:</strong> {`${region} ${country}`}
           </CardText>
         </CardBody>
       </Card>

@@ -5,14 +5,18 @@ export const useLatestPostsQuery = () => {
     query GetLatestPostsQuery {
       allWpPost(limit: 3) {
         nodes {
-          uri
           title
           featuredImage {
             node {
-              publicUrl
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(placeholder: TRACED_SVG)
+                }
+              }
             }
           }
           content
+          excerpt
           id
           slug
         }
