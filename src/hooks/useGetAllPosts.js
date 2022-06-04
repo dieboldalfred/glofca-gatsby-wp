@@ -1,9 +1,9 @@
 import { useStaticQuery, graphql } from "gatsby"
 
-export const useLatestPostsQuery = () => {
+export const useGetAllPostsQuery = () => {
   const data = useStaticQuery(graphql`
-    query GetLatestNews {
-      allWpCategory(filter: { name: { eq: "news" } }, limit: 6) {
+    query GetAllNews {
+      allWpCategory(filter: { name: { eq: "news" } }) {
         nodes {
           posts {
             nodes {

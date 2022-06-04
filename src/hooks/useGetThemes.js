@@ -3,17 +3,21 @@ import { useStaticQuery, graphql } from "gatsby"
 export const useGetThemesQuery = () => {
   const data = useStaticQuery(graphql`
     query GetThemes {
-      wpCategory(name: { eq: "themes" }) {
-        pages {
-          nodes {
-            id
-            slug
-            title
-            featuredImage {
-              node {
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(placeholder: BLURRED)
+      allWpPage(filter: { slug: { eq: "themes" } }) {
+        nodes {
+          wpChildren {
+            nodes {
+              ... on WpPage {
+                id
+                title
+                slug
+                featuredImage {
+                  node {
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData(placeholder: TRACED_SVG)
+                      }
+                    }
                   }
                 }
               }
@@ -23,5 +27,5 @@ export const useGetThemesQuery = () => {
       }
     }
   `)
-  return data?.wpCategory.pages.nodes
+  return data?.allWpPage.nodes[0].wpChildren.nodes
 }
