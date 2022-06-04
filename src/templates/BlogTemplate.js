@@ -22,7 +22,11 @@ const BlogTemplate = data => {
           />
         </SectionContent>
         <SectionContent customClass="blog-center">
-          <div className="blog--content">{clearHtml(content)}</div>
+          {/* <div className="blog--content">{clearHtml(content)}</div> */}
+          <div
+            className="blog--content"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </SectionContent>
       </Section>
     </Layout>

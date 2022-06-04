@@ -20,7 +20,6 @@ const HomePage = () => {
   const posts = useLatestPostsQuery()
   const banners = useGetBannersQuery()
 
-  console.log(projects)
   return (
     <Layout>
       <Hero
@@ -40,7 +39,7 @@ const HomePage = () => {
         content={banners.ourMissionText}
         image={banners.ourMissionImage.localFile}
       />
-      {/* <Cards title="Databases" link="databases" items={databases} /> */}
+      <Cards title="Databases" link="databases" items={databases} />
       <Cards title="Projects" link="projects" items={projects} />
       <Hero
         title={banners.ourVisionTitle}
