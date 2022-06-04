@@ -1,28 +1,33 @@
 import React from "react"
+import { graphql } from "gatsby"
+
+// components
 import { Hero, SectionContent } from "../components"
 import Layout from "../components/Layout"
-import { useStaticQuery, graphql } from "gatsby"
 
 // utils
-import { clearHtml, cutString } from "../utils/typography"
+import { sanitizeHtml, clearHtml } from "../utils/typography"
 
 const ThemeTemplate = data => {
+  const { title, featuredImage, content } = data.data.wpPage
+
   return (
     <Layout>
-      <Hero
-        title={data.data.wpPage?.title}
-        image={data.wpPage?.featuredImage.node.localFile}
-      />
+      <Hero title={title} image={featuredImage.node.localFile} />
       <SectionContent customClass="blog-center">
-        <div className="blog--content">{clearHtml(data.wpPage?.content)}</div>
+        {/* <div className="blog--content">{clearHtml(content)}</div> */}
+        <div
+          className="blog--content"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </SectionContent>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query GetThemePage($slug: StringQueryOperatorInput) {
-    wpPage(slug: $slug) {
+  query GetThemePage($slugQuery: StringQueryOperatorInput) {
+    wpPage(slug: $slugQuery) {
       id
       title
       uri
@@ -31,10 +36,7 @@ export const query = graphql`
         node {
           localFile {
             childImageSharp {
-              gatsbyImageData(
-                placeholder: TRACED_SVG
-                outputPixelDensities: 1.5
-              )
+              gatsbyImageData(placeholder: TRACED_SVG)
             }
           }
         }

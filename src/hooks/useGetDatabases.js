@@ -2,19 +2,26 @@ import { useStaticQuery, graphql } from "gatsby"
 
 export const useGetDatabasesQuery = () => {
   const data = useStaticQuery(graphql`
-    query GetDatabasesQuery {
-      glofcaJson {
-        databases {
-          id
-          title
-          image {
-            childImageSharp {
-              gatsbyImageData(placeholder: BLURRED)
+    query GetDatabases {
+      wpCategory(name: { eq: "databases" }) {
+        pages {
+          nodes {
+            id
+            slug
+            title
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(placeholder: BLURRED)
+                  }
+                }
+              }
             }
           }
         }
       }
     }
   `)
-  return data?.glofcaJson.databases
+  return data?.wpCategory.pages.nodes
 }

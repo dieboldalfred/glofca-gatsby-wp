@@ -37,15 +37,15 @@ const Navbar = ({ toggleSidebar }) => {
               src="../../assets/images/unesco-large.png"
               className="navbar--funders-logo"
               alt="logo"
-              height="63"
-              width="323"
+              height={63}
+              width={323}
               transformOptions={{ fit: "fill" }}
             />
             <StaticImage
               src="../../assets/images/AF-Logo.jpeg"
               className="navbar--funders-logo"
               alt="logo"
-              height="60"
+              height={60}
             />
           </div>
         </div>
@@ -53,9 +53,10 @@ const Navbar = ({ toggleSidebar }) => {
           <div className="navbar--links">
             <ul>
               {data.wpMenu.menuItems.nodes.map(item => {
+                const { id, path, label } = item
                 return (
-                  <li>
-                    <Link to={item.path}>{item.label}</Link>
+                  <li key={id}>
+                    <Link to={path}>{label}</Link>
                   </li>
                 )
               })}

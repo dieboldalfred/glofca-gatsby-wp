@@ -1,33 +1,52 @@
 import React from "react"
+import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+// components
 import { Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+// utils
+import { clearHtml } from "../utils/typography"
 
-const BlogTemplate = ({ pageContext: { blog } }) => {
-  const { title, image, content } = blog
+const BlogTemplate = data => {
+  const { id, title, content, featuredImage } = data.data.wpPost
 
-  /**
-   * className inside Component = "block" /// blog-template
-   *
-   * root -> className = "block"
-   * Modi
-   *
-   * everything inside => element
-   * block--elem   => blog-template--title
-   */
   return (
     <Layout>
       <Section title={title}>
         <SectionContent>
-          <GatsbyImage image={getImage(image)} alt={title} />
+          <GatsbyImage
+            image={getImage(featuredImage?.node.localFile)}
+            alt={title}
+          />
         </SectionContent>
         <SectionContent customClass="blog-center">
-          <div className="blog--content">{content}</div>
+          <div className="blog--content">{clearHtml(content)}</div>
         </SectionContent>
       </Section>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query GetBlogPage($slugQuery: StringQueryOperatorInput) {
+    wpPost(slug: $slugQuery) {
+      id
+      title
+      uri
+      content
+      featuredImage {
+        node {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: TRACED_SVG)
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default BlogTemplate

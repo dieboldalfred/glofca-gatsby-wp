@@ -16,8 +16,8 @@ const LogoBanner = () => {
           src="../../assets/images/unesco-large.png"
           className=""
           alt="logo"
-          height="63"
-          width="323"
+          height={63}
+          width={323}
           transformOptions={{ fit: "fill" }}
         />
       </div>
@@ -27,7 +27,7 @@ const LogoBanner = () => {
           src="../../assets/images/AF-Logo.jpeg"
           className=""
           alt="logo"
-          height="60"
+          height={60}
         />
       </div>
     </SectionContent>

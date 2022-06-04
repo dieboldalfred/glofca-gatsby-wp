@@ -31,19 +31,19 @@ const Footer = () => {
         </div>
       </SectionContent>
       <LogoBanner />
-      <SectionContent customClass="footer--links">
+      {/* <SectionContent customClass="footer--links">
         <ul>
           <li>
-            <Link>Item</Link>
+            <Link to="">Item</Link>
           </li>
           <li>
-            <Link>Item</Link>
+            <Link to="">Item</Link>
           </li>
           <li>
-            <Link>Item</Link>
+            <Link to="">Item</Link>
           </li>
         </ul>
-      </SectionContent>
+      </SectionContent> */}
       {/* <p>&copy; {new Date().getFullYear()} GLOFCA. All rights reserved.</p> */}
     </footer>
   )

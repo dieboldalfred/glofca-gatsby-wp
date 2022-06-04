@@ -11,13 +11,36 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      allWpCategory {
+      themes: allWpCategory(filter: { slug: { eq: "themes" } }) {
         nodes {
           pages {
             nodes {
               slug
             }
           }
+        }
+      }
+      databases: allWpCategory(filter: { slug: { eq: "databases" } }) {
+        nodes {
+          pages {
+            nodes {
+              slug
+            }
+          }
+        }
+      }
+      projects: allWpCategory(filter: { slug: { eq: "projects" } }) {
+        nodes {
+          pages {
+            nodes {
+              slug
+            }
+          }
+        }
+      }
+      allWpPost {
+        nodes {
+          slug
         }
       }
     }
@@ -63,15 +86,55 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allWpCategory.nodes.forEach(node => {
+  // create pages for blogs
+  result.data.allWpPost.nodes.forEach(node => {
+    const { slug } = node
+    createPage({
+      path: `/blog/${slug}`,
+      component: blogTemplate,
+      context: {
+        slugQuery: { eq: slug },
+      },
+    })
+  })
+
+  // create pages for themes
+  result.data.themes.nodes.forEach(node => {
     node.pages.nodes.forEach(theme => {
       const { slug } = theme
       createPage({
-        path: `/theme/${slug}`,
+        path: `/themes/${slug}`,
         component: themeTemplate,
         context: {
-          theme,
-          slug: { eq: slug },
+          slugQuery: { eq: slug },
+        },
+      })
+    })
+  })
+
+  // create pages for databases
+  result.data.databases.nodes.forEach(node => {
+    node.pages.nodes.forEach(database => {
+      const { slug } = database
+      createPage({
+        path: `/databases/${slug}`,
+        component: databaseTemplate,
+        context: {
+          slugQuery: { eq: slug },
+        },
+      })
+    })
+  })
+
+  // create pages for projects
+  result.data.projects.nodes.forEach(node => {
+    node.pages.nodes.forEach(project => {
+      const { slug } = project
+      createPage({
+        path: `/projects/${slug}`,
+        component: projectTemplate,
+        context: {
+          slugQuery: { eq: slug },
         },
       })
     })
