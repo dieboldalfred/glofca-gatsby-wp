@@ -9,7 +9,7 @@ import "./logo-banner.css"
 
 const LogoBanner = () => {
   return (
-    <SectionContent customClass="logo-banner">
+    <div className="logo--banner">
       <div className="logo-banner--container">
         <h5>Implemented by</h5>
         <StaticImage
@@ -30,7 +30,7 @@ const LogoBanner = () => {
           height={60}
         />
       </div>
-    </SectionContent>
+    </div>
   )
 }
 export default LogoBanner

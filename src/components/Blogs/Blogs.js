@@ -36,7 +36,7 @@ const Blogs = ({ title, posts, showLink }) => {
       </SectionContent>
       <SectionContent>
         {showLink && (
-          <Link to="/blog" className="btn center-btn">
+          <Link to="/news" className="btn center-btn">
             more posts
           </Link>
         )}
