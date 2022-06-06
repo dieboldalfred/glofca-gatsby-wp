@@ -1,10 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import slugify from "slugify"
-
-// hooks
-import { useGetTeamQuery } from "../hooks/useGetTeam"
-import { useGetKazakhstanPartnersQuery } from "../hooks/useGetKazakhstanPartners"
+import { graphql } from "gatsby"
 
 // comps
 import Layout from "../components/Layout"
@@ -12,40 +8,40 @@ import { Section, SectionContent, Member } from "../components"
 
 // styles
 
-const Team = ({ title, image }) => {
-  // grab team from graphql
-  const team = useGetTeamQuery()
-  const kazakhstanPartners = useGetKazakhstanPartnersQuery()
+const Team = data => {
+  const KazName = data.data.kazakhstanPartners.nodes[0].name
 
   return (
     <Layout>
       <Section customClass="team" title="Team GLOFCA">
         <SectionContent customClass="team-center">
-          {team.map(member => {
-            const { id, image, name, position, company } = member
-            const slug = slugify(name, { lower: true })
+          {data.data.allWpTeamMember.nodes.map(member => {
+            const {
+              id,
+              featuredImage,
+              title,
+              teamMemberFields: { company, position },
+            } = member
             return (
-              <Link to={`/${slug}`}>
-                <Member
-                  key={id}
-                  image={image}
-                  name={name}
-                  position={position}
-                  company={company}
-                />
-              </Link>
+              <Member
+                key={id}
+                image={featuredImage}
+                title={title}
+                position={position}
+                company={company}
+              />
             )
           })}
         </SectionContent>
       </Section>
-      <Section customClass="team" title="Kazakhstan Partners">
+
+      <Section customClass="team" title={KazName}>
         <SectionContent customClass="team-center">
-          {kazakhstanPartners.map(member => {
-            const { id, image, name } = member
-            const slug = slugify(name, { lower: true })
+          {data.data.kazakhstanPartners.nodes[0].partners.nodes.map(partner => {
+            const { id, featuredImage, title, slug } = partner
             return (
-              <Link to={`/${slug}`}>
-                <Member key={id} image={image} name={name} />
+              <Link to={`/partners/${slug}`}>
+                <Member key={id} image={featuredImage} title={title} />
               </Link>
             )
           })}
@@ -54,5 +50,53 @@ const Team = ({ title, image }) => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query GetTeamAndPartners {
+    allWpTeamMember {
+      nodes {
+        id
+        title
+        slug
+        teamMemberFields {
+          company
+          position
+        }
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(placeholder: TRACED_SVG)
+              }
+            }
+          }
+        }
+      }
+    }
+    kazakhstanPartners: allWpCategory(
+      filter: { name: { eq: "Kazakhstan Partners" } }
+    ) {
+      nodes {
+        name
+        partners {
+          nodes {
+            id
+            title
+            slug
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(placeholder: TRACED_SVG)
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Team

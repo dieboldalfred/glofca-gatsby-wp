@@ -7,7 +7,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const projectTemplate = path.resolve("./src/templates/ProjectTemplate.js")
   const databaseTemplate = path.resolve("./src/templates/DatabaseTemplate.js")
   const blogTemplate = path.resolve("./src/templates/BlogTemplate.js")
-  const memberTemplate = path.resolve("./src/templates/MemberTemplate.js")
+  const partnerTemplate = path.resolve("./src/templates/PartnerTemplate.js")
 
   const result = await graphql(`
     {
@@ -36,6 +36,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
             }
           }
+        }
+      }
+      partners: allWpPartner {
+        nodes {
+          slug
         }
       }
       allWpPost {
@@ -121,6 +126,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: databaseTemplate,
         context: {
           slugQuery: { eq: slug },
+          title: "my database",
         },
       })
     })
@@ -137,6 +143,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           slugQuery: { eq: slug },
         },
       })
+    })
+  })
+
+  // create pages for all partners
+  result.data.partners.nodes.forEach(node => {
+    const { slug } = node
+    createPage({
+      path: `/partners/${slug}`,
+      component: partnerTemplate,
+      context: {
+        slugQuery: { eq: slug },
+      },
     })
   })
 

@@ -9,7 +9,6 @@ import {
 } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import { TableContainer, Section, SectionContent } from "../components"
-import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { SelectColumnFilter } from "../utils/filters"
 
@@ -17,21 +16,22 @@ import { SelectColumnFilter } from "../utils/filters"
 import { useGetStakeholdersQuery } from "../hooks/useGetStakeholders"
 
 const DatabaseTemplate = ({ pageContext: { database } }) => {
-  const { title } = database
-  // const [data, setData] = useState([])
+  // console.log(database)
+  const [data, setData] = useState([])
 
   // // grab data for table
-  // useEffect(() => {
-  //   const doFetch = async () => {
-  //     const response = await fetch("https://randomuser.me/api/?results=5")
-  //     const body = await response.json()
-  //     const contacts = body.results
-  //     setData(contacts)
-  //   }
-  //   doFetch()
-  // }, [])
+  useEffect(() => {
+    const doFetch = async () => {
+      const response = await fetch("https://randomuser.me/api/?results=5")
+      const body = await response.json()
+      const contacts = body.results
+      setData(contacts)
+    }
+    doFetch()
+  }, [])
 
-  const data = useGetStakeholdersQuery()
+  // const data = useGetStakeholdersQuery()
+  // console.log(data[0].stakeholders.country)
 
   // set up columns
   const columns = useMemo(
@@ -41,45 +41,51 @@ const DatabaseTemplate = ({ pageContext: { database } }) => {
         id: "expander", // 'id' is required
         Cell: ({ row }) => (
           <span {...row.getToggleRowExpandedProps()}>
-            {row.isExpanded ? "↓" : "→"}
+            {row.isExpanded ? "👇" : "👉"}
           </span>
         ),
       },
       {
-        Header: "Country",
-        accessor: "country",
-        disableSortBy: true,
-        // Filter: SelectColumnFilter,
-        filter: "equals",
+        Header: "Title",
+        accessor: "name.title",
       },
       {
-        Header: "Region",
-        accessor: "region",
+        Header: "First Name",
+        accessor: "name.first",
       },
       {
-        Header: "Name",
-        accessor: "name",
+        Header: "Last Name",
+        accessor: "name.last",
       },
       {
-        Header: "Role",
-        accessor: "role",
+        Header: "Email",
+        accessor: "email",
+      },
+      {
+        Header: "City",
+        accessor: "location.city",
       },
     ],
     []
   )
-
   // render sub component upon click
   const renderRowSubComponent = row => {
-    const { region, country, role, name } = row.original
+    const {
+      name: { first, last },
+      location: { city, street, postcode },
+      picture,
+      cell,
+    } = row.original
     return (
-      <Card>
+      <Card style={{ width: "18rem", margin: "0 auto" }}>
         <CardBody>
           <CardTitle>
-            <strong>{name} </strong>
+            <strong>{`${first} ${last}`} </strong>
           </CardTitle>
           <CardText>
-            <strong>Role</strong>: {role} <br />
-            <strong>Address:</strong> {`${region} ${country}`}
+            <strong>Phone</strong>: {cell} <br />
+            <strong>Address:</strong>{" "}
+            {`${street.name} ${street.number} - ${postcode} - ${city}`}
           </CardText>
         </CardBody>
       </Card>
@@ -89,7 +95,7 @@ const DatabaseTemplate = ({ pageContext: { database } }) => {
   return (
     <Layout>
       {/* <Hero title={title} image={image} height="medium" /> */}
-      <Section title={title}>
+      <Section title="my db">
         <SectionContent>
           <Container>
             <TableContainer

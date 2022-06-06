@@ -12,7 +12,6 @@ const ProjectTemplate = data => {
     <Layout>
       <Hero title={title} image={featuredImage.node.localFile} />
       <SectionContent customClass="blog-center">
-        {/* <div className="blog--content">{clearHtml(content)}</div> */}
         <div
           className="blog--content"
           dangerouslySetInnerHTML={{ __html: content }}
