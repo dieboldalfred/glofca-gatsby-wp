@@ -5,11 +5,7 @@ const Member = ({ title, image, position, company }) => {
   return (
     <article className="team--member">
       <div className="team--member-image">
-        <GatsbyImage
-          image={getImage(image?.node.localFile)}
-          alt={title}
-          height={height}
-        />
+        <GatsbyImage image={getImage(image?.node.localFile)} alt={title} />
       </div>
       <div className="team--member-info">
         <h5>{title}</h5>

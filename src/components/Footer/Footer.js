@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 // styles
 import "./footer.css"
@@ -11,6 +11,43 @@ import FooterMenu from "./Footer-Menu/FooterMenu"
 const links = ["item1", "item2", "item3"]
 
 const Footer = () => {
+  const data = useStaticQuery(graphql`
+    {
+      projects: wpMenu(name: { eq: "Projects" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            target
+            id
+          }
+        }
+      }
+      themes: wpMenu(name: { eq: "Themes" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            target
+            id
+          }
+        }
+      }
+      databases: wpMenu(name: { eq: "Databases" }) {
+        menuItems {
+          nodes {
+            label
+            path
+            target
+            id
+          }
+        }
+      }
+    }
+  `)
+
+  console.log(data)
+
   return (
     <footer className="footer">
       <SectionContent customClass="footer--menu">
@@ -21,13 +58,13 @@ const Footer = () => {
           />
         </div>
         <div className="footer--col">
-          <FooterMenu menuName="Knowledge" list={links} />
+          <FooterMenu menuName="Knowledge" list={data.databases} />
         </div>
         <div className="footer--col">
-          <FooterMenu menuName="Project" list={links} />
+          <FooterMenu menuName="Project" list={data.projects} />
         </div>
         <div className="footer--col">
-          <FooterMenu menuName="Themes" list={links} />
+          <FooterMenu menuName="Themes" list={data.themes} />
         </div>
       </SectionContent>
       <LogoBanner />
