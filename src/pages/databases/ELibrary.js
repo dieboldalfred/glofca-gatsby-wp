@@ -26,7 +26,7 @@ const ELibrary = () => {
       id: "expander", // 'id' is required
       Cell: ({ row }) => (
         <span {...row.getToggleRowExpandedProps()}>
-          {row.isExpanded ? "👇" : "👉"}
+          {row.isExpanded ? "⬇" : "⮕"}
         </span>
       ),
     },
@@ -58,21 +58,40 @@ const ELibrary = () => {
     return (
       // <Card style={{ width: "18rem", margin: "0 auto" }}>
       <Card style={{ margin: "0 auto" }}>
+        {/* {logo && <CardImg top src={logo} alt="Card image cap" />} */}
         <CardBody>
-          <CardTitle>
-            <strong>{row.original.title} </strong>
+          <CardTitle tag="h3">
+            <strong>{row.original.title} </strong> <br />
+            <br />
           </CardTitle>
-          <CardText>
-            <strong>Publisher</strong>: {publisher} <br />
-            <strong>Published In</strong>: {publishedIn} <br />
-            <strong>Contributor</strong>: {contributor} <br />
-            <strong>Format</strong>: {format} <br />
-            <strong>Link</strong>: <Link to={link}>{link}</Link> <br />
-            <strong>Abstract</strong>: {abstract} <br />
-          </CardText>
+          {publisher && (
+            <CardText>
+              <strong>Publisher</strong>: {publisher} <br />
+            </CardText>
+          )}
+          {publishedIn && (
+            <CardText>
+              <strong>Published In</strong>: {publishedIn} <br />
+            </CardText>
+          )}
+          {contributor && (
+            <CardText>
+              <strong>Contributor</strong>: {contributor} <br />
+            </CardText>
+          )}
+          {format && (
+            <CardText>
+              <strong>Format</strong>: {format} <br />
+            </CardText>
+          )}
           {link && (
             <CardText>
               <strong>Link</strong>: <Link to={link}>{link}</Link> <br />
+            </CardText>
+          )}
+          {abstract && (
+            <CardText>
+              <strong>Abstract</strong>: {abstract} <br />
             </CardText>
           )}
         </CardBody>
