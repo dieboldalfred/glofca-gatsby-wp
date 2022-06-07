@@ -55,6 +55,7 @@ const Footer = () => {
           <Logo
             text="Glacier Lake Outburst Floods in Central Asia"
             customClass="footer--logo"
+            size="logo--image-size-large"
           />
         </div>
         <div className="footer--col">
