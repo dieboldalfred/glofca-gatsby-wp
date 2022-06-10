@@ -8,16 +8,20 @@ import {
   CardTitle,
 } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { TableContainer, Section, SectionContent } from "../../components"
+import {
+  TableContainer,
+  Section,
+  SectionContent,
+  BreadCrumb,
+} from "../../components"
 import Layout from "../../components/Layout"
-import { SelectColumnFilter } from "../../utils/filters"
+import { DefaultColumnFilter, SelectColumnFilter } from "../../utils/filters"
 
 // hooks
 import { useGetELibrariesQuery } from "../../hooks/useGetELibaries"
 
 const ELibrary = () => {
   const data = useGetELibrariesQuery()
-  console.log(data)
 
   const columns = useMemo(() => [
     {
@@ -43,7 +47,9 @@ const ELibrary = () => {
     },
     {
       Header: "Keywords",
-      accessor: "keywords.nodes.name",
+      accessor: values => values?.keywords?.nodes.map(k => k.name).join(", "),
+      // Filter: SelectColumnFilter,
+      // filter: equals,
     },
   ])
 
@@ -58,6 +64,7 @@ const ELibrary = () => {
       publishedIn,
       publisher,
     } = row.original.elibraryFields
+
     return (
       <Card style={{ margin: "0 auto" }}>
         {/* {logo && <CardImg top src={logo} alt="Card image cap" />} */}
@@ -100,13 +107,13 @@ const ELibrary = () => {
               <strong>Abstract</strong>: {abstract} <br />
             </CardText>
           )}
-          <CardText>
-            <strong>Keywords</strong>:
-            {row.original.keywords.nodes.map(keyword => {
-              ;<p>{keyword.name}</p>
-            })}
-            <br />
-          </CardText>
+          {row.original.keywords.nodes.length > 0 && (
+            <CardText>
+              <strong>Keywords</strong>:&nbsp;
+              {row.original.keywords.nodes.map(k => k.name).join(", ")}
+              <br />
+            </CardText>
+          )}
         </CardBody>
       </Card>
     )
@@ -114,6 +121,9 @@ const ELibrary = () => {
 
   return (
     <Layout>
+      {/* <SectionContent>
+        <BreadCrumb />
+      </SectionContent> */}
       <Section title="E-Library">
         <SectionContent>
           <Container>
