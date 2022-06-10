@@ -1,42 +1,37 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { Section, SectionContent } from "../components"
+
+// comps
+import {
+  CTA,
+  MailchimpForm,
+  Section,
+  SectionContent,
+  AboutContainer,
+} from "../components"
 
 // hooks
 import { useAboutQuery } from "../hooks/useAboutQuery"
 
 const About = () => {
   const data = useAboutQuery()
-  console.log(data.wpPage.about)
 
   return (
     <Layout>
       <Section title="About">
         <SectionContent customClass="about">
-          <div className="about--container">
-            <div className="about--header">
-              <h2>{data.wpPage.about.aboutTitle}</h2>
-            </div>
-            <div className="about--description">{data.wpPage.about.about}</div>
-          </div>
-          <div className="about--container">
-            <div className="about--header">
-              <h2>{data.wpPage.about.ourMissionTitle}</h2>
-            </div>
-            <div className="about--description">
-              {data.wpPage.about.ourMission}
-            </div>
-          </div>
-          <div className="about--container">
-            <div className="about--header">
-              <h2>{data.wpPage.about.ourVisionTitle}</h2>
-            </div>
-            <div className="about--description">
-              {data.wpPage.about.ourVision}
-            </div>
-          </div>
+          <AboutContainer title={data.aboutTitle} text={data.about} />
+          <AboutContainer title={data.ourMissionTitle} text={data.ourMission} />
+          <AboutContainer title={data.ourVisionTitle} text={data.ourVision} />
+          <AboutContainer title={data.goalsTitle} text={data.goalsText} />
+          <AboutContainer
+            title={data.objectivesTitle}
+            text={data.objectivesText}
+          />
+          <AboutContainer title={data.valuesTitle} text={data.valuesText} />
         </SectionContent>
       </Section>
+      <CTA rightColumn={<MailchimpForm />} />
     </Layout>
   )
 }

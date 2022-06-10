@@ -1,4 +1,5 @@
 import React from "react"
+import classNames from "classnames"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // styles
@@ -8,9 +9,14 @@ const Hero = ({
   title,
   image,
   content,
-  align = "center",
+  width = "670px",
+  align = "left",
   height = "large",
 }) => {
+  const articleClasses = classNames("hero--article", {
+    [`hero--article-align-${align}`]: true,
+  })
+
   return (
     <section className={`hero hero-size-${height}`}>
       <GatsbyImage
@@ -20,7 +26,10 @@ const Hero = ({
         objectFit="cover"
       />
       <div className="hero--info">
-        <article className={`hero--article hero--article-align-${align}`}>
+        <article
+          style={width ? { width } : undefined}
+          className={articleClasses}
+        >
           <h1>{title}</h1>
           <h3>{content}</h3>
         </article>

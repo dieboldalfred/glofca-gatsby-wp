@@ -6,6 +6,11 @@ export const useGetELibrariesQuery = () => {
       allWpELibrary {
         nodes {
           title
+          keywords {
+            nodes {
+              name
+            }
+          }
           elibraryFields {
             abstract
             author

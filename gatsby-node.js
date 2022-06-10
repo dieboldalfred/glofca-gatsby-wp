@@ -20,15 +20,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      databases: allWpCategory(filter: { slug: { eq: "databases" } }) {
-        nodes {
-          pages {
-            nodes {
-              slug
-            }
-          }
-        }
-      }
       projects: allWpCategory(filter: { slug: { eq: "projects" } }) {
         nodes {
           pages {
@@ -50,40 +41,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     }
   `)
-
-  // const result = await graphql(`
-  //   {
-  //     allGlofcaJson {
-  //       nodes {
-  //         blogs {
-  //           title
-  //           content
-  //           image {
-  //             childImageSharp {
-  //               gatsbyImageData(placeholder: BLURRED)
-  //             }
-  //           }
-  //         }
-  //         databases {
-  //           title
-  //           image {
-  //             childImageSharp {
-  //               gatsbyImageData(placeholder: BLURRED)
-  //             }
-  //           }
-  //         }
-  //         team {
-  //           id
-  //           name
-  //         }
-  //         kazakhstanPartners {
-  //           id
-  //           name
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
 
   // Check for errors
   if (result.errors) {
@@ -117,20 +74,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  // create pages for databases
-  result.data.databases.nodes.forEach(node => {
-    node.pages.nodes.forEach(database => {
-      const { slug } = database
-      createPage({
-        path: `/databases/${slug}`,
-        component: databaseTemplate,
-        context: {
-          slugQuery: { eq: slug },
-          title: "my database",
-        },
-      })
-    })
-  })
+  // // create pages for databases
+  // result.data.databases.nodes.forEach(node => {
+  //   node.pages.nodes.forEach(database => {
+  //     const { slug } = database
+  //     createPage({
+  //       path: `/databases/${slug}`,
+  //       component: databaseTemplate,
+  //       context: {
+  //         slugQuery: { eq: slug },
+  //         title: "my database",
+  //       },
+  //     })
+  //   })
+  // })
 
   // create pages for projects
   result.data.projects.nodes.forEach(node => {

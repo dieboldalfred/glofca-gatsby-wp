@@ -15,7 +15,7 @@ const BlogTemplate = data => {
   return (
     <Layout>
       <Section title={title}>
-        <SectionContent>
+        <SectionContent customClass="blog-featured-image">
           <GatsbyImage
             image={getImage(featuredImage?.node.localFile)}
             alt={title}

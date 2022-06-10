@@ -11,7 +11,7 @@ const LogoBanner = () => {
   return (
     <div className="logo--banner">
       <div className="logo-banner--container">
-        <h5>Implemented by</h5>
+        <h5 className="logo-banner--container-title">Implemented by</h5>
         <StaticImage
           src="../../assets/images/unesco-large.png"
           className=""
@@ -22,7 +22,7 @@ const LogoBanner = () => {
         />
       </div>
       <div className="logo-banner--container">
-        <h5>Funded by</h5>
+        <h5 className="logo-banner--container-title">Funded by</h5>
         <StaticImage
           src="../../assets/images/AF-Logo.jpeg"
           className=""

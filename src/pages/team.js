@@ -40,7 +40,7 @@ const Team = data => {
           {data.data.kazakhstanPartners.nodes[0].partners.nodes.map(partner => {
             const { id, featuredImage, title, slug } = partner
             return (
-              <Link to={`/partners/${slug}`}>
+              <Link to={`/partners/${slug}`} className="team-center--item">
                 <Member key={id} image={featuredImage} title={title} />
               </Link>
             )
@@ -74,7 +74,7 @@ export const query = graphql`
       }
     }
     kazakhstanPartners: allWpCategory(
-      filter: { name: { eq: "Kazakhstan Partners" } }
+      filter: { slug: { eq: "kazakhstan-partners" } }
     ) {
       nodes {
         name

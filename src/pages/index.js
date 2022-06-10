@@ -1,5 +1,15 @@
 import React from "react"
-import { Blogs, Cards, Hero, LogoBanner, Video } from "../components"
+import {
+  Blogs,
+  Cards,
+  Hero,
+  LogoBanner,
+  Video,
+  CTA,
+  MailchimpForm,
+  Blurb,
+  VideoPlayer,
+} from "../components"
 import Layout from "../components/Layout"
 import subThemes from "../constants/themes"
 
@@ -9,7 +19,7 @@ import { useGetThemesQuery } from "../hooks/useGetThemes"
 import { useGetDatabasesQuery } from "../hooks/useGetDatabases"
 import { useGetProjectsQuery } from "../hooks/useGetProjects"
 import { useLatestPostsQuery } from "../hooks/useLatestPostsQuery"
-import { useGetBannersQuery } from "../hooks/useGetBanners"
+import { useGetHomepageFieldsQuery } from "../hooks/useGetHomepageFields"
 
 const HomePage = () => {
   // Graphql
@@ -18,35 +28,52 @@ const HomePage = () => {
   const databases = useGetDatabasesQuery()
   const projects = useGetProjectsQuery()
   const posts = useLatestPostsQuery()
-  const banners = useGetBannersQuery()
+  const home = useGetHomepageFieldsQuery()
 
   return (
     <Layout>
       <Hero
-        title={banners.heroTitle}
-        image={banners.heroImage.localFile}
-        content={banners.heroText}
-        align="left"
+        title={home.heroTitle}
+        image={home.heroImage.localFile}
+        content={home.heroText}
       />
       <LogoBanner />
+      <CTA
+        leftColumn={<Blurb heading={home.cta1Title} />}
+        rightColumn={<VideoPlayer videoURL={home.cta1Media} />}
+      />
       <Video
         title="GLOFCA Project in Action during the First Year – 2021/2022"
         videoURL="https://www.youtube.com/watch?v=avvNRswHDks"
       />
       <Blogs title="Latest News" posts={posts} showLink />
       <Hero
-        title={banners.ourMissionTitle}
-        content={banners.ourMissionText}
-        image={banners.ourMissionImage.localFile}
+        title={home.ourMissionTitle}
+        content={home.ourMissionText}
+        image={home.ourMissionImage.localFile}
       />
       <Cards title="Databases" link="databases" items={databases} />
+      <CTA
+        leftColumn={
+          <Blurb
+            subHeading={home.cta2Title}
+            buttonOneText={home.cta2Button1Text}
+            buttonOneLink={home.cta2Button1Link}
+            buttonTwoText={home.cta2Button2Text}
+            buttonTwoLink={home.cta2Button2Link}
+          />
+        }
+        rightColumn={<VideoPlayer videoURL={home.cta2Video} />}
+      />
+
       <Cards title="Projects" link="projects" items={projects} />
       <Hero
-        title={banners.ourVisionTitle}
-        content={banners.ourVisionText}
-        image={banners.ourVisionImage.localFile}
+        title={home.ourVisionTitle}
+        content={home.ourVisionText}
+        image={home.ourVisionImage.localFile}
       />
       <Cards title="Themes" link="themes" items={themes} />
+      <CTA rightColumn={<MailchimpForm />} />
     </Layout>
   )
 }

@@ -11,6 +11,14 @@ import TableContainer from "./TableContainer/TableContainer"
 import LogoBanner from "./LogoBanner/LogoBanner"
 import Video from "./Video/Video"
 import Member from "./Member/Member"
+import CTAArea from "./CTAarea/CTAArea"
+import MailchimpForm from "./MailchimpForm/MailchimpForm"
+import ContactForm from "./ContactForm/ContactForm"
+import TwoColumnGrid from "./TwoColumnGrid/TwoColumnGrid"
+import GridColumn from "./GridColumn/GridColumn"
+import Blurb from "./Blurb/Blurb"
+import VideoPlayer from "./VideoPlayer/VideoPlayer"
+import AboutContainer from "./AboutContainer/AboutContainer"
 
 export {
   Blogs,
@@ -26,4 +34,12 @@ export {
   LogoBanner,
   Video,
   Member,
+  CTAArea,
+  Blurb,
+  MailchimpForm,
+  ContactForm,
+  TwoColumnGrid,
+  GridColumn,
+  VideoPlayer,
+  AboutContainer,
 }

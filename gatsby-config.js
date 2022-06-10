@@ -1,8 +1,6 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -38,6 +36,13 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: `http://glofca-wp.local/graphql`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
+        timeout: 3500,
       },
     },
   ],

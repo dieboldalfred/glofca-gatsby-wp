@@ -3,22 +3,20 @@ import { useStaticQuery, graphql } from "gatsby"
 export const useGetProjectsQuery = () => {
   const data = useStaticQuery(graphql`
     query GetProjects {
-      allWpPage(filter: { slug: { eq: "projects" } }) {
+      allWpPage(
+        filter: {
+          categories: { nodes: { elemMatch: { slug: { eq: "projects" } } } }
+        }
+      ) {
         nodes {
-          wpChildren {
-            nodes {
-              ... on WpPage {
-                id
-                title
-                slug
-                featuredImage {
-                  node {
-                    localFile {
-                      childImageSharp {
-                        gatsbyImageData(placeholder: TRACED_SVG)
-                      }
-                    }
-                  }
+          id
+          title
+          slug
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(placeholder: TRACED_SVG)
                 }
               }
             }
@@ -27,5 +25,5 @@ export const useGetProjectsQuery = () => {
       }
     }
   `)
-  return data?.allWpPage.nodes[0].wpChildren.nodes
+  return data?.allWpPage.nodes
 }

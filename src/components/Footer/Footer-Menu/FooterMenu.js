@@ -5,10 +5,9 @@ import { Link } from "gatsby"
 import "./footer-menu.css"
 
 const FooterMenu = ({ menuName, list }) => {
-  console.log(list)
   return (
     <>
-      <h4>{menuName}</h4>
+      <h3>{menuName}</h3>
       <ul className="footer--col-menu">
         {list.menuItems.nodes.map((item, index) => {
           const { label, id, path } = item

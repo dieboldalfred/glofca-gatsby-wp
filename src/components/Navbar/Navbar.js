@@ -56,7 +56,9 @@ const Navbar = ({ toggleSidebar }) => {
                 const { id, path, label } = item
                 return (
                   <li key={id}>
-                    <Link to={path}>{label}</Link>
+                    <Link to={path} activeClassName="active">
+                      {label}
+                    </Link>
                   </li>
                 )
               })}

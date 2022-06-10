@@ -1,0 +1,17 @@
+.cta {
+  background-color: var(--clr-primary-9);
+}
+.cta--container {
+}
+.cta--media {
+  border: 1px solid black;
+  display: grid;
+  place-items: flex-end;
+}
+.cta--media iframe {
+  box-shadow: 8px 8px var(--clr-grey-5);
+}
+.cta--info {
+  border: 1px solid black;
+  padding-left: 16px;
+}

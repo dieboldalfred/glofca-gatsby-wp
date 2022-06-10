@@ -46,8 +46,6 @@ const Footer = () => {
     }
   `)
 
-  console.log(data)
-
   return (
     <footer className="footer">
       <SectionContent customClass="footer--menu">
@@ -69,20 +67,11 @@ const Footer = () => {
         </div>
       </SectionContent>
       <LogoBanner />
-      {/* <SectionContent customClass="footer--links">
-        <ul>
-          <li>
-            <Link to="">Item</Link>
-          </li>
-          <li>
-            <Link to="">Item</Link>
-          </li>
-          <li>
-            <Link to="">Item</Link>
-          </li>
-        </ul>
-      </SectionContent> */}
-      {/* <p>&copy; {new Date().getFullYear()} GLOFCA. All rights reserved.</p> */}
+      <SectionContent>
+        <div>
+          &copy; {new Date().getFullYear()} GLOFCA. All rights reserved.
+        </div>
+      </SectionContent>
     </footer>
   )
 }

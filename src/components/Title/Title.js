@@ -4,9 +4,9 @@ import "./title.css"
 
 const Title = ({ title }) => {
   return (
-    <div className="section-title">
+    <div className="title">
       <h2>{title}</h2>
-      <div className="underline"></div>
+      <div className="underline underline-center"></div>
     </div>
   )
 }

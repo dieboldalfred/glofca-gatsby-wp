@@ -28,13 +28,14 @@
   right: 0;
   margin: auto;
   width: 90vw;
+  max-width: var(--max-width);
   height: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
 }
 .hero--article {
   /* padding: 70px 0; */
-  width: var(--max-width);
+  /* width: var(--max-width); */
   /* max-width: 800px; */
   color: var(--clr-white);
 }

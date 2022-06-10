@@ -15,7 +15,7 @@ const PartnerTemplate = data => {
 
   return (
     <Layout>
-      <div>
+      <div className="partner--image">
         <GatsbyImage
           image={getImage(featuredImage?.node.localFile)}
           alt={title}

@@ -1,6 +1,9 @@
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+// styles
+import "./member.css"
+
 const Member = ({ title, image, position, company }) => {
   return (
     <article className="team--member">

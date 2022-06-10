@@ -11,10 +11,16 @@ export const useAboutQuery = () => {
           aboutTitle
           ourMissionTitle
           ourVisionTitle
+          goalsTitle
+          goalsText
+          objectivesTitle
+          objectivesText
+          valuesTitle
+          valuesText
         }
       }
     }
   `)
 
-  return data
+  return data.wpPage.about
 }

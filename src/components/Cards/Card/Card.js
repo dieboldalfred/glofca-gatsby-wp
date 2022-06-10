@@ -16,7 +16,7 @@ const Card = ({ id, title, image }) => {
           className="card-img"
         />
         <div className="card-info">
-          <h3>{title}</h3>
+          <h3 className="card-info--title">{title}</h3>
         </div>
       </div>
     </article>

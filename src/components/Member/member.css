@@ -1,0 +1,6 @@
+.team--member-image {
+  margin-bottom: 16px;
+}
+.team--member-image img {
+  border-radius: var(--radius);
+}
