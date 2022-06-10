@@ -1,11 +1,11 @@
 import React from "react"
-import { ContactForm, CTA, Blurb } from "../components"
+import { ContactForm, CTAArea, Blurb } from "../components"
 import Layout from "../components/Layout"
 
 const Contact = () => {
   return (
     <Layout>
-      <CTA
+      <CTAArea
         leftColumn={<Blurb heading="Get In Touch" />}
         rightColumn={<ContactForm />}
       />

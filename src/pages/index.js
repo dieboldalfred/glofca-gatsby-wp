@@ -5,7 +5,7 @@ import {
   Hero,
   LogoBanner,
   Video,
-  CTA,
+  CTAArea,
   MailchimpForm,
   Blurb,
   VideoPlayer,
@@ -38,14 +38,14 @@ const HomePage = () => {
         content={home.heroText}
       />
       <LogoBanner />
-      <CTA
+      <CTAArea
         leftColumn={<Blurb heading={home.cta1Title} />}
         rightColumn={<VideoPlayer videoURL={home.cta1Media} />}
       />
-      <Video
+      {/* <Video
         title="GLOFCA Project in Action during the First Year – 2021/2022"
         videoURL="https://www.youtube.com/watch?v=avvNRswHDks"
-      />
+      /> */}
       <Blogs title="Latest News" posts={posts} showLink />
       <Hero
         title={home.ourMissionTitle}
@@ -53,7 +53,7 @@ const HomePage = () => {
         image={home.ourMissionImage.localFile}
       />
       <Cards title="Databases" link="databases" items={databases} />
-      <CTA
+      <CTAArea
         leftColumn={
           <Blurb
             subHeading={home.cta2Title}
@@ -73,7 +73,7 @@ const HomePage = () => {
         image={home.ourVisionImage.localFile}
       />
       <Cards title="Themes" link="themes" items={themes} />
-      <CTA rightColumn={<MailchimpForm />} />
+      <CTAArea rightColumn={<MailchimpForm />} />
     </Layout>
   )
 }

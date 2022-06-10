@@ -25,33 +25,3 @@ const Cards = ({ title, items, link }) => {
   )
 }
 export default Cards
-
-/***
- *
- * child1 = video
- * child2 = brochure + title
- *
- * CTA.js:
- *
- * import { Grid, GridColumn } from 'grid'
- *
- * css => .grid_column + .grid_column { margin-left : 16px}
- *
- * <Grid>
- *  <GridColumn>
- *     <Video></Video>
- *   </GridColumn>
- *    <GridColumn>
-        <Brochure></Brochure>
-        <Title></Title>
- *   </GridColumn>
- * </Grid>
- *
- *
- * GridColumn.js
- *
- * <div>
- * {children}
- * </div>
- *
- */
