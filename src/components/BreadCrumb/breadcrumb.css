@@ -1,0 +1,8 @@
+.breadcrumb {
+  font-size: 16px;
+  margin: 10px 0 10px 64px;
+}
+
+.breadcrumb--divider {
+  margin: 0 10px;
+}

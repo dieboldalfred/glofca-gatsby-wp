@@ -30,8 +30,8 @@ const Hero = ({
           style={width ? { width } : undefined}
           className={articleClasses}
         >
-          <h1>{title}</h1>
-          <h3>{content}</h3>
+          <h1 className="hero--article-title">{title}</h1>
+          <p className="hero--article-content">{content}</p>
         </article>
       </div>
     </section>
