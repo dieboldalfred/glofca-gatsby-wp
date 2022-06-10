@@ -19,6 +19,7 @@ import GridColumn from "./GridColumn/GridColumn"
 import Blurb from "./Blurb/Blurb"
 import VideoPlayer from "./VideoPlayer/VideoPlayer"
 import AboutContainer from "./AboutContainer/AboutContainer"
+import BreadCrumb from "./BreadCrumb/BreadCrumb"
 
 export {
   Blogs,
@@ -42,4 +43,5 @@ export {
   GridColumn,
   VideoPlayer,
   AboutContainer,
+  BreadCrumb,
 }

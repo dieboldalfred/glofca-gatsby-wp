@@ -45,7 +45,7 @@
 .hero--article-align-center {
   text-align: center;
 }
-.hero--article h1 {
+.hero--article-title {
   text-transform: uppercase;
   font-weight: 500;
   line-height: 1.25;
@@ -53,13 +53,17 @@
   letter-spacing: 3px;
   color: var(--clr-white);
 }
-.hero--article h3 {
+.hero--article-content {
   font-weight: 400;
   color: var(--clr-white);
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-size: 28px;
 }
 
 @media (min-width: 800px) {
-  .hero--article h1 {
+  .hero--article-title {
     letter-spacing: 5px;
   }
 }

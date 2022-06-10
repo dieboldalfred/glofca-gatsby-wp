@@ -36,7 +36,7 @@ const MailchimpForm = () => {
             name="email"
             id="mail"
             label="email-input"
-            placeholder="Your e-mail address"
+            placeholder="Your E-mail Address..."
             onChange={handleChange}
           />
         </div>

@@ -111,6 +111,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: partnerTemplate,
       context: {
         slugQuery: { eq: slug },
+        uri: "/team",
+        title: "Team",
       },
     })
   })
