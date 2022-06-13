@@ -4,18 +4,32 @@ import { graphql } from "gatsby"
 
 // components
 import Layout from "../components/Layout"
-import { Section, SectionContent } from "../components"
+import { Section, SectionContent, BreadCrumb } from "../components"
 
-const PartnerTemplate = data => {
+// utils
+import { sanitizeHtml, clearHtml } from "../utils/typography"
+
+const PartnerTemplate = ({ data, pageContext }) => {
+  console.log(data)
   const {
     title,
     featuredImage,
     partnerFields: { intro, roleInTheProject },
-  } = data.data.wpPartner
+  } = data.wpPartner
+  const pageTitle = pageContext.title
+  const pageURI = pageContext.uri
 
   return (
     <Layout>
-      <div className="partner--image">
+      <SectionContent>
+        <BreadCrumb
+          parent={{
+            uri: pageURI,
+            title: pageTitle,
+          }}
+        />
+      </SectionContent>
+      <div className="partner--logo">
         <GatsbyImage
           image={getImage(featuredImage?.node.localFile)}
           alt={title}

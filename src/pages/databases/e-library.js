@@ -17,6 +17,9 @@ import {
 import Layout from "../../components/Layout"
 import { DefaultColumnFilter, SelectColumnFilter } from "../../utils/filters"
 
+// utils
+import { sanitizeHtml, clearHtml } from "../../utils/typography"
+
 // hooks
 import { useGetELibrariesQuery } from "../../hooks/useGetELibaries"
 
@@ -104,13 +107,22 @@ const ELibrary = () => {
           )}
           {abstract && (
             <CardText>
-              <strong>Abstract</strong>: {abstract} <br />
+              <strong>Abstract</strong>: {clearHtml(abstract)} <br />
             </CardText>
           )}
           {row.original.keywords.nodes.length > 0 && (
             <CardText>
               <strong>Keywords</strong>:&nbsp;
-              {row.original.keywords.nodes.map(k => k.name).join(", ")}
+              {row.original.keywords.nodes
+                .map(keyword => keyword.name)
+                .join(", ")}
+              <br />
+            </CardText>
+          )}
+          {row.original.topics.nodes.length > 0 && (
+            <CardText>
+              <strong>Topics</strong>:&nbsp;
+              {row.original.topics.nodes.map(topic => topic.name).join(", ")}
               <br />
             </CardText>
           )}

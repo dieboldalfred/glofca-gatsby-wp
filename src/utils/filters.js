@@ -1,5 +1,5 @@
 import React from "react"
-import { Input, CustomInput } from "reactstrap"
+import { Input } from "reactstrap"
 
 export const Filter = ({ column }) => {
   return (
@@ -22,7 +22,8 @@ export const DefaultColumnFilter = ({
       onChange={e => {
         setFilter(e.target.value || undefined)
       }}
-      placeholder={`search (${length}) ...`}
+      // placeholder={`search (${length}) ...`}
+      placeholder={`search ...`}
     />
   )
 }
@@ -39,7 +40,7 @@ export const SelectColumnFilter = ({
   }, [id, preFilteredRows])
 
   return (
-    <CustomInput
+    <Input
       id="custom-select"
       type="select"
       value={filterValue}
@@ -53,6 +54,6 @@ export const SelectColumnFilter = ({
           {option}
         </option>
       ))}
-    </CustomInput>
+    </Input>
   )
 }

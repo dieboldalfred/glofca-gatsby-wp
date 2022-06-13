@@ -29,3 +29,8 @@
   height: 524px;
   width: 936px;
 }
+
+.blog--content ul {
+  list-style-type: circle;
+  margin-bottom: 16px;
+}

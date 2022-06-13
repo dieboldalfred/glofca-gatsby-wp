@@ -1,33 +1,105 @@
 import React from "react"
-import links from "../../data/links"
 import socialLinks from "../../data/social-links"
-import { Link } from "gatsby"
 import { IoMdClose } from "react-icons/io"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 // styles
 import "./sidebar.css"
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const data = useStaticQuery(graphql`
+    {
+      wpMenu(name: { eq: "sideMenu" }) {
+        menuItems {
+          nodes {
+            label
+            parentId
+            path
+            id
+            childItems {
+              nodes {
+                id
+                label
+                path
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const menuItems = data.wpMenu.menuItems.nodes.filter(item => !item.parentId)
+  const menuIds = menuItems.map(item => {
+    return item.id
+  })
+
+  const initialObj = menuIds.reduce((acc, id) => {
+    acc[id] = false
+
+    return acc
+  }, {})
+
+  const [menuItemIsClicked, setMenuItemIsClicked] = React.useState(initialObj)
+
+  const onMenuItemClick = id => {
+    // todo
+    setMenuItemIsClicked({
+      ...menuItemIsClicked,
+      [id]: !menuItemIsClicked[id],
+    })
+  }
+
   return (
     <aside className={isOpen ? "sidebar show-sidebar" : "sidebar"}>
       <button className="close-btn" onClick={toggleSidebar}>
         <IoMdClose />
       </button>
       <div className="sidebar-container">
-        {/* <ul className={isOpen ? "sidebar-links" : null}> */}
         <ul className="sidebar-links">
-          {links.map(link => {
+          {menuItems.map(item => {
+            const { id, label, path, childItems } = item
+            const itemHasChildren = Boolean(item.childItems.nodes.length) // length = number == vs === true boolean
+
+            const subMenuItems = childItems.nodes
+            // withChildren => function()
             return (
-              <li key={link.id}>
-                <Link to={link.url} onClick={toggleSidebar}>
-                  {link.text}
-                </Link>
+              <li key={id}>
+                {itemHasChildren ? (
+                  <React.Fragment>
+                    <span
+                      activeClassName="active"
+                      onClick={() => onMenuItemClick(id)}
+                    >
+                      {label}
+                    </span>
+                    {/* {subMenuItems} */}
+                    <div className="sidebar-links--sub-menu">
+                      {menuItemIsClicked[id]
+                        ? subMenuItems.map(subMenuItem => {
+                            const { id, path, label } = subMenuItem
+                            return (
+                              <Link
+                                className="sidebar-links--sub-menu--link"
+                                to={path}
+                              >
+                                {label}
+                              </Link>
+                            )
+                          })
+                        : null}
+                    </div>
+                  </React.Fragment>
+                ) : (
+                  <Link to={path} activeClassName="active">
+                    {label}
+                  </Link>
+                )}
               </li>
             )
           })}
         </ul>
-        {/* <ul className={isOpen ? "social-links sidebar-icons" : null}>*/}
-        <ul className="social-links sidebar-icons">
+        {/* <ul className="social-links sidebar-icons">
           {socialLinks.map(link => {
             return (
               <li key={link.id}>
@@ -37,7 +109,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               </li>
             )
           })}
-        </ul>
+        </ul> */}
       </div>
     </aside>
   )

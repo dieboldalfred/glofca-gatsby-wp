@@ -13,7 +13,7 @@ const BreadCrumb = ({ parent }) => (
     {parent ? (
       <>
         <Link to={parent.uri}>
-          <span dangerouslySetInnerHTML={{ __html: parent.title }} />
+          <span>{parent.title}</span>
         </Link>
         <span className="breadcrumb--divider">/</span>
       </>

@@ -31,3 +31,5 @@
 .footer--links ul li {
   color: var(--clr-black);
 }
+@media screen and (min-width: 992px) {
+}

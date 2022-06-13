@@ -2,12 +2,12 @@ import React from "react"
 import { Section, SectionContent, TwoColumnGrid, GridColumn } from "../index"
 
 // styles
-import "./cta-area.css"
+import "./cta-area-two-col.css"
 
-const CTAArea = ({ leftColumn, rightColumn }) => {
+const CTAAreaTwoCol = ({ leftColumn, rightColumn }) => {
   return (
-    <Section customClass="cta">
-      <SectionContent customClass="cta--container">
+    <Section customClass="cta-two-col">
+      <SectionContent customClass="cta-two-col--container">
         <TwoColumnGrid>
           <GridColumn>{leftColumn}</GridColumn>
           <GridColumn>{rightColumn}</GridColumn>
@@ -17,4 +17,4 @@ const CTAArea = ({ leftColumn, rightColumn }) => {
   )
 }
 
-export default CTAArea
+export default CTAAreaTwoCol

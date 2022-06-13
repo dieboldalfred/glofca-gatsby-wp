@@ -3,7 +3,7 @@ import Layout from "../components/Layout"
 
 // comps
 import {
-  CTAArea,
+  CTAAreaTwoCol,
   MailchimpForm,
   Section,
   SectionContent,
@@ -31,7 +31,7 @@ const About = () => {
           <AboutContainer title={data.valuesTitle} text={data.valuesText} />
         </SectionContent>
       </Section>
-      <CTAArea rightColumn={<MailchimpForm />} />
+      <CTAAreaTwoCol rightColumn={<MailchimpForm />} />
     </Layout>
   )
 }

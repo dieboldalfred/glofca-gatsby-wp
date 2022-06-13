@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // components
-import { Hero, SectionContent } from "../components"
+import { Hero, SectionContent, Section } from "../components"
 import Layout from "../components/Layout"
 
 // utils
@@ -13,14 +13,16 @@ const ThemeTemplate = data => {
 
   return (
     <Layout>
-      <Hero title={title} image={featuredImage.node.localFile} />
-      <SectionContent customClass="blog-center">
-        {/* <div className="blog--content">{clearHtml(content)}</div> */}
-        <div
-          className="blog--content"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-      </SectionContent>
+      <Hero title={title} image={featuredImage.node.localFile} align="center" />
+      <Section>
+        <SectionContent customClass="blog-center">
+          {/* <div className="blog--content">{clearHtml(content)}</div> */}
+          <div
+            className="blog--content"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+        </SectionContent>
+      </Section>
     </Layout>
   )
 }

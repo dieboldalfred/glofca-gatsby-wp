@@ -8,7 +8,6 @@ const VideoPlayer = ({ videoURL }) => {
       <iframe
         width="560"
         height="315"
-        className="embed-responsive-item"
         src={videoURL}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

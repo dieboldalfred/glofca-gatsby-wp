@@ -2,3 +2,9 @@
   display: flex;
   flex-direction: column;
 }
+.blurb--heading,
+.blurb--sub-heading,
+.blurb--minor-heading {
+  /* line-height: 1.25; */
+  margin-bottom: 16px;
+}

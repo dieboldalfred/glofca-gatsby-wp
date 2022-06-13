@@ -5,7 +5,8 @@ import {
   Hero,
   LogoBanner,
   Video,
-  CTAArea,
+  CTAAreaTwoCol,
+  CTAAreaThreeCol,
   MailchimpForm,
   Blurb,
   VideoPlayer,
@@ -36,9 +37,10 @@ const HomePage = () => {
         title={home.heroTitle}
         image={home.heroImage.localFile}
         content={home.heroText}
+        height="full"
       />
       <LogoBanner />
-      <CTAArea
+      <CTAAreaTwoCol
         leftColumn={<Blurb heading={home.cta1Title} />}
         rightColumn={<VideoPlayer videoURL={home.cta1Media} />}
       />
@@ -53,7 +55,7 @@ const HomePage = () => {
         image={home.ourMissionImage.localFile}
       />
       <Cards title="Databases" link="databases" items={databases} />
-      <CTAArea
+      <CTAAreaTwoCol
         leftColumn={
           <Blurb
             subHeading={home.cta2Title}
@@ -73,7 +75,7 @@ const HomePage = () => {
         image={home.ourVisionImage.localFile}
       />
       <Cards title="Themes" link="themes" items={themes} />
-      <CTAArea rightColumn={<MailchimpForm />} />
+      <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
     </Layout>
   )
 }

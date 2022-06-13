@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 // comps
 import Layout from "../components/Layout"
-import { Section, SectionContent, Member } from "../components"
+import { Section, SectionContent, Member, Partner } from "../components"
 
 // styles
 
@@ -41,7 +41,7 @@ const Team = data => {
             const { id, featuredImage, title, slug } = partner
             return (
               <Link to={`/partners/${slug}`} className="team-center--item">
-                <Member key={id} image={featuredImage} title={title} />
+                <Partner key={id} image={featuredImage} title={title} />
               </Link>
             )
           })}
@@ -87,7 +87,11 @@ export const query = graphql`
               node {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(placeholder: TRACED_SVG)
+                    gatsbyImageData(
+                      placeholder: TRACED_SVG
+                      width: 200
+                      height: 200
+                    )
                   }
                 }
               }

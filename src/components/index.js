@@ -11,15 +11,18 @@ import TableContainer from "./TableContainer/TableContainer"
 import LogoBanner from "./LogoBanner/LogoBanner"
 import Video from "./Video/Video"
 import Member from "./Member/Member"
-import CTAArea from "./CTAarea/CTAArea"
+import CTAAreaTwoCol from "./CTAAreaTwoCol/CTAAreaTwoCol"
+import CTAAreaThreeCol from "./CTAAreaThreeCol/CTAAreaThreeCol"
 import MailchimpForm from "./MailchimpForm/MailchimpForm"
 import ContactForm from "./ContactForm/ContactForm"
 import TwoColumnGrid from "./TwoColumnGrid/TwoColumnGrid"
+import ThreeColumnGrid from "./ThreeColumnGrid/ThreeColumGrid"
 import GridColumn from "./GridColumn/GridColumn"
 import Blurb from "./Blurb/Blurb"
 import VideoPlayer from "./VideoPlayer/VideoPlayer"
 import AboutContainer from "./AboutContainer/AboutContainer"
 import BreadCrumb from "./BreadCrumb/BreadCrumb"
+import Partner from "./Partner/Partner"
 
 export {
   Blogs,
@@ -35,7 +38,8 @@ export {
   LogoBanner,
   Video,
   Member,
-  CTAArea,
+  CTAAreaTwoCol,
+  CTAAreaThreeCol,
   Blurb,
   MailchimpForm,
   ContactForm,
@@ -44,4 +48,6 @@ export {
   VideoPlayer,
   AboutContainer,
   BreadCrumb,
+  ThreeColumnGrid,
+  Partner,
 }

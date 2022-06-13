@@ -2,12 +2,12 @@ import React from "react"
 import classNames from "classnames"
 
 // styles
-import "./two-column-grid.css"
+import "./three-column-grid.css"
 
-const TwoColumnGrid = ({ children, customClass }) => {
-  const classes = classNames("two-col-grid", {
+const ThreeColumnGrid = ({ children, customClass }) => {
+  const classes = classNames("three-col-grid", {
     [customClass]: Boolean(customClass),
   })
   return <section className={classes}>{children}</section>
 }
-export default TwoColumnGrid
+export default ThreeColumnGrid

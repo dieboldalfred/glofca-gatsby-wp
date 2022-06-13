@@ -182,7 +182,7 @@ p {
   width: 70vw;
 }
 .blog-featured-image {
-  margin-bottom: 32px;
+  margin-bottom: 50px;
 }
 /* team */
 .team-center {
@@ -193,8 +193,8 @@ p {
 .team-center--item {
   align-self: end;
 }
-/*partner*/
-.partner--image {
+/* partner image on teams */
+.partner--logo {
   display: flex;
   justify-content: center;
   margin-top: 50px;

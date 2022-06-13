@@ -7,7 +7,7 @@ import { Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 
 // utils
-import { clearHtml } from "../utils/typography"
+import { sanitizeHtml, clearHtml } from "../utils/typography"
 
 const BlogTemplate = data => {
   const { id, title, content, featuredImage } = data.data.wpPost
@@ -22,9 +22,9 @@ const BlogTemplate = data => {
           />
         </SectionContent>
         <SectionContent customClass="blog-center">
-          {/* <div className="blog--content">{clearHtml(content)}</div> */}
           <div
             className="blog--content"
+            // dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </SectionContent>

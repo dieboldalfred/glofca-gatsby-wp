@@ -11,6 +11,11 @@ export const useGetELibrariesQuery = () => {
               name
             }
           }
+          topics {
+            nodes {
+              name
+            }
+          }
           elibraryFields {
             abstract
             author

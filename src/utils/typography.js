@@ -1,4 +1,4 @@
-import * as sanitizeHtml from "sanitize-html"
+import * as sanitizeHtmlLibrary from "sanitize-html"
 
 export const cutString = (title, maxLength) => {
   if (title?.length > maxLength) {
@@ -7,8 +7,8 @@ export const cutString = (title, maxLength) => {
   return title
 }
 
-export const sanitize = text =>
-  sanitizeHtml(text, {
+export const sanitizeHtml = text =>
+  sanitizeHtmlLibrary(text, {
     allowedTags: ["b", "i", "em", "strong", "a"],
     allowedAttributes: {
       a: ["href"],
@@ -16,7 +16,7 @@ export const sanitize = text =>
   })
 
 export const clearHtml = text =>
-  sanitizeHtml(text, {
+  sanitizeHtmlLibrary(text, {
     allowedTags: [],
     allowedAttributes: [],
   })
