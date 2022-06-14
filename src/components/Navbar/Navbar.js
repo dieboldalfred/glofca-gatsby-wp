@@ -64,7 +64,7 @@ const Navbar = ({ toggleSidebar }) => {
               })}
             </ul>
           </div>
-          <Logo />
+          <Logo size="medium" />
         </div>
       </SectionContent>
     </nav>

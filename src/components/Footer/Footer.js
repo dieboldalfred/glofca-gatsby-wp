@@ -53,7 +53,7 @@ const Footer = () => {
           <Logo
             text="Glacier Lake Outburst Floods in Central Asia"
             customClass="footer--logo"
-            size="logo--image-size-large"
+            size="large"
           />
         </div>
         <div className="footer--col">
@@ -67,11 +67,11 @@ const Footer = () => {
         </div>
       </SectionContent>
       <LogoBanner />
-      <SectionContent>
-        <div>
+      <div className="footer--bottom-row">
+        <SectionContent>
           &copy; {new Date().getFullYear()} GLOFCA. All rights reserved.
-        </div>
-      </SectionContent>
+        </SectionContent>
+      </div>
     </footer>
   )
 }

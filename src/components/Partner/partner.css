@@ -7,3 +7,6 @@
 .partner--image img {
   border-radius: var(--radius);
 }
+.partner--info-title {
+  text-align: center;
+}

@@ -4,7 +4,7 @@
   overflow: hidden;
 }
 .hero-size-full {
-  height: calc(100vh - 111px);
+  height: calc(100vh - 128px);
 }
 .hero-size-large {
   height: 75vh;
@@ -22,7 +22,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
 .hero--info {
   position: absolute;
@@ -56,6 +56,7 @@
   /* margin: 2rem 0 3rem 0; */
   letter-spacing: 3px;
   color: var(--clr-white);
+  font-size: 72px;
 }
 .hero--article-content {
   font-weight: 400;

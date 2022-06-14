@@ -37,9 +37,11 @@ const PartnerTemplate = ({ data, pageContext }) => {
       </div>
       <Section title={title}>
         <SectionContent customClass="blog-center">
-          <div dangerouslySetInnerHTML={{ __html: intro }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(intro) }} />
           <div>Role in the Project:</div>
-          <div dangerouslySetInnerHTML={{ __html: roleInTheProject }} />
+          <div
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(roleInTheProject) }}
+          />
         </SectionContent>
       </Section>
     </Layout>

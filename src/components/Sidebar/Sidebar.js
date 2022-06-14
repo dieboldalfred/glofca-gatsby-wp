@@ -1,6 +1,7 @@
 import React from "react"
 import socialLinks from "../../data/social-links"
 import { IoMdClose } from "react-icons/io"
+import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 // styles
@@ -29,19 +30,24 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     }
   `)
 
+  // menu items without a parent id (top level)
   const menuItems = data.wpMenu.menuItems.nodes.filter(item => !item.parentId)
+
+  // all ids from top level menu items
   const menuIds = menuItems.map(item => {
     return item.id
   })
 
+  // create an object with switches for changing later
   const initialObj = menuIds.reduce((acc, id) => {
     acc[id] = false
-
     return acc
   }, {})
 
+  // initial state with initialObj
   const [menuItemIsClicked, setMenuItemIsClicked] = React.useState(initialObj)
 
+  // function to switch switches in state
   const onMenuItemClick = id => {
     // todo
     setMenuItemIsClicked({
@@ -59,20 +65,24 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <ul className="sidebar-links">
           {menuItems.map(item => {
             const { id, label, path, childItems } = item
-            const itemHasChildren = Boolean(item.childItems.nodes.length) // length = number == vs === true boolean
-
+            const itemHasChildren = Boolean(item.childItems.nodes.length)
             const subMenuItems = childItems.nodes
-            // withChildren => function()
             return (
               <li key={id}>
                 {itemHasChildren ? (
                   <React.Fragment>
-                    <span
+                    <div
                       activeClassName="active"
+                      className="sidebar-links--link"
                       onClick={() => onMenuItemClick(id)}
                     >
                       {label}
-                    </span>
+                      {menuItemIsClicked[id] ? (
+                        <AiOutlineCaretUp />
+                      ) : (
+                        <AiOutlineCaretDown />
+                      )}
+                    </div>
                     {/* {subMenuItems} */}
                     <div className="sidebar-links--sub-menu">
                       {menuItemIsClicked[id]
@@ -91,7 +101,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                     </div>
                   </React.Fragment>
                 ) : (
-                  <Link to={path} activeClassName="active">
+                  <Link
+                    to={path}
+                    activeClassName="active"
+                    className="sidebar-links--link"
+                  >
                     {label}
                   </Link>
                 )}

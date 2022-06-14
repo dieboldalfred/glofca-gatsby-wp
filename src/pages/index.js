@@ -69,13 +69,13 @@ const HomePage = () => {
       />
 
       <Cards title="Projects" link="projects" items={projects} />
+      <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
       <Hero
         title={home.ourVisionTitle}
         content={home.ourVisionText}
         image={home.ourVisionImage.localFile}
       />
       <Cards title="Themes" link="themes" items={themes} />
-      <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
     </Layout>
   )
 }

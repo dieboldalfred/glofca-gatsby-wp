@@ -6,14 +6,14 @@ import { Link } from "gatsby"
 // styles
 import "./logo.css"
 
-const Logo = ({ text, customClass, size }) => {
+const Logo = ({ text, customClass, size = "small" }) => {
   return (
     <div
       className={classNames("logo", {
         [customClass]: customClass,
       })}
     >
-      <div className={`logo--image ${size}`}>
+      <div className={`logo--image-size-${size}`}>
         <Link to="/">
           <StaticImage
             src="../../assets/images/logo.png"

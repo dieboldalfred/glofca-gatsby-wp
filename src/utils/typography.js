@@ -9,7 +9,7 @@ export const cutString = (title, maxLength) => {
 
 export const sanitizeHtml = text =>
   sanitizeHtmlLibrary(text, {
-    allowedTags: ["b", "i", "em", "strong", "a"],
+    allowedTags: ["b", "i", "em", "strong", "a", "span", "img"],
     allowedAttributes: {
       a: ["href"],
     },

@@ -1,3 +1,9 @@
+.footer--col-menu {
+  padding: 0;
+}
 .footer--col-menu li {
   margin-bottom: 8px;
+}
+.footer--col-title {
+  text-align: left;
 }

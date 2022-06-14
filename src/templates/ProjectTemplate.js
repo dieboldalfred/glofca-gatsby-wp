@@ -23,7 +23,7 @@ const ProjectTemplate = data => {
         <SectionContent customClass="blog-center">
           <div
             className="blog--content"
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
+            dangerouslySetInnerHTML={{ __html: content }}
           />
         </SectionContent>
       </Section>
