@@ -1,5 +1,5 @@
 .sidebar {
-  background-color: var(--clr-primary-7);
+  background-color: var(--clr-primary-6);
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,8 @@
 }
 @media screen and (min-width: 992px) {
   .sidebar {
-    width: 300px;
+    width: 320px;
+    padding-right: 32px;
   }
 }
 .show-sidebar {

@@ -3,6 +3,7 @@
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   margin-top: 8px;
+  box-shadow: var(--light-shadow);
 }
 .videoplayer iframe {
   position: absolute;

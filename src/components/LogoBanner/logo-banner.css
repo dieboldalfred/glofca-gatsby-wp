@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   padding: 16px 0;
-  background-color: var(--clr-primary-8);
+  background-color: var(--clr-primary-4);
+  color: var(--clr-grey-10);
 }
 .logo-banner--container {
   display: flex;

@@ -10,6 +10,7 @@ import {
 // import { Table } from "reactstrap"
 import { Table, Row, Col, Button, Input, CustomInput } from "reactstrap"
 import { Filter, DefaultColumnFilter } from "../../utils/filters"
+import { cutString } from "../../utils/typography"
 
 // https://medium.com/@thewidlarzgroup/react-table-7-sorting-filtering-pagination-and-more-6bc28af104d6
 
@@ -100,7 +101,9 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
           })}
         </tbody>
       </Table>
-      <Row style={{ maxWidth: 1000, margin: "0 auto", textAlign: "center" }}>
+      <Row
+        style={{ maxWidth: "1170px", margin: "0 auto", textAlign: "center" }}
+      >
         <Col md={3}>
           <Button
             color="primary"
@@ -133,19 +136,15 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
             onChange={onChangeInInput}
           />
         </Col>
-        {/* <Col md={2}>
-          <CustomInput
-            type="select"
-            value={pageSize}
-            onChange={onChangeInSelect}
-          >
+        <Col md={2}>
+          <Input type="select" value={pageSize} onChange={onChangeInSelect}>
             {[10, 20, 30, 40, 50].map(pageSize => (
               <option key={pageSize} value={pageSize}>
                 Show {pageSize}
               </option>
             ))}
-          </CustomInput>
-        </Col> */}
+          </Input>
+        </Col>
         <Col md={3}>
           <Button color="primary" onClick={nextPage} disabled={!canNextPage}>
             {">"}

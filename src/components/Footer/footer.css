@@ -5,7 +5,7 @@
 .footer--menu {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 16px 0;
+  padding: 32px 0;
 }
 .footer--col {
   padding-right: 72px;
@@ -15,7 +15,7 @@
   text-align: left;
 }
 .footer .logo--banner {
-  background-color: var(--clr-primary-9);
+  background-color: var(--clr-primary-5);
 }
 .footer--links ul {
   display: flex;
@@ -26,7 +26,7 @@
   color: var(--clr-black);
 }
 .footer--bottom-row {
-  background-color: var(--clr-primary-7);
+  background-color: var(--clr-primary-6);
   padding: 16px 0;
 }
 @media screen and (min-width: 992px) {

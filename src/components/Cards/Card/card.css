@@ -5,13 +5,13 @@
 }
 .card-img:after {
   content: "";
-  width: 100%;
-  background: rgba(0, 0, 0, 0.25);
-  height: 100%;
   position: absolute;
   top: 0;
-  transition: background-color 500ms linear;
   left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  transition: background-color 300ms ease-in;
 }
 .card-article {
   box-shadow: var(--light-shadow);
@@ -26,7 +26,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius);
-  background: var(--clr-primary-7);
+  background: var(--clr-primary-5);
 }
 .card-container:hover .card-img {
   opacity: 0.2;
