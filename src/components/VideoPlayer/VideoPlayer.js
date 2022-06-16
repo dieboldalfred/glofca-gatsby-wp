@@ -4,7 +4,7 @@ import "./videoplayer.css"
 
 const VideoPlayer = ({ videoURL }) => {
   return (
-    <div className="videoplayer">
+    <div className="videoplayer videoplayer--cta">
       <iframe
         width="560"
         height="315"

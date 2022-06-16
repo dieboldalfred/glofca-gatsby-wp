@@ -1,7 +1,7 @@
 .cta-three-col {
-  background-color: var(--clr-primary-5);
+  background-color: var(--clr-light-grey);
 }
-.cta--media {
+/* .cta--media {
   border: 1px solid black;
   display: grid;
   place-items: flex-end;
@@ -12,4 +12,4 @@
 .cta--info {
   border: 1px solid black;
   padding-left: 16px;
-}
+} */

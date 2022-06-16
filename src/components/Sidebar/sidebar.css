@@ -12,7 +12,7 @@
 }
 @media screen and (min-width: 992px) {
   .sidebar {
-    width: 320px;
+    width: 400px;
     padding-right: 32px;
   }
 }
@@ -23,8 +23,6 @@
   margin-left: 32px;
   margin-top: 100px;
 }
-.sidebar-links li {
-}
 .sidebar-links--link {
   display: block;
   text-transform: capitalize;
@@ -32,12 +30,11 @@
   letter-spacing: var(--spacing);
   margin-bottom: 0.25rem;
   font-size: 24px;
-  /* transition: var(--transition); */
   border-radius: var(--radius);
 }
 .sidebar-links--link:hover {
-  /* background: var(--clr-primary-9); */
-  color: var(--clr-primary-8);
+  text-decoration: underline;
+  color: var(--clr-white);
   cursor: pointer;
 }
 .sidebar-links--sub-menu {
@@ -51,7 +48,6 @@
   font-size: 16px;
 }
 .sidebar-links--sub-menu--link:hover {
-  /* background: var(--clr-primary-9); */
   color: var(--clr-black);
 }
 .close-btn {
@@ -64,76 +60,7 @@
   color: var(--clr-white);
   cursor: pointer;
 }
-/* @media screen and (min-width: 992px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-} */
-/*
-===============
-Sidebar Animation
-===============
-*/
-/* .sidebar-links li {
-  animation: slideRight 0.5s ease-in-out 0.3s forwards;
-}
-.sidebar-links li:nth-of-type(1) {
-  animation-delay: 0.25s;
-}
-.sidebar-links li:nth-of-type(2) {
-  animation-delay: 0.5s;
-}
-.sidebar-links li:nth-of-type(3) {
-  animation-delay: 0.75s;
-}
-.sidebar-links li:nth-of-type(4) {
-  animation-delay: 1s;
-}
-.sidebar-links li:nth-of-type(5) {
-  animation-delay: 1.25s;
-} */
-/* @keyframes slideRight {
-  0% {
-    transform: translateX(-200px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-.sidebar-icons li {
-  opacity: 0;
-  animation: slideUp 0.5s ease-in-out 0.3s forwards;
-}
-.sidebar-icons li a {
-  color: var(--clr-grey-1);
-}
-.sidebar-icons li:nth-of-type(1) {
-  animation-delay: 0.25s;
-}
-.sidebar-icons li:nth-of-type(2) {
-  animation-delay: 0.5s;
-}
-.sidebar-icons li:nth-of-type(3) {
-  animation-delay: 0.75s;
-}
-.sidebar-icons li:nth-of-type(4) {
-  animation-delay: 1s;
-}
-.sidebar-icons li:nth-of-type(5) {
-  animation-delay: 1.25s;
-}
-@keyframes slideUp {
-  0% {
-    transform: translateY(200px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-} */
+
 /* social links */
 .social-links {
   margin-top: 2rem;
@@ -145,7 +72,6 @@ Sidebar Animation
 .social-link {
   font-size: 1.75rem;
   color: var(--clr-grey-1);
-  /* transition: var(--transition); */
   margin-right: 8px;
 }
 .social-link:hover {
