@@ -10,7 +10,6 @@ import { Section, SectionContent, BreadCrumb } from "../components"
 import { sanitizeHtml, clearHtml } from "../utils/typography"
 
 const PartnerTemplate = ({ data, pageContext }) => {
-  console.log(data)
   const {
     title,
     featuredImage,

@@ -1,13 +1,13 @@
 .breadcrumb {
   font-size: 16px;
-  width: 90vw;
+  /* width: 90vw; */
   margin: 8px 0;
 }
 @media screen and (min-width: 992px) {
   .breadcrumb {
-    margin: 10px 0 10px 90px;
+    margin: 16px 0;
   }
 }
 .breadcrumb--divider {
-  margin: 0 10px;
+  margin: 0 8px;
 }

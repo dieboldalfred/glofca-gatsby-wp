@@ -14,6 +14,7 @@ const Footer = () => {
   const data = useStaticQuery(graphql`
     {
       projects: wpMenu(name: { eq: "Projects" }) {
+        name
         menuItems {
           nodes {
             label
@@ -24,6 +25,7 @@ const Footer = () => {
         }
       }
       themes: wpMenu(name: { eq: "Themes" }) {
+        name
         menuItems {
           nodes {
             label
@@ -34,6 +36,7 @@ const Footer = () => {
         }
       }
       databases: wpMenu(name: { eq: "Databases" }) {
+        name
         menuItems {
           nodes {
             label
@@ -57,13 +60,13 @@ const Footer = () => {
           />
         </div>
         <div className="footer--col">
-          <FooterMenu menuName="Knowledge" list={data.databases} />
+          <FooterMenu menuName={data.databases.name} list={data.databases} />
         </div>
         <div className="footer--col">
-          <FooterMenu menuName="Project" list={data.projects} />
+          <FooterMenu menuName={data.projects.name} list={data.projects} />
         </div>
         <div className="footer--col">
-          <FooterMenu menuName="Themes" list={data.themes} />
+          <FooterMenu menuName={data.themes.name} list={data.themes} />
         </div>
       </SectionContent>
       <LogoBanner />

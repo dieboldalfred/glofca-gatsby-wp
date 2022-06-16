@@ -56,6 +56,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: blogTemplate,
       context: {
         slugQuery: { eq: slug },
+        uri: "/blog",
+        title: "Blog",
       },
     })
   })
@@ -73,21 +75,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       })
     })
   })
-
-  // // create pages for databases
-  // result.data.databases.nodes.forEach(node => {
-  //   node.pages.nodes.forEach(database => {
-  //     const { slug } = database
-  //     createPage({
-  //       path: `/databases/${slug}`,
-  //       component: databaseTemplate,
-  //       context: {
-  //         slugQuery: { eq: slug },
-  //         title: "my database",
-  //       },
-  //     })
-  //   })
-  // })
 
   // create pages for projects
   result.data.projects.nodes.forEach(node => {

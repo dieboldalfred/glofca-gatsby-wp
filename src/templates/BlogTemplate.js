@@ -3,17 +3,26 @@ import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // components
-import { Section, SectionContent } from "../components"
+import { Section, SectionContent, BreadCrumb } from "../components"
 import Layout from "../components/Layout"
 
 // utils
 import { sanitizeHtml, clearHtml } from "../utils/typography"
 
-const BlogTemplate = data => {
-  const { id, title, content, featuredImage } = data.data.wpPost
+const BlogTemplate = ({ data, pageContext }) => {
+  const { id, title, content, featuredImage } = data.wpPost
+  console.log(data)
 
   return (
     <Layout>
+      <SectionContent>
+        <BreadCrumb
+          parent={{
+            uri: pageContext.uri,
+            title: pageContext.title,
+          }}
+        />
+      </SectionContent>
       <Section title={title}>
         <SectionContent customClass="blog-featured-image">
           <GatsbyImage
