@@ -71,7 +71,8 @@ const Footer = () => {
       </SectionContent>
       <LogoBanner />
       <div className="footer--bottom-row">
-        <SectionContent>
+        <SectionContent customClass="footer--bottom-row-container">
+          <Logo customClass="footer--logo" />
           &copy; {new Date().getFullYear()} GLOFCA. All rights reserved.
         </SectionContent>
       </div>

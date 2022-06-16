@@ -6,12 +6,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Section, SectionContent, BreadCrumb } from "../components"
 import Layout from "../components/Layout"
 
-// utils
-import { sanitizeHtml, clearHtml } from "../utils/typography"
-
 const BlogTemplate = ({ data, pageContext }) => {
   const { id, title, content, featuredImage } = data.wpPost
-  console.log(data)
 
   return (
     <Layout>
