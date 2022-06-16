@@ -1,13 +1,15 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // components
 import { Section, SectionContent, BreadCrumb } from "../components"
+import Blog from "../components/Blogs/Blog/Blog"
 import Layout from "../components/Layout"
 
 const BlogTemplate = ({ data, pageContext }) => {
-  const { id, title, content, featuredImage } = data.wpPost
+  console.log(data)
+  const { title, content, featuredImage, related_posts } = data.wpPost
 
   return (
     <Layout>
@@ -32,6 +34,30 @@ const BlogTemplate = ({ data, pageContext }) => {
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </SectionContent>
+        <SectionContent>
+          <aside className="">
+            <h3>Related Posts:</h3>
+            <ul>
+              {related_posts?.nodes?.map(post => {
+                const { slug, uri, title, excerpt, featuredImage } = post
+                return (
+                  <li key={slug}>
+                    {title}
+                    {/* <Link to={uri} rel="bookmark">
+                      {title}
+                      <Blog
+                        title={title}
+                        // content={content}
+                        image={featuredImage}
+                        excerpt={excerpt}
+                      />
+                    </Link> */}
+                  </li>
+                )
+              })}
+            </ul>
+          </aside>
+        </SectionContent>
       </Section>
     </Layout>
   )
@@ -40,7 +66,6 @@ const BlogTemplate = ({ data, pageContext }) => {
 export const query = graphql`
   query GetBlogPage($slugQuery: StringQueryOperatorInput) {
     wpPost(slug: $slugQuery) {
-      id
       title
       uri
       content
@@ -58,3 +83,21 @@ export const query = graphql`
 `
 
 export default BlogTemplate
+
+// related_posts {
+//         nodes {
+//           title
+//           slug
+//           uri
+//           excerpt
+//           featuredImage {
+//             node {
+//               localFile {
+//                 childImageSharp {
+//                   gatsbyImageData(placeholder: TRACED_SVG)
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
