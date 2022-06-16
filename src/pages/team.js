@@ -9,8 +9,6 @@ import { Section, SectionContent, Member, Partner } from "../components"
 // styles
 
 const Team = data => {
-  const KazName = data.data.kazakhstanPartners.nodes[0].name
-
   return (
     <Layout>
       <Section customClass="team" title="Team GLOFCA">
@@ -35,9 +33,9 @@ const Team = data => {
         </SectionContent>
       </Section>
 
-      <Section customClass="team" title={KazName}>
+      <Section customClass="team" title="Kazakhstan Partners">
         <SectionContent customClass="team-center">
-          {data.data.kazakhstanPartners.nodes[0].partners.nodes.map(partner => {
+          {data.data.kazakhstanPartners.nodes.map(partner => {
             const { id, featuredImage, title, slug } = partner
             return (
               <Link to={`/partners/${slug}`} className="team-center--item">
@@ -73,27 +71,26 @@ export const query = graphql`
         }
       }
     }
-    kazakhstanPartners: allWpCategory(
-      filter: { slug: { eq: "kazakhstan-partners" } }
+    kazakhstanPartners: allWpPartner(
+      filter: {
+        categories: {
+          nodes: { elemMatch: { slug: { eq: "kazakhstan-partners" } } }
+        }
+      }
     ) {
       nodes {
-        name
-        partners {
-          nodes {
-            id
-            title
-            slug
-            featuredImage {
-              node {
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(
-                      placeholder: TRACED_SVG
-                      width: 200
-                      height: 200
-                    )
-                  }
-                }
+        title
+        slug
+        id
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  width: 200
+                  height: 200
+                )
               }
             }
           }
