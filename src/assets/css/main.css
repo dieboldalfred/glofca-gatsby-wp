@@ -192,8 +192,11 @@ p {
   margin-left: auto;
   margin-right: auto;
 }
-/* section */
-
+/* blog */
+.blog--content p:last-child,
+.blog--content div:last-child {
+  margin-bottom: 0;
+}
 @media screen and (min-width: 992px) {
   .blog-center {
     width: 70vw;
@@ -220,6 +223,6 @@ p {
 .partner--role {
   margin-bottom: 20px;
 }
-.last--text {
+.partner--description p:last-child {
   margin-bottom: 0;
 }

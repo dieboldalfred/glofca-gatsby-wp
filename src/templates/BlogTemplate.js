@@ -1,18 +1,26 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { useMediaQuery } from "react-responsive"
 
 // components
-import { Section, SectionContent, BreadCrumb } from "../components"
-import Blog from "../components/Blogs/Blog/Blog"
+import { Section, SectionContent, BreadCrumb, Blogs } from "../components"
 import Layout from "../components/Layout"
 
 const BlogTemplate = ({ data, pageContext }) => {
-  console.log(data)
   const { title, content, featuredImage, related_posts } = data.wpPost
+
+  const isTabletorMobile = useMediaQuery({
+    query: "(max-width: 1224px)",
+  })
 
   return (
     <Layout>
+      <SectionContent title="Title">
+        <p>Description</p>
+        <Link to="/">English</Link>
+        <Link to="/ru">Russian</Link>
+      </SectionContent>
       <SectionContent>
         <BreadCrumb
           parent={{
@@ -35,28 +43,17 @@ const BlogTemplate = ({ data, pageContext }) => {
           />
         </SectionContent>
         <SectionContent>
-          <aside className="">
-            <h3>Related Posts:</h3>
-            <ul>
-              {related_posts?.nodes?.map(post => {
-                const { slug, uri, title, excerpt, featuredImage } = post
-                return (
-                  <li key={slug}>
-                    {title}
-                    {/* <Link to={uri} rel="bookmark">
-                      {title}
-                      <Blog
-                        title={title}
-                        // content={content}
-                        image={featuredImage}
-                        excerpt={excerpt}
-                      />
-                    </Link> */}
-                  </li>
-                )
-              })}
-            </ul>
-          </aside>
+          {isTabletorMobile ? (
+            <Blogs
+              title="Related Posts"
+              posts={related_posts.nodes.slice(0, 2)}
+            />
+          ) : (
+            <Blogs
+              title="Related Posts"
+              posts={related_posts.nodes.slice(0, 3)}
+            />
+          )}
         </SectionContent>
       </Section>
     </Layout>
@@ -78,26 +75,25 @@ export const query = graphql`
           }
         }
       }
+      related_posts {
+        nodes {
+          title
+          slug
+          uri
+          excerpt
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(placeholder: TRACED_SVG)
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 `
 
 export default BlogTemplate
-
-// related_posts {
-//         nodes {
-//           title
-//           slug
-//           uri
-//           excerpt
-//           featuredImage {
-//             node {
-//               localFile {
-//                 childImageSharp {
-//                   gatsbyImageData(placeholder: TRACED_SVG)
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }

@@ -19,7 +19,7 @@ import Layout from "../../components/Layout"
 import { DefaultColumnFilter, SelectColumnFilter } from "../../utils/filters"
 
 // utils
-import { sanitizeHtml, clearHtml } from "../../utils/typography"
+import { clearHtml } from "../../utils/typography"
 
 // hooks
 import { useGetELibrariesQuery } from "../../hooks/useGetELibaries"

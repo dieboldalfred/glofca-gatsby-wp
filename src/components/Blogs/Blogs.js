@@ -26,7 +26,6 @@ const Blogs = ({ title, posts, showLink }) => {
             <Blog
               key={id}
               title={title}
-              content={content}
               image={featuredImage}
               slug={slug}
               excerpt={excerpt}
