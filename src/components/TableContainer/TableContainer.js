@@ -102,25 +102,34 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
         </tbody>
       </Table>
       <Row
-        style={{ maxWidth: "1170px", margin: "0 auto", textAlign: "center" }}
+        style={{
+          maxWidth: "1170px",
+          margin: "0 auto",
+          textAlign: "center",
+          alignItems: "center",
+        }}
       >
         <Col md={3}>
-          <Button
-            color="primary"
-            onClick={() => gotoPage(0)}
-            disabled={!canPreviousPage}
-          >
-            {"<<"}
-          </Button>
-          <Button
-            color="primary"
-            onClick={previousPage}
-            disabled={!canPreviousPage}
-          >
-            {"<"}
-          </Button>
+          {canPreviousPage && (
+            <React.Fragment>
+              <Button
+                color="primary"
+                onClick={() => gotoPage(0)}
+                disabled={!canPreviousPage}
+              >
+                {"<<"}
+              </Button>
+              <Button
+                color="primary"
+                onClick={previousPage}
+                disabled={!canPreviousPage}
+              >
+                {"<"}
+              </Button>
+            </React.Fragment>
+          )}
         </Col>
-        <Col md={2} style={{ marginTop: 7 }}>
+        <Col md={2}>
           Page{" "}
           <strong>
             {pageIndex + 1} of {pageOptions.length}
@@ -146,16 +155,24 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
           </Input>
         </Col>
         <Col md={3}>
-          <Button color="primary" onClick={nextPage} disabled={!canNextPage}>
-            {">"}
-          </Button>
-          <Button
-            color="primary"
-            onClick={() => gotoPage(pageCount - 1)}
-            disabled={!canNextPage}
-          >
-            {">>"}
-          </Button>
+          {canNextPage && (
+            <>
+              <Button
+                color="primary"
+                onClick={nextPage}
+                disabled={!canNextPage}
+              >
+                {">"}
+              </Button>
+              <Button
+                color="primary"
+                onClick={() => gotoPage(pageCount - 1)}
+                disabled={!canNextPage}
+              >
+                {">>"}
+              </Button>
+            </>
+          )}
         </Col>
       </Row>
     </Fragment>

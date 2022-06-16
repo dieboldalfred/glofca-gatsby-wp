@@ -4,8 +4,8 @@ import classNames from "classnames"
 // styles
 import "./two-column-grid.css"
 
-const TwoColumnGrid = ({ children, customClass }) => {
-  const classes = classNames("two-col-grid", {
+const TwoColumnGrid = ({ children, customClass, format = "uneven" }) => {
+  const classes = classNames(`two-col-grid--${format}`, {
     [customClass]: Boolean(customClass),
   })
   return <section className={classes}>{children}</section>

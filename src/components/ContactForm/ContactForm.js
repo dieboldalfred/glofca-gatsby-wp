@@ -4,25 +4,38 @@ import "./contact-form.css"
 
 const ContactForm = () => {
   return (
-    <form method="post" action="#" className="contact-form">
-      <label>
-        Name
-        <input type="text" name="name" id="name" />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" id="email" />
-      </label>
-      <label>
-        Subject
-        <input type="text" name="subject" id="subject" />
-      </label>
-      <label>
-        Message
-        <textarea name="message" id="message" rows="5" />
-      </label>
-      <button type="submit">Send</button>
-      <input type="reset" value="Clear" />
+    <form
+      action="https://formspree.io/f/xlezvvzj"
+      method="POST"
+      className="contact-form"
+    >
+      <label className="contact-form--label">Name</label>
+      <input
+        className="contact-form--input"
+        type="text"
+        name="name"
+        id="name"
+      />
+      <label className="contact-form--label">Email</label>
+      <input
+        className="contact-form--input"
+        type="email"
+        name="email"
+        id="email"
+      />
+      <label className="contact-form--label">Message</label>
+      <textarea
+        className="contact-form--input"
+        name="message"
+        id="message"
+        rows="5"
+      />
+      <div className="contact-form--button-container">
+        <button className="btn contact-form--submit" type="submit">
+          Submit
+        </button>
+        <input className="btn contact-form--clear" type="reset" value="Clear" />
+      </div>
     </form>
   )
 }

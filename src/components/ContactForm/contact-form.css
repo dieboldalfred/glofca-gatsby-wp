@@ -1,4 +1,23 @@
-.contact-form label input {
+.contact-form--label {
   display: block;
+  width: 100%;
+}
+.contact-form--input {
+  display: block;
+  width: 100%;
+  padding: 8px 8px;
+  margin: 8px 0;
+  border: 0px;
+  border-radius: var(--radius);
+}
+.contact-form--button-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  margin-top: 16px;
+  gap: 8px;
+}
+.contact-form--submit,
+.contact-form--clear {
   width: 100%;
 }

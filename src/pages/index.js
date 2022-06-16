@@ -10,6 +10,7 @@ import {
   MailchimpForm,
   Blurb,
   VideoPlayer,
+  ScrollButton,
 } from "../components"
 import Layout from "../components/Layout"
 import subThemes from "../constants/themes"
@@ -33,6 +34,7 @@ const HomePage = () => {
 
   return (
     <Layout>
+      <ScrollButton />
       <Hero
         title={home.heroTitle}
         image={home.heroImage.localFile}
@@ -41,7 +43,7 @@ const HomePage = () => {
       />
       <LogoBanner />
       <CTAAreaTwoCol
-        leftColumn={<Blurb heading={home.cta1Title} />}
+        leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={<VideoPlayer videoURL={home.cta1Media} />}
       />
       {/* <Video

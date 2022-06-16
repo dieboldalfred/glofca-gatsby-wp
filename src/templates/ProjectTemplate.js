@@ -2,24 +2,27 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // components
-import { Hero, Section, SectionContent } from "../components"
+import { Hero, BreadCrumb, Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 
 // utils
 import { sanitizeHtml, clearHtml } from "../utils/typography"
 
 const ProjectTemplate = data => {
-  const { title, featuredImage, content } = data.data.wpPage
+  const { title, content } = data.data.wpPage
 
   return (
     <Layout>
-      <Hero
+      <SectionContent>
+        <BreadCrumb />
+      </SectionContent>
+      {/* <Hero
         title={title}
         image={featuredImage.node.localFile}
         height="medium"
         align="center"
-      />
-      <Section>
+      /> */}
+      <Section title={title}>
         <SectionContent customClass="blog-center">
           <div
             className="blog--content"
@@ -38,15 +41,6 @@ export const query = graphql`
       title
       uri
       content
-      featuredImage {
-        node {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(placeholder: TRACED_SVG)
-            }
-          }
-        }
-      }
     }
   }
 `

@@ -20,7 +20,7 @@ const About = () => {
     <Layout>
       <Section title="About">
         <SectionContent customClass="about">
-          <AboutContainer title={data.aboutTitle} text={data.about} />
+          <AboutContainer text={data.about} />
           <AboutContainer title={data.ourMissionTitle} text={data.ourMission} />
           <AboutContainer title={data.ourVisionTitle} text={data.ourVision} />
           <AboutContainer title={data.goalsTitle} text={data.goalsText} />
@@ -28,7 +28,11 @@ const About = () => {
             title={data.objectivesTitle}
             text={data.objectivesText}
           />
-          <AboutContainer title={data.valuesTitle} text={data.valuesText} />
+          <AboutContainer
+            title={data.valuesTitle}
+            text={data.valuesText}
+            last="about--container-last"
+          />
         </SectionContent>
       </Section>
       <CTAAreaTwoCol rightColumn={<MailchimpForm />} />

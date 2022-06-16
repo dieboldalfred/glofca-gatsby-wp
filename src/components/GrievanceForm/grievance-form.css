@@ -1,0 +1,18 @@
+.grievance-form--label {
+  display: block;
+  width: 100%;
+}
+.grievance-form--input {
+  display: block;
+  width: 100%;
+  padding: 8px 8px;
+  margin: 8px 0;
+  border: 0px;
+  border-radius: var(--radius);
+}
+.grievance-form--submit,
+.grievance-form--clear {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+}

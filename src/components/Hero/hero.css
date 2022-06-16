@@ -39,12 +39,13 @@
 .hero--article {
   /* padding: 70px 0; */
   /* width: var(--max-width); */
-  max-width: 670px;
+  /* max-width: 670px; */
   color: var(--clr-white);
   flex-grow: 1;
 }
 .hero--article-align-left {
   text-align: left;
+  max-width: 670px;
 }
 .hero--article-align-center {
   text-align: center;

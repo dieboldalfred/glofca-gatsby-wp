@@ -10,3 +10,6 @@
   /* color: var(--clr-white); */
   color: var(--clr-grey-10);
 }
+.blurb--headings {
+  margin-bottom: 16px;
+}

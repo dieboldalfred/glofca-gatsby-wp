@@ -23,6 +23,8 @@ import VideoPlayer from "./VideoPlayer/VideoPlayer"
 import AboutContainer from "./AboutContainer/AboutContainer"
 import BreadCrumb from "./BreadCrumb/BreadCrumb"
 import Partner from "./Partner/Partner"
+import GrievanceForm from "./GrievanceForm/GrievanceForm"
+import ScrollButton from "./ScrollButton/ScrollButton"
 
 export {
   Blogs,
@@ -50,4 +52,6 @@ export {
   BreadCrumb,
   ThreeColumnGrid,
   Partner,
+  GrievanceForm,
+  ScrollButton,
 }

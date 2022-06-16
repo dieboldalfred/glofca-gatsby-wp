@@ -16,16 +16,14 @@ const PartnerTemplate = ({ data, pageContext }) => {
     featuredImage,
     partnerFields: { intro, roleInTheProject },
   } = data.wpPartner
-  const pageTitle = pageContext.title
-  const pageURI = pageContext.uri
 
   return (
     <Layout>
       <SectionContent>
         <BreadCrumb
           parent={{
-            uri: pageURI,
-            title: pageTitle,
+            uri: pageContext.uri,
+            title: pageContext.title,
           }}
         />
       </SectionContent>
@@ -36,11 +34,17 @@ const PartnerTemplate = ({ data, pageContext }) => {
         />
       </div>
       <Section title={title}>
-        <SectionContent customClass="blog-center">
-          <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(intro) }} />
-          <div>Role in the Project:</div>
-          <div
-            dangerouslySetInnerHTML={{ __html: sanitizeHtml(roleInTheProject) }}
+        <SectionContent customClass="blog-center partner--description">
+          <p
+            className="partner--text"
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(intro) }}
+          />
+          <h4 className="partner--role">Role in the Project:</h4>
+          <p
+            className="partner--text last--text"
+            dangerouslySetInnerHTML={{
+              __html: sanitizeHtml(roleInTheProject),
+            }}
           />
         </SectionContent>
       </Section>

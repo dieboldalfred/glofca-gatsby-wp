@@ -3,10 +3,10 @@ import classNames from "classnames"
 
 // styles
 import "./section.css"
-import Title from "../Title/Title"
 
 // comps
 import { SectionContent } from "../index"
+import Title from "../Title/Title"
 
 const Section = ({ title, children, customClass }) => {
   const classes = classNames("section", {

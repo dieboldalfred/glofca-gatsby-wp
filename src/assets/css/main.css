@@ -184,14 +184,19 @@ p {
   height: 0.25rem;
   background-color: var(--clr-primary-5);
 }
+.underline--clr-white {
+  background-color: var(--clr-white);
+}
 .underline-center {
   margin-left: auto;
   margin-right: auto;
 }
 /* section */
-.blog-center {
-  /* padding: 32px 0; */
-  width: 70vw;
+
+@media screen and (min-width: 992px) {
+  .blog-center {
+    width: 70vw;
+  }
 }
 .blog-featured-image {
   margin-bottom: 50px;
@@ -203,11 +208,17 @@ p {
   grid-gap: 2rem 1rem;
 }
 .team-center--item {
-  align-self: end;
+  align-self: start;
 }
 /* partner image on teams */
 .partner--logo {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+}
+.partner--role {
+  margin-bottom: 20px;
+}
+.last--text {
+  margin-bottom: 0;
 }

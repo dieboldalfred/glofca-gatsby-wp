@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState, Fragment } from "react"
 import socialLinks from "../../data/social-links"
 import { IoMdClose } from "react-icons/io"
 import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai"
+import { BsCaretDown, BsCaretUp } from "react-icons/bs"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 // styles
@@ -45,7 +46,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   }, {})
 
   // initial state with initialObj
-  const [menuItemIsClicked, setMenuItemIsClicked] = React.useState(initialObj)
+  const [menuItemIsClicked, setMenuItemIsClicked] = useState(initialObj)
 
   // function to switch switches in state
   const onMenuItemClick = id => {
@@ -70,18 +71,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             return (
               <li key={id}>
                 {itemHasChildren ? (
-                  <React.Fragment>
+                  <Fragment>
                     <div
                       activeClassName="active"
                       className="sidebar-links--link"
                       onClick={() => onMenuItemClick(id)}
                     >
                       {label}
-                      {menuItemIsClicked[id] ? (
-                        <AiOutlineCaretUp />
-                      ) : (
-                        <AiOutlineCaretDown />
-                      )}
+                      {menuItemIsClicked[id] ? <BsCaretUp /> : <BsCaretDown />}
                     </div>
                     {/* {subMenuItems} */}
                     <div className="sidebar-links--sub-menu">
@@ -90,6 +87,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                             const { id, path, label } = subMenuItem
                             return (
                               <Link
+                                key={id}
                                 className="sidebar-links--sub-menu--link"
                                 to={path}
                               >
@@ -99,7 +97,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                           })
                         : null}
                     </div>
-                  </React.Fragment>
+                  </Fragment>
                 ) : (
                   <Link
                     to={path}

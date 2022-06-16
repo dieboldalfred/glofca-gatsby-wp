@@ -1,5 +1,12 @@
 .about--container {
-  display: grid;
-  grid-template-columns: 300px auto;
   margin-bottom: 24px;
+}
+.about--container-last {
+  margin-bottom: 0px;
+}
+@media screen and (min-width: 992px) {
+  .about--container {
+    display: grid;
+    grid-template-columns: 300px auto;
+  }
 }

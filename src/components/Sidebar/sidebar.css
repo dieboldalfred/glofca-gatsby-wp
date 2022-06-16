@@ -31,13 +31,13 @@
   color: var(--clr-white);
   letter-spacing: var(--spacing);
   margin-bottom: 0.25rem;
-  font-size: 32px;
-  transition: var(--transition);
+  font-size: 24px;
+  /* transition: var(--transition); */
   border-radius: var(--radius);
 }
 .sidebar-links--link:hover {
   /* background: var(--clr-primary-9); */
-  color: var(--clr-black);
+  color: var(--clr-primary-8);
   cursor: pointer;
 }
 .sidebar-links--sub-menu {
@@ -74,7 +74,7 @@
 Sidebar Animation
 ===============
 */
-.sidebar-links li {
+/* .sidebar-links li {
   animation: slideRight 0.5s ease-in-out 0.3s forwards;
 }
 .sidebar-links li:nth-of-type(1) {
@@ -91,8 +91,8 @@ Sidebar Animation
 }
 .sidebar-links li:nth-of-type(5) {
   animation-delay: 1.25s;
-}
-@keyframes slideRight {
+} */
+/* @keyframes slideRight {
   0% {
     transform: translateX(-200px);
     opacity: 0;
@@ -133,7 +133,7 @@ Sidebar Animation
     transform: translateY(0);
     opacity: 1;
   }
-}
+} */
 /* social links */
 .social-links {
   margin-top: 2rem;
@@ -145,7 +145,7 @@ Sidebar Animation
 .social-link {
   font-size: 1.75rem;
   color: var(--clr-grey-1);
-  transition: var(--transition);
+  /* transition: var(--transition); */
   margin-right: 8px;
 }
 .social-link:hover {

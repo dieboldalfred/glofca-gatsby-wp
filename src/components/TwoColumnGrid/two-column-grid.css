@@ -1,7 +1,12 @@
 @media screen and (min-width: 992px) {
-  .two-col-grid {
+  .two-col-grid--uneven {
     display: grid;
     grid-template-columns: 1.5fr 2.5fr;
+    column-gap: 16px;
+  }
+  .two-col-grid--even {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     column-gap: 16px;
   }
 }

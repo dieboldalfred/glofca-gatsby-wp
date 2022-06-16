@@ -1,5 +1,5 @@
 import React from "react"
-import { ContactForm, CTAAreaTwoCol, Blurb } from "../components"
+import { GrievanceForm, CTAAreaTwoCol, Blurb } from "../components"
 import Layout from "../components/Layout"
 
 const Contact = () => {
@@ -7,8 +7,8 @@ const Contact = () => {
     <Layout>
       <CTAAreaTwoCol
         format="even"
-        leftColumn={<Blurb heading="Get In Touch" />}
-        rightColumn={<ContactForm />}
+        leftColumn={<Blurb heading="Submit Feedback" />}
+        rightColumn={<GrievanceForm />}
       />
     </Layout>
   )

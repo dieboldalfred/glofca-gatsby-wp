@@ -9,7 +9,6 @@ const SectionContent = ({ children, customClass }) => {
     [customClass]: Boolean(customClass),
   })
 
-  //section--content -> 980px
   return <section className={classes}>{children}</section>
 }
 
