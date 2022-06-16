@@ -25,8 +25,30 @@ const Navbar = ({ toggleSidebar }) => {
     }
   `)
 
+  // display navbar on scroll up
+  let prevScrollPosition = window.pageYOffset
+  window.onscroll = function () {
+    var currentScrollPosition = window.pageYOffset
+    if (prevScrollPosition > currentScrollPosition) {
+      document.getElementById("navbar").style.top = "0"
+    } else {
+      document.getElementById("navbar").style.top = "-128px"
+    }
+    prevScrollPosition = currentScrollPosition
+    if (
+      document.body.scrollTop > 160 ||
+      document.documentElement.scrollTop > 160
+    ) {
+      document.getElementById("navbar").style.padding = "0 0"
+      // document.getElementById("logo").style.fontSize = "25px"
+    } else {
+      document.getElementById("navbar").style.padding = "24px 0"
+      // document.getElementById("logo").style.fontSize = "35px"
+    }
+  }
+
   return (
-    <nav className="navbar">
+    <nav id="navbar" className="navbar">
       <SectionContent customClass="navbar--content">
         <div className="navbar--left">
           <div className="navbar--menu" onClick={toggleSidebar}>

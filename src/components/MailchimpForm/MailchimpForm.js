@@ -17,9 +17,7 @@ const MailchimpForm = () => {
     setSubmitted(true)
   }
 
-  const handleError = data => {
-    console.log(data.msg)
-  }
+  const handleError = data => {}
 
   const handleChange = e => {
     setEmail(e.target.value)

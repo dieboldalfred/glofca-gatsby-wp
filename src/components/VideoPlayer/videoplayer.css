@@ -3,7 +3,7 @@
   padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   margin-bottom: 20px;
-  /* box-shadow: var(--light-shadow); */
+  box-shadow: var(--box-shadow);
 }
 .videoplayer--cta {
   margin-bottom: 0;

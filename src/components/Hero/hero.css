@@ -5,6 +5,7 @@
 }
 .hero-size-full {
   height: calc(100vh - 128px);
+  /* height: 100vh; */
 }
 .hero-size-large {
   height: 75vh;

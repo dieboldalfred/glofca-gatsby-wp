@@ -3,6 +3,14 @@
   align-items: center;
   padding: 24px 0;
   box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s ease-in-out;
+  z-index: 999;
+  background-color: var(--clr-white);
+  overflow: hidden;
 }
 .navbar--content {
   /* width: 90vw; */
