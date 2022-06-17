@@ -16,11 +16,6 @@ const BlogTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SectionContent title="Title">
-        <p>Description</p>
-        <Link to="/">English</Link>
-        <Link to="/ru">Russian</Link>
-      </SectionContent>
       <SectionContent>
         <BreadCrumb
           parent={{
