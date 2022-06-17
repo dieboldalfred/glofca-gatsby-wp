@@ -3,6 +3,9 @@ import { FaArrowCircleUp } from "react-icons/fa"
 
 import "./scroll-button.css"
 
+// Check if window is defined (so if in the browser or in node.js).
+const isBrowser = typeof window !== "undefined"
+
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false)
 
@@ -24,7 +27,9 @@ const ScrollButton = () => {
     })
   }
 
-  window.addEventListener("scroll", toggleVisible)
+  if (isBrowser) {
+    window.addEventListener("scroll", toggleVisible)
+  }
 
   return (
     <div className="scroll-button">

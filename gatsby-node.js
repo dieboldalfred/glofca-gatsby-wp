@@ -60,7 +60,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const themeTemplate = path.resolve("./src/templates/ThemeTemplate.js")
   const projectTemplate = path.resolve("./src/templates/ProjectTemplate.js")
-  const databaseTemplate = path.resolve("./src/templates/DatabaseTemplate.js")
   const blogTemplate = path.resolve("./src/templates/BlogTemplate.js")
   const partnerTemplate = path.resolve("./src/templates/PartnerTemplate.js")
 

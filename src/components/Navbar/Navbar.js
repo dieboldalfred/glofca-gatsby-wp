@@ -9,6 +9,9 @@ import "./navbar.css"
 // components
 import { Logo, SectionContent } from "../../components"
 
+// Check if window is defined (so if in the browser or in node.js).
+const isBrowser = typeof window !== "undefined"
+
 const Navbar = ({ toggleSidebar }) => {
   const data = useStaticQuery(graphql`
     {
@@ -25,25 +28,30 @@ const Navbar = ({ toggleSidebar }) => {
     }
   `)
 
-  // display navbar on scroll up
-  let prevScrollPosition = window.pageYOffset
-  window.onscroll = function () {
-    var currentScrollPosition = window.pageYOffset
-    if (prevScrollPosition > currentScrollPosition) {
-      document.getElementById("navbar").style.top = "0"
-    } else {
-      document.getElementById("navbar").style.top = "-128px"
-    }
-    prevScrollPosition = currentScrollPosition
-    if (
-      document.body.scrollTop > 160 ||
-      document.documentElement.scrollTop > 160
-    ) {
-      document.getElementById("navbar").style.padding = "0 0"
-      // document.getElementById("logo").style.fontSize = "25px"
-    } else {
-      document.getElementById("navbar").style.padding = "24px 0"
-      // document.getElementById("logo").style.fontSize = "35px"
+  const menu = data.wpMenu.menuItems.nodes
+
+  // display navbar on scroll up + change padding
+  if (isBrowser) {
+    let prevScrollPosition = window.pageYOffset
+    window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset
+      if (prevScrollPosition > currentScrollPosition) {
+        document.getElementById("navbar").style.top = "0"
+      } else {
+        document.getElementById("navbar").style.top = "-128px"
+      }
+      prevScrollPosition = currentScrollPosition
+      // change navbar height on scroll
+      if (
+        document.body.scrollTop > 160 ||
+        document.documentElement.scrollTop > 160
+      ) {
+        document.getElementById("navbar").style.padding = "0 0"
+        // document.getElementById("logo").style.fontSize = "25px"
+      } else {
+        document.getElementById("navbar").style.padding = "24px 0"
+        // document.getElementById("logo").style.fontSize = "35px"
+      }
     }
   }
 
@@ -74,7 +82,7 @@ const Navbar = ({ toggleSidebar }) => {
         <div className="navbar--right">
           <div className="navbar--links">
             <ul>
-              {data.wpMenu.menuItems.nodes.map(item => {
+              {menu.map(item => {
                 const { id, path, label } = item
                 return (
                   <li key={id}>

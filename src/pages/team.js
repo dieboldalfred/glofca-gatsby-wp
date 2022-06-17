@@ -45,6 +45,19 @@ const Team = data => {
           })}
         </SectionContent>
       </Section>
+
+      <Section customClass="team" title="Kyrgyzstan Partners">
+        <SectionContent customClass="team-center">
+          {data.data.kyrgyzstanPartners.nodes.map(partner => {
+            const { id, featuredImage, title, slug } = partner
+            return (
+              <Link to={`/partners/${slug}`} className="team-center--item">
+                <Partner key={id} image={featuredImage} title={title} />
+              </Link>
+            )
+          })}
+        </SectionContent>
+      </Section>
     </Layout>
   )
 }
@@ -75,6 +88,32 @@ export const query = graphql`
       filter: {
         categories: {
           nodes: { elemMatch: { slug: { eq: "kazakhstan-partners" } } }
+        }
+      }
+    ) {
+      nodes {
+        title
+        slug
+        id
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  width: 200
+                  height: 200
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+    kyrgyzstanPartners: allWpPartner(
+      filter: {
+        categories: {
+          nodes: { elemMatch: { slug: { eq: "kyrgyzstan-partners" } } }
         }
       }
     ) {
