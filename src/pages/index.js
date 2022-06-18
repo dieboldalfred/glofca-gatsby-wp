@@ -13,7 +13,7 @@ import {
   ScrollButton,
 } from "../components"
 import Layout from "../components/Layout"
-import subThemes from "../constants/themes"
+import { useMediaQuery } from "react-responsive"
 
 // hooks
 import { useGetThemesQuery } from "../hooks/useGetThemes"
@@ -26,11 +26,14 @@ import { useGetHomepageFieldsQuery } from "../hooks/useGetHomepageFields"
 const HomePage = () => {
   // Graphql
   const themes = useGetThemesQuery()
-  // const themes = useGetPagesQuery("themes")
   const databases = useGetDatabasesQuery()
   const projects = useGetProjectsQuery()
   const posts = useLatestPostsQuery()
   const home = useGetHomepageFieldsQuery()
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  })
 
   return (
     <Layout>
@@ -41,7 +44,7 @@ const HomePage = () => {
         content={home.heroText}
         height="full"
       />
-      <LogoBanner />
+      {isDesktopOrLaptop && <LogoBanner />}
       <CTAAreaTwoCol
         leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={<VideoPlayer videoURL={home.cta1Media} />}

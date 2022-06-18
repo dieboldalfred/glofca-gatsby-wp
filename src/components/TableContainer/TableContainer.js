@@ -10,7 +10,6 @@ import {
 // import { Table } from "reactstrap"
 import { Table, Row, Col, Button, Input, CustomInput } from "reactstrap"
 import { Filter, DefaultColumnFilter } from "../../utils/filters"
-import { cutString } from "../../utils/typography"
 
 // https://medium.com/@thewidlarzgroup/react-table-7-sorting-filtering-pagination-and-more-6bc28af104d6
 
