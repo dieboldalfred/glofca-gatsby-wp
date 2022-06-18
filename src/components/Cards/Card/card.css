@@ -1,6 +1,5 @@
 .card-article {
-}
-.card-article:hover {
+  border-radius: var(--radius);
 }
 .card-container {
   height: 15rem;
@@ -22,8 +21,10 @@
   background: rgba(0, 0, 0, 0.15);
   transition: background-color 200ms ease-in;
 }
-.card-container:hover .card-img {
-  opacity: 0.2;
+@media screen and (min-width: 992px) {
+  .card-container:hover .card-img {
+    opacity: 0.2;
+  }
 }
 .card-info {
   position: absolute;

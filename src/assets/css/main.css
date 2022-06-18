@@ -77,8 +77,10 @@ body {
   line-height: 1.5;
   font-size: 0.875rem;
 }
-.container-content {
-  margin-top: 128px;
+@media screen and (min-width: 992px) {
+  .container-content {
+    margin-top: 128px;
+  }
 }
 ul {
   list-style-type: none;

@@ -49,10 +49,6 @@ const HomePage = () => {
         leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={<VideoPlayer videoURL={home.cta1Media} />}
       />
-      {/* <Video
-        title="GLOFCA Project in Action during the First Year – 2021/2022"
-        videoURL="https://www.youtube.com/watch?v=avvNRswHDks"
-      /> */}
       <Blogs title="Latest News" posts={posts} showLink />
       <Hero
         title={home.ourMissionTitle}
@@ -74,7 +70,10 @@ const HomePage = () => {
       />
 
       <Cards title="Projects" link="projects" items={projects} />
-      <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
+      {isDesktopOrLaptop && (
+        <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
+      )}
+      {!isDesktopOrLaptop && <CTAAreaTwoCol rightColumn={<MailchimpForm />} />}
       <Hero
         title={home.ourVisionTitle}
         content={home.ourVisionText}
