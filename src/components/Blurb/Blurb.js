@@ -22,7 +22,7 @@ const Blurb = ({
         )}
         <div className="underline underline--clr-white"></div>
       </div>
-      <div className="blurb--buttons">
+      {/* <div className="blurb--buttons">
         {buttonOneText && buttonOneLink && (
           <a target="_blank" className="btn btn-left" href={buttonOneLink}>
             {buttonOneText}
@@ -33,7 +33,7 @@ const Blurb = ({
             {buttonTwoText}
           </a>
         )}
-      </div>
+      </div> */}
       {/* {buttons &&
         buttons.map(btn => {
           ;<a target="_blank" className="btn btn-left" href={btn.link}>

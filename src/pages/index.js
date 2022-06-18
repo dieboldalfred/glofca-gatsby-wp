@@ -34,6 +34,9 @@ const HomePage = () => {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1224px)",
   })
+  const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
+
+  const visiblePosts = isMobile ? posts.slice(0, 3) : posts
 
   return (
     <Layout>
@@ -49,7 +52,7 @@ const HomePage = () => {
         leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={<VideoPlayer videoURL={home.cta1Media} />}
       />
-      <Blogs title="Latest News" posts={posts} showLink />
+      <Blogs title="Latest News" posts={visiblePosts} showLink />
       <Hero
         title={home.ourMissionTitle}
         content={home.ourMissionText}

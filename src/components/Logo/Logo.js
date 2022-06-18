@@ -18,6 +18,7 @@ const Logo = ({ text, customClass, size = "small" }) => {
           <StaticImage
             src="../../assets/images/logo.png"
             className="logo"
+            placeholder="blurred"
             alt="logo"
           />
         </Link>
