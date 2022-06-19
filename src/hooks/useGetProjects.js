@@ -16,7 +16,11 @@ export const useGetProjectsQuery = () => {
             node {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(placeholder: TRACED_SVG)
+                  gatsbyImageData(
+                    placeholder: TRACED_SVG
+                    height: 500
+                    width: 500
+                  )
                 }
               }
             }

@@ -50,7 +50,12 @@ const HomePage = () => {
       {isDesktopOrLaptop && <LogoBanner />}
       <CTAAreaTwoCol
         leftColumn={<Blurb subHeading={home.cta1Title} />}
-        rightColumn={<VideoPlayer videoURL={home.cta1Media} />}
+        rightColumn={
+          <VideoPlayer
+            videoURL={home.cta1Media}
+            customClass="videoplayer--shadow videoplayer--cta"
+          />
+        }
       />
       <Blogs title="Latest News" posts={visiblePosts} showLink />
       <Hero
@@ -69,7 +74,12 @@ const HomePage = () => {
             buttonTwoLink={home.cta2Button2Link}
           />
         }
-        rightColumn={<VideoPlayer videoURL={home.cta2Video} />}
+        rightColumn={
+          <VideoPlayer
+            videoURL={home.cta2Video}
+            customClass="videoplayer--shadow videoplayer--cta"
+          />
+        }
       />
 
       <Cards title="Projects" link="projects" items={projects} />

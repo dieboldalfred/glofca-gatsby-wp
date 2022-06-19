@@ -1,10 +1,14 @@
 import React from "react"
+import classNames from "classnames"
 
 import "./videoplayer.css"
 
-const VideoPlayer = ({ videoURL }) => {
+const VideoPlayer = ({ videoURL, customClass }) => {
+  const classes = classNames("videoplayer", {
+    [customClass]: Boolean(customClass),
+  })
   return (
-    <div className="videoplayer videoplayer--cta">
+    <div className={classes}>
       <iframe
         width="560"
         height="315"

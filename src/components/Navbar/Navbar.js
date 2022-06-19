@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { GoThreeBars } from "react-icons/go"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link, useStaticQuery, graphql } from "gatsby"
+import { useMediaQuery } from "react-responsive"
 
 // styles
 import "./navbar.css"
@@ -28,35 +29,45 @@ const Navbar = ({ toggleSidebar }) => {
     }
   `)
 
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  })
   const menu = data.wpMenu.menuItems.nodes
+  const [navbarStyles, setNavbarStyles] = useState({
+    top: "0",
+    padding: "8px 0",
+  })
 
-  // display navbar on scroll up + change padding
-  if (isBrowser) {
-    let prevScrollPosition = window.pageYOffset
-    window.onscroll = function () {
-      var currentScrollPosition = window.pageYOffset
-      if (prevScrollPosition > currentScrollPosition) {
-        document.getElementById("navbar").style.top = "0"
-      } else {
-        document.getElementById("navbar").style.top = "-128px"
-      }
-      prevScrollPosition = currentScrollPosition
-      // change navbar height on scroll
-      if (
-        document.body.scrollTop > 160 ||
-        document.documentElement.scrollTop > 160
-      ) {
-        document.getElementById("navbar").style.padding = "0 0"
-        // document.getElementById("logo").style.fontSize = "25px"
-      } else {
-        document.getElementById("navbar").style.padding = "24px 0"
-        // document.getElementById("logo").style.fontSize = "35px"
-      }
-    }
+  // display navbar on scroll up
+  let prevScrollPosition = window.pageYOffset
+
+  const displayNavBar = () => {
+    var currentScrollPosition = window.pageYOffset
+
+    const isNavBarFixed =
+      document.body.scrollTop > 160 || document.documentElement.scrollTop > 160
+
+    setNavbarStyles({
+      padding: isNavBarFixed ? "0 0" : "24px 0",
+      top: prevScrollPosition > currentScrollPosition ? "0" : "-128px",
+    })
+
+    prevScrollPosition = currentScrollPosition
   }
 
+  // sub and unsub from event when component is mounted/unm from dom
+  useEffect(() => {
+    if (isBrowser && isDesktopOrLaptop) {
+      window.addEventListener("scroll", displayNavBar)
+    }
+
+    return () => {
+      window.removeEventListener("scroll", displayNavBar)
+    }
+  })
+
   return (
-    <nav id="navbar" className="navbar">
+    <nav className="navbar" style={navbarStyles}>
       <SectionContent customClass="navbar--content">
         <div className="navbar--left">
           <div className="navbar--menu" onClick={toggleSidebar}>
@@ -70,12 +81,14 @@ const Navbar = ({ toggleSidebar }) => {
               height={63}
               width={323}
               transformOptions={{ fit: "fill" }}
+              placeholder="blurred"
             />
             <StaticImage
               src="../../assets/images/AF-Logo.jpeg"
               className="navbar--funders-logo"
               alt="logo"
               height={60}
+              placeholder="blurred"
             />
           </div>
         </div>

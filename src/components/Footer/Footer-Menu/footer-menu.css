@@ -4,6 +4,12 @@
 .footer--col-menu li {
   margin-bottom: 8px;
 }
+.footer--col-menu li a {
+  color: var(--clr-white);
+}
+.footer--col-menu li a:hover {
+  text-decoration: underline;
+}
 .footer--col-title {
   text-align: left;
 }

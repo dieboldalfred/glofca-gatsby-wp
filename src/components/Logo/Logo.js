@@ -23,7 +23,7 @@ const Logo = ({ text, customClass, size = "small" }) => {
           />
         </Link>
       </div>
-      <div className="logo--text">{text && <p>{text}</p>}</div>
+      <div className="logo--text">{text && <h4>{text}</h4>}</div>
     </div>
   )
 }

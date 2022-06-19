@@ -18,7 +18,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.25);
   transition: background-color 200ms ease-in;
 }
 @media screen and (min-width: 992px) {

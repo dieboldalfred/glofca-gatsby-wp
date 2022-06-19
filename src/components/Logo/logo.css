@@ -2,13 +2,14 @@
   height: 60px;
   width: 60px;
 }
-
 .logo--image-size-medium {
   height: 80px;
   width: 80px;
 }
-
 .logo--image-size-large {
   height: 120px;
   width: 120px;
+}
+.logo--text {
+  color: var(--clr-white);
 }
