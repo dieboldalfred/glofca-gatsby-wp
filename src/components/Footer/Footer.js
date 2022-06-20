@@ -69,7 +69,7 @@ const Footer = () => {
           <FooterMenu menuName={data.themes.name} list={data.themes} />
         </div>
       </SectionContent>
-      <LogoBanner />
+      <LogoBanner customClass="logo--banner-clr-purple" />
       <div className="footer--bottom-row">
         <SectionContent customClass="footer--bottom-row-container">
           <Logo customClass="footer--logo" />

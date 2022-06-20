@@ -35,8 +35,10 @@ const Navbar = ({ toggleSidebar }) => {
   const menu = data.wpMenu.menuItems.nodes
   const [navbarStyles, setNavbarStyles] = useState({
     top: "0",
-    padding: "8px 0",
+    padding: "24px 0",
   })
+
+  const [logoSize, setLogoSize] = useState("medium")
 
   // display navbar on scroll up
   let prevScrollPosition = window.pageYOffset
@@ -48,9 +50,15 @@ const Navbar = ({ toggleSidebar }) => {
       document.body.scrollTop > 160 || document.documentElement.scrollTop > 160
 
     setNavbarStyles({
-      padding: isNavBarFixed ? "0 0" : "24px 0",
-      top: prevScrollPosition > currentScrollPosition ? "0" : "-128px",
+      padding: isNavBarFixed ? "8px 0" : "24px 0",
+      top:
+        prevScrollPosition > currentScrollPosition ||
+        prevScrollPosition === currentScrollPosition
+          ? "0"
+          : "-128px",
     })
+
+    setLogoSize(isNavBarFixed ? "small" : "medium")
 
     prevScrollPosition = currentScrollPosition
   }
@@ -67,7 +75,7 @@ const Navbar = ({ toggleSidebar }) => {
   })
 
   return (
-    <nav className="navbar" style={navbarStyles}>
+    <nav className="navbar" style={isDesktopOrLaptop ? navbarStyles : {}}>
       <SectionContent customClass="navbar--content">
         <div className="navbar--left">
           <div className="navbar--menu" onClick={toggleSidebar}>
@@ -107,7 +115,7 @@ const Navbar = ({ toggleSidebar }) => {
               })}
             </ul>
           </div>
-          <Logo size="medium" />
+          <Logo size={logoSize} />
         </div>
       </SectionContent>
     </nav>

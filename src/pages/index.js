@@ -47,7 +47,7 @@ const HomePage = () => {
         content={home.heroText}
         height="full"
       />
-      {isDesktopOrLaptop && <LogoBanner />}
+      <LogoBanner />
       <CTAAreaTwoCol
         leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={

@@ -64,11 +64,15 @@ const Team = data => {
 
 export const query = graphql`
   query GetTeamAndPartners {
-    allWpTeamMember {
+    allWpTeamMember(
+      sort: { fields: date, order: ASC }
+      filter: {
+        categories: { nodes: { elemMatch: { name: { eq: "Team GLOFCA" } } } }
+      }
+    ) {
       nodes {
         id
         title
-        slug
         teamMemberFields {
           company
           position
@@ -77,7 +81,7 @@ export const query = graphql`
           node {
             localFile {
               childImageSharp {
-                gatsbyImageData(placeholder: TRACED_SVG)
+                gatsbyImageData(placeholder: TRACED_SVG, height: 500)
               }
             }
           }

@@ -1,15 +1,17 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-
-// comps
-import { SectionContent } from "../index"
+import classNames from "classnames"
 
 // styles
 import "./logo-banner.css"
 
-const LogoBanner = () => {
+const LogoBanner = ({ customClass }) => {
+  const classes = classNames("logo--banner", {
+    [customClass]: Boolean(customClass),
+  })
+
   return (
-    <div className="logo--banner">
+    <div className={classes}>
       <div className="logo-banner--container">
         <h5 className="logo-banner--container-title">Implemented by</h5>
         <StaticImage

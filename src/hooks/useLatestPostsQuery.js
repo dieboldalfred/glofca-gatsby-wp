@@ -8,6 +8,7 @@ export const useLatestPostsQuery = () => {
           categories: { nodes: { elemMatch: { slug: { eq: "news" } } } }
         }
         limit: 6
+        sort: { order: DESC, fields: date }
       ) {
         nodes {
           id
@@ -18,7 +19,11 @@ export const useLatestPostsQuery = () => {
             node {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(placeholder: TRACED_SVG)
+                  gatsbyImageData(
+                    placeholder: TRACED_SVG
+                    width: 600
+                    height: 600
+                  )
                 }
               }
             }

@@ -24,10 +24,6 @@ import { useGetEducationQuery } from "../../hooks/useGetEducation"
 const Education = () => {
   const data = useGetEducationQuery()
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
-  })
-
   const columns = useMemo(
     () => [
       {
@@ -66,45 +62,12 @@ const Education = () => {
       <Section title="Education">
         <SectionContent>
           <Container>
-            {isDesktopOrLaptop && (
-              <TableContainer columns={columns} data={data} />
-            )}
+            <TableContainer columns={columns} data={data} />
           </Container>
         </SectionContent>
       </Section>
     </Layout>
   )
 }
-
-// export const query = graphql`
-//   {
-//     allWpEducation {
-//       nodes {
-//         title
-//         educationFields {
-//           contributedBy
-//           educationCountry
-//           educationDeadline
-//           educationDescription
-//           educationInstitution
-//           educationLink
-//           educationSector
-//           educationType
-//           educationLogo {
-//             localFile {
-//               childImageSharp {
-//                 gatsbyImageData(
-//                   placeholder: TRACED_SVG
-//                   width: 100
-//                   height: 100
-//                 )
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
 
 export default Education

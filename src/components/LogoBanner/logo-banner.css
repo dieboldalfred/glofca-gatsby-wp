@@ -1,10 +1,14 @@
 .logo--banner {
   display: flex;
   align-items: center;
-  background-color: var(--clr-primary-5);
-  color: var(--clr-grey-10);
+  /* background-color: var(--clr-primary-5);
+  color: var(--clr-grey-10); */
   padding: 16px 16px;
   gap: 16px;
+}
+.logo--banner-clr-purple {
+  background-color: var(--clr-primary-5);
+  color: var(--clr-grey-10);
 }
 .logo-banner--container {
   display: flex;

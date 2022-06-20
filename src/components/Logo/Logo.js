@@ -13,7 +13,7 @@ const Logo = ({ text, customClass, size = "small" }) => {
         [customClass]: customClass,
       })}
     >
-      <div className={`logo--image-size-${size}`}>
+      <div className={`logo--image logo--image-size-${size}`}>
         <Link to="/">
           <StaticImage
             src="../../assets/images/logo.png"

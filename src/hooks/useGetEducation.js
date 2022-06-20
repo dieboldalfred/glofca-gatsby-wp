@@ -18,11 +18,7 @@ export const useGetEducationQuery = () => {
             educationLogo {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(
-                    placeholder: TRACED_SVG
-                    width: 100
-                    height: 100
-                  )
+                  gatsbyImageData(placeholder: TRACED_SVG)
                 }
               }
             }

@@ -7,6 +7,7 @@ export const useGetAllPostsQuery = () => {
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "news" } } } }
         }
+        sort: { order: DESC, fields: date }
       ) {
         nodes {
           id
@@ -17,7 +18,11 @@ export const useGetAllPostsQuery = () => {
             node {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(placeholder: TRACED_SVG)
+                  gatsbyImageData(
+                    placeholder: TRACED_SVG
+                    width: 600
+                    height: 600
+                  )
                 }
               }
             }
