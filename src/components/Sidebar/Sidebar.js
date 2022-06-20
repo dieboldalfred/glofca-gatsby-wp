@@ -1,5 +1,4 @@
 import React, { useState, Fragment } from "react"
-import socialLinks from "../../data/social-links"
 import { IoMdClose } from "react-icons/io"
 import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai"
 import { BsCaretDown, BsCaretUp } from "react-icons/bs"

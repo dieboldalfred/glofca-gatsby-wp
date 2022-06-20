@@ -16,36 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { TableContainer, Section, SectionContent } from "../../components"
 import Layout from "../../components/Layout"
 
-// hooks
-import { useGetVideoELibraryQuery } from "../../hooks/useGetVideoELibrary"
-
 const VideoELibrary = () => {
-  const data = useGetVideoELibraryQuery()
-  console.log(data)
-
-  const columns = useMemo(
-    () => [
-      {
-        Header: () => null,
-        id: "expander", // 'id' is required
-        Cell: ({ row }) => (
-          <span {...row.getToggleRowExpandedProps()}>
-            {row.isExpanded ? "⬇" : "⮕"}
-          </span>
-        ),
-      },
-      {
-        Header: "Title",
-        accessor: "data.Title",
-      },
-      {
-        Header: "Date",
-        accessor: "data.Date",
-      },
-    ],
-    []
-  )
-
   // render sub component upon click
   const renderRowSubComponent = row => {
     const { Title, Abstract, Region, Logo } = row.original.data
@@ -93,13 +64,13 @@ const VideoELibrary = () => {
     <Layout>
       <Section title="Video E-Library">
         <SectionContent>
-          <Container>
+          {/* <Container>
             <TableContainer
               columns={columns}
               data={data}
               renderRowSubComponent={renderRowSubComponent}
             />
-          </Container>
+          </Container> */}
         </SectionContent>
       </Section>
     </Layout>

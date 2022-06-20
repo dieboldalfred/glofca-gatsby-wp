@@ -128,8 +128,15 @@ const ELibrary = () => {
 
     return (
       <Card style={{ margin: "0 auto" }}>
-        {/* {logo && <CardImg top src={logo} alt="Card image cap" />} */}
         <CardBody>
+          {/* {logo && (
+            <GatsbyImage
+              image={getImage(
+                logo.localFiles[0].childImageSharp.gatsbyImageData
+              )}
+              alt={row.original.title}
+            />
+          )} */}
           <CardTitle tag="h3">
             <strong>{row.original.title} </strong> <br />
             <br />

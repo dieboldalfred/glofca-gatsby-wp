@@ -1,9 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 
-// hooks
-import { useGetBlogsQuery } from "../../hooks/useGetBlogs"
-
 // components
 import Blog from "./Blog/Blog"
 import { Section, SectionContent } from "../../components"
