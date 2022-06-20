@@ -46,19 +46,18 @@ const Navbar = ({ toggleSidebar }) => {
   const displayNavBar = () => {
     var currentScrollPosition = window.pageYOffset
 
-    const isNavBarFixed =
+    const isNavBarFloating =
       document.body.scrollTop > 160 || document.documentElement.scrollTop > 160
 
     setNavbarStyles({
-      padding: isNavBarFixed ? "8px 0" : "24px 0",
+      padding: isNavBarFloating ? "8px 0" : "24px 0",
       top:
-        prevScrollPosition > currentScrollPosition ||
-        prevScrollPosition === currentScrollPosition
-          ? "0"
-          : "-128px",
+        prevScrollPosition < currentScrollPosition && isNavBarFloating
+          ? "-128px"
+          : "0",
     })
 
-    setLogoSize(isNavBarFixed ? "small" : "medium")
+    setLogoSize(isNavBarFloating ? "small" : "medium")
 
     prevScrollPosition = currentScrollPosition
   }
