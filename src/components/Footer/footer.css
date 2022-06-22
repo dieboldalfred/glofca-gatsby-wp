@@ -6,7 +6,7 @@
   display: none;
 }
 .footer--col {
-  padding-right: 72px;
+  /* padding-right: 64px; */
   text-align: left;
 }
 .footer--logo {
@@ -34,9 +34,24 @@
 }
 @media screen and (min-width: 992px) {
   .footer--menu {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer--col-left {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 32px 0;
+  }
+  .footer--col-right {
+    display: flex;
+    justify-content: flex-end;
+    padding: 32px 0;
+  }
+  .footer--col-left .footer--col {
+    padding-right: 96px;
+  }
+  .footer--col-right .footer--col {
+    padding-left: 64px;
   }
   .footer--bottom-row .logo {
     display: none;

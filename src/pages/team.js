@@ -33,7 +33,10 @@ const Team = data => {
         </SectionContent>
       </Section>
 
-      <Section customClass="team" title="Kazakhstan Partners">
+      <Section
+        customClass="team section--no-padding-top"
+        title="Kazakhstan Partners"
+      >
         <SectionContent customClass="partner-center">
           {data.data.kazakhstanPartners.nodes.map(partner => {
             const { id, featuredImage, title, slug } = partner
@@ -46,7 +49,10 @@ const Team = data => {
         </SectionContent>
       </Section>
 
-      <Section customClass="team" title="Kyrgyzstan Partners">
+      <Section
+        customClass="team section--no-padding-top"
+        title="Kyrgyzstan Partners"
+      >
         <SectionContent customClass="partner-center">
           {data.data.kyrgyzstanPartners.nodes.map(partner => {
             const { id, featuredImage, title, slug } = partner

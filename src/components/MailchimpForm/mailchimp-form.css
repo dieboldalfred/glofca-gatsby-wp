@@ -1,3 +1,7 @@
+.mailchimp--title,
+.mailchimp--message {
+  color: var(--clr-white);
+}
 .mailchimp-form {
   background: transparent;
 }

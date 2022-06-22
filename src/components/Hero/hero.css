@@ -21,6 +21,11 @@
   right: 0;
   bottom: 0;
 }
+
+.hero--image.gatsby-image-wrapper {
+  position: absolute;
+}
+
 .hero--image:after {
   content: "";
   position: absolute;

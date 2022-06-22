@@ -24,8 +24,8 @@ const MailchimpForm = () => {
   }
 
   return (
-    <>
-      <h3>Subscribe to Our Newsletter</h3>
+    <div className="mailchimp">
+      <h3 className="mailchimp--title">Subscribe to Our Newsletter</h3>
       <form className="mailchimp-form">
         <div className="mailchimp-form--input-wrapper">
           <input
@@ -47,8 +47,8 @@ const MailchimpForm = () => {
           {submitted ? "Already Subscribed" : "Subscribe"}
         </button>
       </form>
-      <p>Unsubscribe at any time</p>
-    </>
+      <p className="mailchimp--message">Unsubscribe at any time</p>
+    </div>
   )
 }
 

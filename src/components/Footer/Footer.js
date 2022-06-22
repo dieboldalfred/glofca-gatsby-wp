@@ -52,21 +52,21 @@ const Footer = () => {
   return (
     <footer className="footer">
       <SectionContent customClass="footer--menu">
-        <div className="footer--col">
-          <Logo
-            text="Glacier Lake Outburst Floods in Central Asia"
-            customClass="footer--logo"
-            size="large"
-          />
+        <div className="footer--col-left">
+          <div className="footer--col">
+            <FooterMenu menuName={data.themes.name} list={data.themes} />
+          </div>
+          <div className="footer--col">
+            <FooterMenu menuName={data.projects.name} list={data.projects} />
+          </div>
+          <div className="footer--col">
+            <FooterMenu menuName={data.databases.name} list={data.databases} />
+          </div>
         </div>
-        <div className="footer--col">
-          <FooterMenu menuName={data.databases.name} list={data.databases} />
-        </div>
-        <div className="footer--col">
-          <FooterMenu menuName={data.projects.name} list={data.projects} />
-        </div>
-        <div className="footer--col">
-          <FooterMenu menuName={data.themes.name} list={data.themes} />
+        <div className="footer--col-right">
+          <div className="footer--col">
+            <Logo customClass="footer--logo" size="large" />
+          </div>
         </div>
       </SectionContent>
       <LogoBanner customClass="logo--banner-clr-purple" />

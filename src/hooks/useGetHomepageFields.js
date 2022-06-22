@@ -26,8 +26,8 @@ export const useGetHomepageFieldsQuery = () => {
               childImageSharp {
                 gatsbyImageData(
                   placeholder: TRACED_SVG
-                  height: 2500
-                  width: 2500
+                  height: 1000
+                  width: 2000
                 )
               }
             }
@@ -39,8 +39,8 @@ export const useGetHomepageFieldsQuery = () => {
               childImageSharp {
                 gatsbyImageData(
                   placeholder: TRACED_SVG
-                  height: 500
-                  width: 500
+                  height: 1000
+                  width: 2000
                 )
               }
             }
@@ -52,8 +52,8 @@ export const useGetHomepageFieldsQuery = () => {
               childImageSharp {
                 gatsbyImageData(
                   placeholder: TRACED_SVG
-                  height: 500
-                  width: 500
+                  height: 1000
+                  width: 2000
                 )
               }
             }

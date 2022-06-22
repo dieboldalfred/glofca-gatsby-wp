@@ -82,10 +82,8 @@ const HomePage = () => {
       />
 
       <Cards title="Projects" link="projects" items={projects} />
-      {isDesktopOrLaptop && (
-        <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
-      )}
-      {!isDesktopOrLaptop && <CTAAreaTwoCol rightColumn={<MailchimpForm />} />}
+      <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
+      {/* {!isDesktopOrLaptop && <CTAAreaTwoCol rightColumn={<MailchimpForm />} />} */}
       <Hero
         title={home.ourVisionTitle}
         content={home.ourVisionText}

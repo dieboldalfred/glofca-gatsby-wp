@@ -1,5 +1,7 @@
-.three-col-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  column-gap: 16px;
+@media (min-width: 768px) {
+  .three-col-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 16px;
+  }
 }
