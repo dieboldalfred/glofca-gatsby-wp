@@ -9,13 +9,23 @@ import "../assets/css/main.css"
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen)
+  // const toggleSidebar = () => {
+  //   setIsOpen(!isOpen)
+  // }
+
+  const openSidebar = () => {
+    setIsOpen(true)
+    document.body.classList.add("sidebar-open")
+  }
+
+  const closeSidebar = () => {
+    setIsOpen(false)
+    document.body.classList.remove("sidebar-open")
   }
   return (
     <>
-      <Navbar toggleSidebar={toggleSidebar} />
-      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      <Navbar openSidebar={openSidebar} />
+      <Sidebar isOpen={isOpen} closeSidebar={closeSidebar} />
       <div className="container-content">{children}</div>
       <Footer />
     </>

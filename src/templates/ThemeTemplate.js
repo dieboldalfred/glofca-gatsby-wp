@@ -2,19 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // components
-import { Hero, SectionContent, Section } from "../components"
+import { Hero, SectionContent, Section, BreadCrumb } from "../components"
 import Layout from "../components/Layout"
 
-// utils
-import { sanitizeHtml, clearHtml } from "../utils/typography"
-
 const ThemeTemplate = data => {
-  const { title, featuredImage, content } = data.data.wpPage
+  const { title, content } = data.data.wpPage
 
   return (
     <Layout>
-      <Hero title={title} image={featuredImage.node.localFile} align="center" />
-      <Section>
+      <SectionContent>
+        <BreadCrumb />
+      </SectionContent>
+      {/* <Hero title={title} image={featuredImage.node.localFile} align="center" /> */}
+      <Section title={title}>
         <SectionContent customClass="blog-center">
           {/* <div className="blog--content">{clearHtml(content)}</div> */}
           <div

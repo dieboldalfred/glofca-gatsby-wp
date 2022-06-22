@@ -59,11 +59,14 @@ const Education = () => {
 
   return (
     <Layout>
+      <SectionContent>
+        <BreadCrumb />
+      </SectionContent>
       <Section title="Education">
         <SectionContent>
-          <Container>
+          {/* <Container>
             <TableContainer columns={columns} data={data} />
-          </Container>
+          </Container> */}
         </SectionContent>
       </Section>
     </Layout>

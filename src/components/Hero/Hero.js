@@ -24,6 +24,7 @@ const Hero = ({
         alt={title}
         className="hero--image"
         objectFit="cover"
+        objectPosition="50% 30%"
       />
       <div className="hero--info">
         <article

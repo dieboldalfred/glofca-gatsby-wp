@@ -34,7 +34,7 @@ const Team = data => {
       </Section>
 
       <Section customClass="team" title="Kazakhstan Partners">
-        <SectionContent customClass="team-center">
+        <SectionContent customClass="partner-center">
           {data.data.kazakhstanPartners.nodes.map(partner => {
             const { id, featuredImage, title, slug } = partner
             return (
@@ -47,7 +47,7 @@ const Team = data => {
       </Section>
 
       <Section customClass="team" title="Kyrgyzstan Partners">
-        <SectionContent customClass="team-center">
+        <SectionContent customClass="partner-center">
           {data.data.kyrgyzstanPartners.nodes.map(partner => {
             const { id, featuredImage, title, slug } = partner
             return (
@@ -89,6 +89,7 @@ export const query = graphql`
       }
     }
     kazakhstanPartners: allWpPartner(
+      sort: { fields: date, order: ASC }
       filter: {
         categories: {
           nodes: { elemMatch: { slug: { eq: "kazakhstan-partners" } } }
@@ -115,6 +116,7 @@ export const query = graphql`
       }
     }
     kyrgyzstanPartners: allWpPartner(
+      sort: { fields: date, order: ASC }
       filter: {
         categories: {
           nodes: { elemMatch: { slug: { eq: "kyrgyzstan-partners" } } }

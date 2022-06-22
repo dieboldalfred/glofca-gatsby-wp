@@ -4,7 +4,6 @@ import {
   Cards,
   Hero,
   LogoBanner,
-  Video,
   CTAAreaTwoCol,
   CTAAreaThreeCol,
   MailchimpForm,

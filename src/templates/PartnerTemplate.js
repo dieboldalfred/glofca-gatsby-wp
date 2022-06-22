@@ -7,7 +7,7 @@ import Layout from "../components/Layout"
 import { Section, SectionContent, BreadCrumb } from "../components"
 
 // utils
-import { sanitizeHtml, clearHtml } from "../utils/typography"
+import { sanitizeHtml } from "../utils/typography"
 
 const PartnerTemplate = ({ data, pageContext }) => {
   const {

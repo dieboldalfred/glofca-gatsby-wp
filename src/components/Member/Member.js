@@ -11,8 +11,10 @@ const Member = ({ title, image, position, company }) => {
         <GatsbyImage image={getImage(image?.node.localFile)} alt={title} />
       </div>
       <div className="team--member-info">
-        <h5>{title}</h5>
-        {position && <h4> {`${position}, ${company}`}</h4>}
+        <h5 className="team--member-title">{title}</h5>
+        {position && (
+          <h4 className="team--member-position">{`${position}, ${company}`}</h4>
+        )}
       </div>
     </article>
   )

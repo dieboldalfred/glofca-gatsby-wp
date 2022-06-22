@@ -73,7 +73,7 @@ const Footer = () => {
       <div className="footer--bottom-row">
         <SectionContent customClass="footer--bottom-row-container">
           <Logo customClass="footer--logo" />
-          &copy; {new Date().getFullYear()} GLOFCA. All rights reserved.
+          &copy; {new Date().getFullYear()} GLOFCA
         </SectionContent>
       </div>
     </footer>

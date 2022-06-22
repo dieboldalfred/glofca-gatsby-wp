@@ -13,7 +13,7 @@ import { Logo, SectionContent } from "../../components"
 // Check if window is defined (so if in the browser or in node.js).
 const isBrowser = typeof window !== "undefined"
 
-const Navbar = ({ toggleSidebar }) => {
+const Navbar = ({ openSidebar }) => {
   const data = useStaticQuery(graphql`
     {
       wpMenu(name: { eq: "topMenu" }) {
@@ -41,23 +41,24 @@ const Navbar = ({ toggleSidebar }) => {
   const [logoSize, setLogoSize] = useState("medium")
 
   // display navbar on scroll up
-  let prevScrollPosition = window.pageYOffset
+
+  let prevScrollPosition = isBrowser ? window.pageYOffset : 0
 
   const displayNavBar = () => {
     var currentScrollPosition = window.pageYOffset
 
-    const isNavBarFloating =
+    const isNavBarSticky =
       document.body.scrollTop > 160 || document.documentElement.scrollTop > 160
 
     setNavbarStyles({
-      padding: isNavBarFloating ? "8px 0" : "24px 0",
+      padding: isNavBarSticky ? "8px 0" : "24px 0",
       top:
-        prevScrollPosition < currentScrollPosition && isNavBarFloating
+        prevScrollPosition < currentScrollPosition && isNavBarSticky
           ? "-128px"
           : "0",
     })
 
-    setLogoSize(isNavBarFloating ? "small" : "medium")
+    setLogoSize(isNavBarSticky ? "small" : "medium")
 
     prevScrollPosition = currentScrollPosition
   }
@@ -77,7 +78,7 @@ const Navbar = ({ toggleSidebar }) => {
     <nav className="navbar" style={isDesktopOrLaptop ? navbarStyles : {}}>
       <SectionContent customClass="navbar--content">
         <div className="navbar--left">
-          <div className="navbar--menu" onClick={toggleSidebar}>
+          <div className="navbar--menu" onClick={openSidebar}>
             <GoThreeBars />
           </div>
           <div className="navbar--funders">

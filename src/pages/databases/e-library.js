@@ -273,9 +273,9 @@ const ELibrary = () => {
 
   return (
     <Layout>
-      {/* <SectionContent>
+      <SectionContent>
         <BreadCrumb />
-      </SectionContent> */}
+      </SectionContent>
       <Section title="E-Library">
         <SectionContent>
           <Container>

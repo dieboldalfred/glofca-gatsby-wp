@@ -79,6 +79,11 @@ body {
   /* font-size: 0.875rem; */
   font-size: 16px;
 }
+.sidebar-open {
+  position: fixed;
+  height: 100vh;
+  overflow: hidden;
+}
 @media screen and (min-width: 992px) {
   .container-content {
     margin-top: 128px;
@@ -219,13 +224,24 @@ p {
 /* team */
 .team-center {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-gap: 16px 32px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 2fr));
+  grid-gap: 8px 8px;
+}
+@media screen and (min-width: 992px) {
+  .team-center {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 16px 32px;
+  }
 }
 .team-center--item {
   align-self: start;
 }
 /* partner image on teams */
+.partner-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-gap: 16px 32px;
+}
 .partner--logo {
   display: flex;
   justify-content: center;

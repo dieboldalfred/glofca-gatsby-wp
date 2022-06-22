@@ -5,9 +5,6 @@ import { graphql } from "gatsby"
 import { Hero, BreadCrumb, Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 
-// utils
-import { sanitizeHtml, clearHtml } from "../utils/typography"
-
 const ProjectTemplate = data => {
   const { title, content } = data.data.wpPage
 

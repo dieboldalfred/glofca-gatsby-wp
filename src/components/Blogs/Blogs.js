@@ -17,7 +17,7 @@ const Blogs = ({ title, posts, showLink }) => {
     <Section customClass="blogs" title={title}>
       <SectionContent customClass="blogs-center">
         {posts.map(post => {
-          const { id, title, featuredImage, content, excerpt, slug } = post
+          const { id, title, featuredImage, excerpt, slug } = post
 
           return (
             <Blog

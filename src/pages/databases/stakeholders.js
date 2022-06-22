@@ -1,12 +1,20 @@
 import React from "react"
 
 // components
-import { TableContainer, Section, SectionContent } from "../../components"
+import {
+  TableContainer,
+  Section,
+  SectionContent,
+  BreadCrumb,
+} from "../../components"
 import Layout from "../../components/Layout"
 
 const Stakeholders = () => {
   return (
     <Layout>
+      <SectionContent>
+        <BreadCrumb />
+      </SectionContent>
       <Section title="Stakeholders">
         <SectionContent>
           {/* <Container>

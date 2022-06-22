@@ -1,13 +1,12 @@
-import React, { useState, Fragment } from "react"
+import React, { useState } from "react"
 import { IoMdClose } from "react-icons/io"
-import { AiOutlineCaretDown, AiOutlineCaretUp } from "react-icons/ai"
 import { BsCaretDown, BsCaretUp } from "react-icons/bs"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 // styles
 import "./sidebar.css"
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = ({ isOpen, closeSidebar }) => {
   const data = useStaticQuery(graphql`
     {
       wpMenu(name: { eq: "sideMenu" }) {
@@ -58,7 +57,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
   return (
     <aside className={isOpen ? "sidebar show-sidebar" : "sidebar"}>
-      <button className="close-btn" onClick={toggleSidebar}>
+      <button className="close-btn" onClick={closeSidebar}>
         <IoMdClose />
       </button>
       <div className="sidebar-container">
@@ -70,7 +69,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             return (
               <li key={id}>
                 {itemHasChildren ? (
-                  <Fragment>
+                  <>
                     <div
                       activeClassName="active"
                       className="sidebar-links--link"
@@ -96,7 +95,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                           })
                         : null}
                     </div>
-                  </Fragment>
+                  </>
                 ) : (
                   <Link
                     to={path}
