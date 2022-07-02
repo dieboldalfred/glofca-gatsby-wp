@@ -1,6 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
+
 import Card from "./Card/Card"
+import LinkTranslated from "../LinkTranslated/LinkTranslated"
 
 // styles
 import "./cards.css"
@@ -8,16 +9,16 @@ import "./cards.css"
 // components
 import { Section, SectionContent } from "../../components"
 
-const Cards = ({ title, items, link }) => {
+const Cards = ({ title, items, prefix, lang }) => {
   return (
     <Section customClass="cards" title={title}>
       <SectionContent customClass="cards-center">
         {items.map(item => {
           const { id, title, slug, featuredImage } = item
           return (
-            <Link key={id} to={`/${link}/${slug}`}>
+            <LinkTranslated key={id} to={`/${prefix}/${slug}`} lang={lang}>
               <Card title={title} image={featuredImage} />
-            </Link>
+            </LinkTranslated>
           )
         })}
       </SectionContent>

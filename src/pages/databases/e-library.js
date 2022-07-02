@@ -20,6 +20,11 @@ import { DefaultColumnFilter, SelectColumnFilter } from "../../utils/filters"
 
 // utils
 import { clearHtml } from "../../utils/typography"
+import {
+  DESKTOP_BREAKPOINT,
+  MOBILE_BREAKPOINT,
+  TABLET_BREAKPOINT,
+} from "../../utils/breakpoints"
 
 // hooks
 import { useGetELibrariesQuery } from "../../hooks/useGetELibaries"
@@ -27,13 +32,9 @@ import { useGetELibrariesQuery } from "../../hooks/useGetELibaries"
 const ELibrary = () => {
   const data = useGetELibrariesQuery()
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
-  })
-  const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
-  const isTablet = useMediaQuery({
-    query: "(min-width: 993px) and (max-width: 1224px)",
-  })
+  const isDesktopOrLaptop = useMediaQuery(DESKTOP_BREAKPOINT)
+  const isMobile = useMediaQuery(MOBILE_BREAKPOINT)
+  const isTablet = useMediaQuery(TABLET_BREAKPOINT)
 
   const columns = useMemo(
     () => [
@@ -212,7 +213,7 @@ const ELibrary = () => {
       <Card style={{ margin: "0 auto" }}>
         {/* {logo && <CardImg top src={logo} alt="Card image cap" />} */}
         <CardBody>
-          <CardTitle tag="h3">
+          <CardTitle tag="h4">
             <strong>{row.original.title} </strong> <br />
             <br />
           </CardTitle>

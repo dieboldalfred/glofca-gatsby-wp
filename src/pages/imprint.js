@@ -20,7 +20,8 @@ const Imprint = data => {
     </Layout>
   )
 }
-
+// > pageContext
+// -> path url /?lang=ru
 export const query = graphql`
   {
     wpPage(databaseId: { eq: 267 }) {

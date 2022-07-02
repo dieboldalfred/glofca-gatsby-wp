@@ -42,5 +42,22 @@ module.exports = {
         display: "swap",
       },
     },
+    // {
+    //   resolve: "gatsby-source-google-sheets",
+    //   options: {
+    //     spreadsheetId: "1ByPYIoK2XyyRTDIq1u4Lf79nqzFV7xXy-j2SWQcxlzI",
+    //     worksheetTitle: "projects",
+    //     credentials: require("./credentials/client_secret.json"),
+    //   },
+    // },
+    {
+      resolve: "gatsby-source-google-sheets-flexible",
+      options: {
+        apiKey: "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
+        spreadsheetUrl:
+          "https://docs.google.com/spreadsheets/d/1ByPYIoK2XyyRTDIq1u4Lf79nqzFV7xXy-j2SWQcxlzI/edit#gid=0",
+        tabName: "projects",
+      },
+    },
   ],
 }

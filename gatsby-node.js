@@ -1,16 +1,20 @@
 const path = require("path")
 const fetch = require("node-fetch")
-
+const constants = require("./src/constants/data.js")
 const WORDPRESS_BASE = `http://glofca-wp.local`
+const getTranslatedCategorySlug =
+  require("./utils/lang").getTranslatedCategorySlug
 
 const languages = [
   {
     path: "/",
-    code: "en_US",
+    code: "en",
+    locale: "en_US",
   },
   {
     path: "/ru",
     code: "ru",
+    locale: "ru_RU",
   },
 ]
 
@@ -27,6 +31,32 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `
   createTypes(typeDefs)
+}
+
+// create image nodes from google sheets plugin
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
+exports.onCreateNode = async ({
+  node,
+  actions,
+  store,
+  cache,
+  createNodeId,
+}) => {
+  const { createNode } = actions
+  if (node.internal.type === "projectsSheetsData") {
+    const fileNode = await createRemoteFileNode({
+      url: node.featuredimage,
+      store,
+      cache,
+      createNode,
+      parentNodeId: node.id,
+      createNodeId,
+    })
+    if (fileNode) {
+      node.localFeaturedImage___NODE = fileNode.id
+      // node.image___NODE = fileNode.id
+    }
+  }
 }
 
 // create resolvers for related posts in graphql
@@ -83,6 +113,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+      projectsRU: allWpCategory(filter: { slug: { eq: "projects-ru" } }) {
+        nodes {
+          pages {
+            nodes {
+              slug
+            }
+          }
+        }
+      }
       partners: allWpPartner {
         nodes {
           slug
@@ -102,32 +141,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  // create pages per language
-  // languages.forEach(lang => {
-  //   createPage({
-  //     path: lang.path,
-  //     component: blogTemplate,
-  //     context: {
-  //       lang: lang.code,
-  //     },
-  //   })
-  // })
-
   // create pages for blogs
   result.data.allWpPost.nodes.forEach(node => {
     const { slug } = node
 
-    languages.forEach(lang => {
-      createPage({
-        path: `/blog/${slug}`,
-        component: blogTemplate,
-        context: {
-          slugQuery: { eq: slug },
-          uri: "/news",
-          title: "News",
-          lang: lang.code,
-        },
-      })
+    createPage({
+      path: `/blog/${slug}`,
+      component: blogTemplate,
+      context: {
+        slugQuery: { eq: slug },
+        uri: "/news",
+        title: "News",
+      },
     })
   })
 
@@ -154,6 +179,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: projectTemplate,
         context: {
           slugQuery: { eq: slug },
+          lang: "en",
+          locale: "en_US",
+        },
+      })
+    })
+  })
+
+  result.data.projectsRU.nodes.forEach(node => {
+    node.pages.nodes.forEach(project => {
+      const { slug } = project
+      createPage({
+        path: `/ru/projects/${slug}`,
+        component: projectTemplate,
+        context: {
+          slugQuery: { eq: slug },
+          lang: "ru",
+          locale: "ru_RU",
         },
       })
     })
@@ -172,4 +214,31 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
+
+  // create homepage in english and russian
+  const HomepageTemplate = path.resolve("./src/templates/index.js")
+  languages.forEach(lang => {
+    createPage({
+      path: lang.path,
+      component: HomepageTemplate,
+      context: {
+        lang: lang.code,
+        locale: lang.locale,
+        projectsSlug: { eq: getTranslatedCategorySlug("projects", lang.code) },
+      },
+    })
+  })
 }
+
+// exports.createPages = async ({ actions: { createPage } }) => {
+//   const HomepageTemplate = path.resolve("./src/templates/homePageTemplate.js")
+//   languages.forEach(lang => {
+//     createPage({
+//       path: lang.path,
+//       component: HomepageTemplate,
+//       context: {
+//         lang: lang.code,
+//       },
+//     })
+//   })
+// }

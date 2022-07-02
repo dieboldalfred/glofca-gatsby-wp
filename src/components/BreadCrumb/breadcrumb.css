@@ -1,7 +1,7 @@
 .breadcrumb {
   display: none;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1025px) {
   .breadcrumb {
     margin: 144px 0 8px 0;
     font-size: 16px;

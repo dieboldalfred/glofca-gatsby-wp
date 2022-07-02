@@ -11,29 +11,35 @@ import {
   VideoPlayer,
   ScrollButton,
 } from "../components"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { useMediaQuery } from "react-responsive"
 
 // hooks
 import { useGetThemesQuery } from "../hooks/useGetThemes"
-// import { useGetPagesQuery } from "../hooks/useGetPages"
 import { useGetDatabasesQuery } from "../hooks/useGetDatabases"
-import { useGetProjectsQuery } from "../hooks/useGetProjects"
+// import { useGetProjectsQuery } from "../hooks/useGetProjects"
 import { useLatestPostsQuery } from "../hooks/useLatestPostsQuery"
 import { useGetHomepageFieldsQuery } from "../hooks/useGetHomepageFields"
 
-const HomePage = () => {
+// utils
+import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT } from "../utils/breakpoints"
+
+const HomePage = ({ data, pageContext }) => {
+  const projects = data?.allWpPage.nodes
+  const projectsTitle = data?.allWpCategory.nodes[0].name
+  // folder: transformer
+  // projectsTransformer : array [project, project] => map project => { ... project, slug: projects + slug }
+
   // Graphql
   const themes = useGetThemesQuery()
   const databases = useGetDatabasesQuery()
-  const projects = useGetProjectsQuery()
+  // const projects = useGetProjectsQuery()
   const posts = useLatestPostsQuery()
   const home = useGetHomepageFieldsQuery()
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
-  })
-  const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
+  const isDesktopOrLaptop = useMediaQuery(DESKTOP_BREAKPOINT)
+  const isMobile = useMediaQuery(MOBILE_BREAKPOINT)
 
   const visiblePosts = isMobile ? posts.slice(0, 3) : posts
 
@@ -62,7 +68,7 @@ const HomePage = () => {
         content={home.ourMissionText}
         image={home.ourMissionImage.localFile}
       />
-      <Cards title="Databases" link="databases" items={databases} />
+      <Cards title="Databases" prefix="databases" items={databases} />
       <CTAAreaTwoCol
         leftColumn={
           <Blurb
@@ -81,7 +87,12 @@ const HomePage = () => {
         }
       />
 
-      <Cards title="Projects" link="projects" items={projects} />
+      <Cards
+        title={projectsTitle}
+        prefix="projects"
+        items={projects}
+        lang={pageContext.lang}
+      />
       <CTAAreaThreeCol middleColumn={<MailchimpForm />} />
       {/* {!isDesktopOrLaptop && <CTAAreaTwoCol rightColumn={<MailchimpForm />} />} */}
       <Hero
@@ -89,9 +100,41 @@ const HomePage = () => {
         content={home.ourVisionText}
         image={home.ourVisionImage.localFile}
       />
-      <Cards title="Themes" link="themes" items={themes} />
+      <Cards title="Themes" prefix="themes" items={themes} />
     </Layout>
   )
 }
+
+export const query = graphql`
+  query GetProjects($projectsSlug: StringQueryOperatorInput) {
+    allWpPage(
+      filter: { categories: { nodes: { elemMatch: { slug: $projectsSlug } } } }
+    ) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  height: 500
+                  width: 500
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+    allWpCategory(filter: { slug: $projectsSlug }) {
+      nodes {
+        name
+      }
+    }
+  }
+`
 
 export default HomePage
