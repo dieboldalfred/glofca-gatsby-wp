@@ -19,16 +19,19 @@ const Layout = ({ children }) => {
   }
 
   const closeSidebar = () => {
-    setIsOpen(false)
     document.body.classList.remove("sidebar-open")
+    setIsOpen(false)
   }
+  React.useEffect(() => {
+    closeSidebar()
+  }, [])
   return (
-    <>
+    <div className="layout">
       <Navbar openSidebar={openSidebar} />
       <Sidebar isOpen={isOpen} closeSidebar={closeSidebar} />
-      <div className="container-content">{children}</div>
+      <div className="layout-content">{children}</div>
       <Footer />
-    </>
+    </div>
   )
 }
 

@@ -5,20 +5,6 @@ Variables
 */
 
 :root {
-  /* dark shades of primary color*/
-  /* --clr-primary-1: hsl(21, 91%, 17%);
-  --clr-primary-2: hsl(21, 84%, 25%);
-  --clr-primary-3: hsl(21, 81%, 29%);
-  --clr-primary-4: hsl(21, 77%, 34%);
-  /* primary/main color */
-  /* --clr-primary-5: hsl(21, 62%, 45%); */
-  /* lighter shades of primary color */
-  /* --clr-primary-6: hsl(21, 57%, 50%);
-  --clr-primary-7: hsl(21, 65%, 59%);
-  --clr-primary-8: hsl(21, 80%, 74%);
-  --clr-primary-9: hsl(21, 94%, 87%);
-  --clr-primary-10: hsl(21, 100%, 94%);  */
-
   --clr-primary-1: hsl(228, 38%, 97%);
   --clr-primary-2: hsl(228, 38%, 92%);
   --clr-primary-3: hsl(228, 38%, 85%);
@@ -55,6 +41,7 @@ Variables
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1170px;
   --fixed-width: 620px;
+  --desktop-breakpoint: 1025px;
 }
 /*
 ===============
@@ -84,8 +71,16 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-@media screen and (min-width: 992px) {
-  .container-content {
+.layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.layout-content {
+  flex-grow: 1;
+}
+@media screen and (min-width: 1025px) {
+  .layout-content {
     margin-top: 128px;
   }
 }
@@ -107,7 +102,8 @@ a:hover {
   color: var(--clr-primary-6);
 }
 .sidebar .active {
-  color: var(--clr-primary-9);
+  text-decoration: line-through;
+  color: var(--clr-white);
 }
 img {
   display: block;
@@ -213,7 +209,7 @@ p {
 .blog--content div:last-child {
   margin-bottom: 0;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1025px) {
   .blog-center {
     width: 70vw;
   }
@@ -225,27 +221,39 @@ p {
 .team-center {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 2fr));
-  grid-gap: 8px 8px;
+  grid-gap: 16px 32px;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1025px) {
   .team-center {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    grid-gap: 16px 32px;
   }
 }
 .team-center--item {
   align-self: start;
 }
 /* partner image on teams */
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .partner-center {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-gap: 16px 32px;
+  grid-gap: 36px 32px;
 }
 .partner--logo {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+}
+.partner--info {
+  max-width: 70%;
+}
+@media screen and (min-width: 1025px) {
+  .partner--info {
+    max-width: 95%;
+  }
 }
 .partner--role {
   margin-bottom: 20px;

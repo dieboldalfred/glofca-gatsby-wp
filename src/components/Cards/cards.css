@@ -8,7 +8,7 @@
     grid-gap: 1rem;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1025px) {
   .cards-center {
     grid-template-columns: 1fr 1fr 1fr;
   }

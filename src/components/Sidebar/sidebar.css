@@ -11,7 +11,7 @@
   transition: var(--transition);
   transform: translateX(-100%);
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1025px) {
   .sidebar {
     width: 400px;
     padding-right: 32px;

@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   grid-gap: 2rem 1rem;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1025px) {
   .blogs-center {
     grid-auto-rows: 1fr;
   }

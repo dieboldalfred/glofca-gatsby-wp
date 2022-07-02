@@ -18,11 +18,11 @@ const Blog = ({ title, excerpt, image, slug }) => {
       </div>
       <div className="blog-info">
         <Link to={`/blog/${slug}`}>
-          <h4 className="blog-info__title">{cutString(title, 50)}</h4>
+          <h3 className="blog-info__title">{title}</h3>
         </Link>
 
         <p className="blog-info__description">
-          {cutString(clearHtml(excerpt), 250)}
+          {cutString(clearHtml(excerpt), 100)}
         </p>
         <Link to={`/blog/${slug}`}>
           <button className="btn">Read More</button>
