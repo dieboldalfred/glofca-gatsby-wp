@@ -29,6 +29,31 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs)
 }
 
+// create image nodes from google sheets plugin
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
+exports.onCreateNode = async ({
+  node,
+  actions,
+  store,
+  cache,
+  createNodeId,
+}) => {
+  const { createNode } = actions
+  if (node.internal.type === "projectsSheetsData") {
+    const fileNode = await createRemoteFileNode({
+      url: node.featuredimage,
+      store,
+      cache,
+      createNode,
+      parentNodeId: node.id,
+      createNodeId,
+    })
+    if (fileNode) {
+      node.localFeaturedImage___NODE = fileNode.id
+    }
+  }
+}
+
 // create resolvers for related posts in graphql
 exports.createResolvers = ({ createResolvers, schema }) =>
   createResolvers({
