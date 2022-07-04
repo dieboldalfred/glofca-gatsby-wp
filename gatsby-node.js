@@ -104,6 +104,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+      themesRU: allWpCategory(filter: { slug: { eq: "themes-ru" } }) {
+        nodes {
+          pages {
+            nodes {
+              slug
+            }
+          }
+        }
+      }
       projects: allWpCategory(filter: { slug: { eq: "projects" } }) {
         nodes {
           pages {
@@ -156,15 +165,33 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  // create pages for themes
+  // THEMES
   result.data.themes.nodes.forEach(node => {
-    node.pages.nodes.forEach(theme => {
-      const { slug } = theme
+    node.pages.nodes.forEach(page => {
+      const { slug } = page
       createPage({
         path: `/themes/${slug}`,
         component: themeTemplate,
         context: {
           slugQuery: { eq: slug },
+          lang: "en",
+          locale: "en_US",
+        },
+      })
+    })
+  })
+
+  // THEMES-RU
+  result.data.themesRU.nodes.forEach(node => {
+    node.pages.nodes.forEach(page => {
+      const { slug } = page
+      createPage({
+        path: `/ru/themes/${slug}`,
+        component: themeTemplate,
+        context: {
+          slugQuery: { eq: slug },
+          lang: "ru",
+          locale: "ru_RU",
         },
       })
     })
@@ -172,8 +199,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // create pages for projects
   result.data.projects.nodes.forEach(node => {
-    node.pages.nodes.forEach(project => {
-      const { slug } = project
+    node.pages.nodes.forEach(page => {
+      const { slug } = page
       createPage({
         path: `/projects/${slug}`,
         component: projectTemplate,
@@ -187,8 +214,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   result.data.projectsRU.nodes.forEach(node => {
-    node.pages.nodes.forEach(project => {
-      const { slug } = project
+    node.pages.nodes.forEach(page => {
+      const { slug } = page
       createPage({
         path: `/ru/projects/${slug}`,
         component: projectTemplate,
@@ -215,16 +242,33 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 
-  // create homepage in english and russian
+  // create HOMEPAGE in english and russian
   const HomepageTemplate = path.resolve("./src/templates/index.js")
   languages.forEach(lang => {
     createPage({
-      path: lang.path,
+      path: lang.path, // / or /ru
       component: HomepageTemplate,
       context: {
         lang: lang.code,
         locale: lang.locale,
         projectsSlug: { eq: getTranslatedCategorySlug("projects", lang.code) },
+        themesSlug: { eq: getTranslatedCategorySlug("themes", lang.code) },
+        pageId: lang.code === "en" ? 44 : 9824,
+      },
+    })
+  })
+
+  // create ABOUT in english and russian
+  const AboutTemplate = path.resolve("./src/templates/about.js")
+  languages.forEach(lang => {
+    createPage({
+      // path: lang.path + "about", // /about or /ru/about
+      path: lang.path === "/ru" ? "ru/about" : "about",
+      component: AboutTemplate,
+      context: {
+        lang: lang.code,
+        locale: lang.locale,
+        pageId: lang.code === "en" ? 17 : 9868,
       },
     })
   })

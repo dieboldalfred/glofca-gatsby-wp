@@ -1,7 +1,6 @@
 import React from "react"
 
 import Card from "./Card/Card"
-import LinkTranslated from "../LinkTranslated/LinkTranslated"
 
 // styles
 import "./cards.css"
@@ -16,9 +15,13 @@ const Cards = ({ title, items, prefix, lang }) => {
         {items.map(item => {
           const { id, title, slug, featuredImage } = item
           return (
-            <LinkTranslated key={id} to={`/${prefix}/${slug}`} lang={lang}>
-              <Card title={title} image={featuredImage} />
-            </LinkTranslated>
+            <Card
+              key={id}
+              title={title}
+              image={featuredImage}
+              to={`/${prefix}/${slug}`}
+              lang={lang}
+            />
           )
         })}
       </SectionContent>

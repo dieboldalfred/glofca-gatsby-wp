@@ -9,10 +9,6 @@ import "../assets/css/main.css"
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  // const toggleSidebar = () => {
-  //   setIsOpen(!isOpen)
-  // }
-
   const openSidebar = () => {
     setIsOpen(true)
     document.body.classList.add("sidebar-open")
@@ -22,9 +18,12 @@ const Layout = ({ children }) => {
     document.body.classList.remove("sidebar-open")
     setIsOpen(false)
   }
+
+  // ensure sidebar classes are removed on each new page visited
   React.useEffect(() => {
     closeSidebar()
   }, [])
+
   return (
     <div className="layout">
       <Navbar openSidebar={openSidebar} />

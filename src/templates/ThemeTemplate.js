@@ -34,15 +34,6 @@ export const query = graphql`
       title
       uri
       content
-      featuredImage {
-        node {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(placeholder: TRACED_SVG)
-            }
-          }
-        }
-      }
     }
   }
 `

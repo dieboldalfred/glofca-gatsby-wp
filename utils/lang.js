@@ -5,7 +5,7 @@ exports.getTranslatedCategorySlug = (categorySlug, language) => {
     return categorySlug
   }
 
-  return categorySlug + "-" + language
+  return `${categorySlug}-${language}`
 }
 
 // module.exports = { getTranslatedCa: () => {}}
