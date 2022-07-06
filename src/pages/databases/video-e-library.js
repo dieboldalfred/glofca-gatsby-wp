@@ -1,18 +1,7 @@
 import React, { useMemo } from "react"
-import { getImage, GatsbyImage } from "gatsby-plugin-image"
-
-// styles
-import {
-  Container,
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-} from "reactstrap"
+import { useMediaQuery } from "react-responsive"
+import { Container, Card, CardText, CardBody, CardTitle } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-
-// components
 import {
   TableContainer,
   Section,
@@ -20,44 +9,135 @@ import {
   BreadCrumb,
 } from "../../components"
 import Layout from "../../components/Layout"
+import { DefaultColumnFilter, SelectColumnFilter } from "../../utils/filters"
+
+// hooks
+import { useGetVideoELibraryQuery } from "../../hooks/useGetVideoELibrary"
 
 const VideoELibrary = () => {
-  // render sub component upon click
+  const data = useGetVideoELibraryQuery()
+
+  // media breakpoints
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1224px)",
+  })
+  const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
+  const isTablet = useMediaQuery({
+    query: "(min-width: 993px) and (max-width: 1224px)",
+  })
+
+  // desktop columns
+  const columns = useMemo(
+    () => [
+      {
+        Header: () => null,
+        id: "expander", // 'id' is required
+        Cell: ({ row }) => (
+          <span {...row.getToggleRowExpandedProps()}>
+            {row.isExpanded ? "⬇" : "⮕"}
+          </span>
+        ),
+      },
+      {
+        Header: "Title",
+        accessor: "title",
+      },
+      {
+        Header: "Length",
+        accessor: "length",
+      },
+      {
+        Header: "Producer",
+        accessor: "producer",
+      },
+      {
+        Header: "Publisher",
+        accessor: "publisher",
+      },
+      {
+        Header: "Keywords",
+        accessor: "keywords",
+      },
+    ],
+    []
+  )
+
+  // desktop sub component
   const renderRowSubComponent = row => {
-    const { Title, Abstract, Region, Logo } = row.original.data
+    const {
+      title,
+      region,
+      link,
+      length,
+      keywords,
+      date,
+      abstract,
+      topics,
+      contributor,
+      producer,
+      publisher,
+    } = row.original
 
-    console.log(Logo.localFiles[0].childImageSharp.gatsbyImageData)
-
-    {
-      /*
-          <CardImg
-            top
-            src={
-              Logo.localFiles[0].childImageSharp.gatsbyImageData.images.fallback
-                .src
-            }
-            alt="Card image cap"
-          />
-          */
-    }
     return (
       <Card style={{ margin: "0 auto" }}>
+        {/* {logo && <CardImg top src={logo} alt="Card image cap" />} */}
         <CardBody>
-          {Logo && (
-            <GatsbyImage
-              image={getImage(
-                Logo.localFiles[0].childImageSharp.gatsbyImageData
-              )}
-              alt={row.original.data.Title}
-            />
-          )}
           <CardTitle tag="h3">
-            <strong>{row.original.data.Title} </strong> <br />
+            <strong>{title} </strong> <br />
             <br />
           </CardTitle>
-          {Abstract && (
+          {abstract && (
             <CardText>
-              <strong>Abstract</strong>: {Abstract} <br />
+              <strong>Abstract</strong>: {abstract} <br />
+            </CardText>
+          )}
+          {region && (
+            <CardText>
+              <strong>Region </strong>: {region} <br />
+            </CardText>
+          )}
+          {length && (
+            <CardText>
+              <strong>Length</strong>: {length} <br />
+            </CardText>
+          )}
+          {date && (
+            <CardText>
+              <strong>Date</strong>: {date} <br />
+            </CardText>
+          )}
+          {contributor && (
+            <CardText>
+              <strong>Contributor</strong>: {contributor} <br />
+            </CardText>
+          )}
+          {producer && (
+            <CardText>
+              <strong>Producer</strong>: {producer} <br />
+            </CardText>
+          )}
+          {publisher && (
+            <CardText>
+              <strong>Publisher</strong>: {publisher} <br />
+            </CardText>
+          )}
+          {link && (
+            <CardText>
+              <strong>Link</strong>:{" "}
+              <a target="_blank" href={link}>
+                {link}
+              </a>{" "}
+              <br />
+            </CardText>
+          )}
+          {keywords && (
+            <CardText>
+              <strong>Keywords</strong>: {keywords} <br />
+            </CardText>
+          )}
+          {topics && (
+            <CardText>
+              <strong>Topics</strong>: {topics} <br />
             </CardText>
           )}
         </CardBody>
@@ -71,15 +151,17 @@ const VideoELibrary = () => {
         <BreadCrumb />
       </SectionContent>
       <Section title="Video E-Library">
-        <SectionContent>
-          {/* <Container>
-            <TableContainer
-              columns={columns}
-              data={data}
-              renderRowSubComponent={renderRowSubComponent}
-            />
-          </Container> */}
-        </SectionContent>
+        {isDesktopOrLaptop && (
+          <SectionContent>
+            <Container>
+              <TableContainer
+                columns={columns}
+                data={data}
+                renderRowSubComponent={renderRowSubComponent}
+              />
+            </Container>
+          </SectionContent>
+        )}
       </Section>
     </Layout>
   )

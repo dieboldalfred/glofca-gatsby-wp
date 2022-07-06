@@ -11,6 +11,8 @@ module.exports = {
   /* Your site config here */
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,8 +20,6 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-wordpress`,
       options: {
@@ -47,8 +47,26 @@ module.exports = {
       options: {
         apiKey: "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
         spreadsheetUrl:
-          "https://docs.google.com/spreadsheets/d/1ByPYIoK2XyyRTDIq1u4Lf79nqzFV7xXy-j2SWQcxlzI/edit#gid=0",
-        tabName: "projects",
+          "https://docs.google.com/spreadsheets/d/182AF4HjSUn1z793MmA-cdeeU-hrt-6O5BxB2K32EO6E/edit#gid=0",
+        tabName: "eLibrary",
+      },
+    },
+    {
+      resolve: "gatsby-source-google-sheets-flexible",
+      options: {
+        apiKey: "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
+        spreadsheetUrl:
+          "https://docs.google.com/spreadsheets/d/182AF4HjSUn1z793MmA-cdeeU-hrt-6O5BxB2K32EO6E/edit#gid=0",
+        tabName: "Stakeholders",
+      },
+    },
+    {
+      resolve: "gatsby-source-google-sheets-flexible",
+      options: {
+        apiKey: "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
+        spreadsheetUrl:
+          "https://docs.google.com/spreadsheets/d/182AF4HjSUn1z793MmA-cdeeU-hrt-6O5BxB2K32EO6E/edit#gid=0",
+        tabName: "VideoeLibrary",
       },
     },
   ],

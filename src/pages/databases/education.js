@@ -19,10 +19,10 @@ import {
 import Layout from "../../components/Layout"
 
 // hooks
-import { useGetEducationQuery } from "../../hooks/useGetEducation"
+// import { useGetEducationQuery } from "../../hooks/useGetEducation"
 
 const Education = () => {
-  const data = useGetEducationQuery()
+  // const data = useGetEducationQuery()
 
   const columns = useMemo(
     () => [

@@ -127,17 +127,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  // create pages per language
-  // languages.forEach(lang => {
-  //   createPage({
-  //     path: lang.path,
-  //     component: blogTemplate,
-  //     context: {
-  //       lang: lang.code,
-  //     },
-  //   })
-  // })
-
   // create pages for blogs
   result.data.allWpPost.nodes.forEach(node => {
     const { slug } = node

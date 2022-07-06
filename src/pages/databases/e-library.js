@@ -1,13 +1,6 @@
 import React, { useMemo } from "react"
 import { useMediaQuery } from "react-responsive"
-import {
-  Container,
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-} from "reactstrap"
+import { Container, Card, CardText, CardBody, CardTitle } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import {
   TableContainer,
@@ -25,7 +18,9 @@ import { clearHtml } from "../../utils/typography"
 import { useGetELibrariesQuery } from "../../hooks/useGetELibaries"
 
 const ELibrary = () => {
+  // const myData = data?.allELibrarySheetsData.nodes
   const data = useGetELibrariesQuery()
+  console.log(data)
 
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1224px)",
@@ -51,18 +46,16 @@ const ELibrary = () => {
         accessor: "title",
       },
       {
-        Header: "Author(s)",
-        accessor: "elibraryFields.author",
-      },
-      {
-        Header: "Region",
-        accessor: "elibraryFields.region",
+        Header: "Date",
+        accessor: "publishedOn",
       },
       {
         Header: "Keywords",
-        accessor: values => values?.keywords?.nodes.map(k => k.name).join(", "),
-        // Filter: SelectColumnFilter,
-        // filter: equals,
+        accessor: "keywords",
+      },
+      {
+        Header: "Topics",
+        accessor: "topics",
       },
     ],
     []
@@ -85,11 +78,11 @@ const ELibrary = () => {
       },
       {
         Header: "Author(s)",
-        accessor: "elibraryFields.author",
+        accessor: "author",
       },
       {
         Header: "Region",
-        accessor: "elibraryFields.region",
+        accessor: "regioncountry",
       },
     ],
     []
@@ -114,17 +107,18 @@ const ELibrary = () => {
     []
   )
 
-  // render sub component upon click
   const renderMobileRowSubComponent = row => {
     const {
-      format,
+      title,
       abstract,
-      contributor,
+      author,
+      format,
       link,
-      logo,
-      publishedIn,
-      publisher,
-    } = row.original.elibraryFields
+      regioncountry,
+      contributedBy,
+      publishedOn,
+      publishedBy,
+    } = row.original
 
     return (
       <Card style={{ margin: "0 auto" }}>
@@ -138,22 +132,22 @@ const ELibrary = () => {
             />
           )} */}
           <CardTitle tag="h3">
-            <strong>{row.original.title} </strong> <br />
+            <strong>{title} </strong> <br />
             <br />
           </CardTitle>
-          {publisher && (
+          {publishedBy && (
             <CardText>
-              <strong>Publisher</strong>: {publisher} <br />
+              <strong>Publisher</strong>: {publishedBy} <br />
             </CardText>
           )}
-          {publishedIn && (
+          {publishedOn && (
             <CardText>
-              <strong>Published In</strong>: {publishedIn} <br />
+              <strong>Published In</strong>: {publishedOn} <br />
             </CardText>
           )}
-          {contributor && (
+          {contributedBy && (
             <CardText>
-              <strong>Contributor</strong>: {contributor} <br />
+              <strong>Contributor</strong>: {contributedBy} <br />
             </CardText>
           )}
           {format && (
@@ -196,39 +190,53 @@ const ELibrary = () => {
     )
   }
 
-  // render sub component upon click
+  // desktop sub component
   const renderRowSubComponent = row => {
     const {
-      format,
+      title,
       abstract,
-      contributor,
+      author,
+      format,
       link,
-      logo,
-      publishedIn,
-      publisher,
-    } = row.original.elibraryFields
+      regioncountry,
+      contributedBy,
+      publishedOn,
+      publishedBy,
+      keywords,
+      topics,
+    } = row.original
 
     return (
       <Card style={{ margin: "0 auto" }}>
         {/* {logo && <CardImg top src={logo} alt="Card image cap" />} */}
-        <CardBody>
+        <CardBody style={{ backgroundColor: "#F6F6F6" }}>
           <CardTitle tag="h3">
-            <strong>{row.original.title} </strong> <br />
+            <strong>{title} </strong> <br />
             <br />
           </CardTitle>
-          {publisher && (
+          {author && (
             <CardText>
-              <strong>Publisher</strong>: {publisher} <br />
+              <strong>Author</strong>: {author} <br />
             </CardText>
           )}
-          {publishedIn && (
+          {regioncountry && (
             <CardText>
-              <strong>Published In</strong>: {publishedIn} <br />
+              <strong>Region / Country</strong>: {regioncountry} <br />
             </CardText>
           )}
-          {contributor && (
+          {publishedBy && (
             <CardText>
-              <strong>Contributor</strong>: {contributor} <br />
+              <strong>Publisher</strong>: {publishedBy} <br />
+            </CardText>
+          )}
+          {publishedOn && (
+            <CardText>
+              <strong>Published In</strong>: {publishedOn} <br />
+            </CardText>
+          )}
+          {contributedBy && (
+            <CardText>
+              <strong>Contributor</strong>: {contributedBy} <br />
             </CardText>
           )}
           {format && (
@@ -250,7 +258,17 @@ const ELibrary = () => {
               <strong>Abstract</strong>: {clearHtml(abstract)} <br />
             </CardText>
           )}
-          {row.original.keywords.nodes.length > 0 && (
+          {keywords && (
+            <CardText>
+              <strong>Keywords</strong>: {keywords} <br />
+            </CardText>
+          )}
+          {topics && (
+            <CardText>
+              <strong>Topics</strong>: {topics} <br />
+            </CardText>
+          )}
+          {/* {row.original.keywords.nodes.length > 0 && (
             <CardText>
               <strong>Keywords</strong>:&nbsp;
               {row.original.keywords.nodes
@@ -265,7 +283,7 @@ const ELibrary = () => {
               {row.original.topics.nodes.map(topic => topic.name).join(", ")}
               <br />
             </CardText>
-          )}
+          )} */}
         </CardBody>
       </Card>
     )
@@ -279,7 +297,7 @@ const ELibrary = () => {
       <Section title="E-Library">
         <SectionContent>
           <Container>
-            {isMobile && (
+            {/* {isMobile && (
               <TableContainer
                 columns={columnsMobile}
                 data={data}
@@ -292,7 +310,7 @@ const ELibrary = () => {
                 data={data}
                 renderRowSubComponent={renderMobileRowSubComponent}
               />
-            )}
+            )} */}
             {isDesktopOrLaptop && (
               <TableContainer
                 columns={columns}

@@ -38,7 +38,7 @@ const PartnerTemplate = ({ data, pageContext }) => {
             className="partner--text"
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(intro) }}
           />
-          <h4 className="partner--role">Role in the Project:</h4>
+          <h3 className="partner--role">Role in the Project:</h3>
           <p
             className="partner--text last--text"
             dangerouslySetInnerHTML={{

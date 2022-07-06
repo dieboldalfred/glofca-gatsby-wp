@@ -3,40 +3,24 @@ import { useStaticQuery, graphql } from "gatsby"
 export const useGetELibrariesQuery = () => {
   const data = useStaticQuery(graphql`
     {
-      allWpELibrary {
+      allELibrarySheetsData {
         nodes {
+          id
           title
-          keywords {
-            nodes {
-              name
-            }
-          }
-          topics {
-            nodes {
-              name
-            }
-          }
-          elibraryFields {
-            abstract
-            author
-            contributor
-            format
-            link
-            publishedIn
-            publisher
-            region
-            logo {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(placeholder: TRACED_SVG)
-                }
-              }
-            }
-          }
+          link
+          abstract
+          author
+          format
+          regioncountry
+          publishedOn
+          publishedBy
+          publishedOn
+          keywords
+          topics
         }
       }
     }
   `)
 
-  return data.allWpELibrary.nodes
+  return data.allELibrarySheetsData.nodes
 }

@@ -2,21 +2,26 @@ import { useStaticQuery, graphql } from "gatsby"
 
 export const useGetStakeholdersQuery = () => {
   const data = useStaticQuery(graphql`
-    query GetStakeholders {
-      allWpStakeholder {
+    {
+      allStakeholdersSheetsData {
         nodes {
-          stakeholders {
-            country
-            description
-            name
-            region
-            role
-            type
-          }
+          name
+          country
+          address
+          contacts
+          contributedBy
+          description
+          id
+          involvement
+          keywords
+          link
+          region
+          role
+          type
         }
       }
     }
   `)
 
-  return data.allWpStakeholder.nodes
+  return data.allStakeholdersSheetsData.nodes
 }
