@@ -13,12 +13,6 @@ const ProjectTemplate = data => {
       <SectionContent>
         <BreadCrumb />
       </SectionContent>
-      {/* <Hero
-        title={title}
-        image={featuredImage.node.localFile}
-        height="medium"
-        align="center"
-      /> */}
       <Section title={title}>
         <SectionContent customClass="blog-center">
           <div
@@ -32,8 +26,8 @@ const ProjectTemplate = data => {
 }
 
 export const query = graphql`
-  query GetProjectPage($slugQuery: StringQueryOperatorInput) {
-    wpPage(slug: $slugQuery) {
+  query GetProjectPage($slug: String!) {
+    wpPage(slug: { eq: $slug }) {
       id
       title
       uri

@@ -6,6 +6,7 @@ const Contact = () => {
   return (
     <Layout>
       <CTAAreaTwoCol
+        customClass="cta-purple"
         format="even"
         leftColumn={<Blurb heading="Get In Touch" />}
         rightColumn={<ContactForm />}

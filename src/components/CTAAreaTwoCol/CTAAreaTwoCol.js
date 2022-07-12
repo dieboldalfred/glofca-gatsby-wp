@@ -4,9 +4,9 @@ import { Section, SectionContent, TwoColumnGrid, GridColumn } from "../index"
 // styles
 import "./cta-area-two-col.css"
 
-const CTAAreaTwoCol = ({ leftColumn, rightColumn, format }) => {
+const CTAAreaTwoCol = ({ leftColumn, rightColumn, format, customClass }) => {
   return (
-    <Section customClass="cta-two-col">
+    <Section customClass={customClass}>
       <SectionContent customClass="cta-two-col--container">
         <TwoColumnGrid format={format}>
           <GridColumn>{leftColumn}</GridColumn>

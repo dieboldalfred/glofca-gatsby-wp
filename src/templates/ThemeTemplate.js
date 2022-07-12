@@ -13,10 +13,8 @@ const ThemeTemplate = data => {
       <SectionContent>
         <BreadCrumb />
       </SectionContent>
-      {/* <Hero title={title} image={featuredImage.node.localFile} align="center" /> */}
       <Section title={title}>
         <SectionContent customClass="blog-center">
-          {/* <div className="blog--content">{clearHtml(content)}</div> */}
           <div
             className="blog--content"
             dangerouslySetInnerHTML={{ __html: content }}
@@ -28,21 +26,12 @@ const ThemeTemplate = data => {
 }
 
 export const query = graphql`
-  query GetThemePage($slugQuery: StringQueryOperatorInput) {
-    wpPage(slug: $slugQuery) {
+  query GetThemePage($slug: String!) {
+    wpPage(slug: { eq: $slug }) {
       id
       title
       uri
       content
-      featuredImage {
-        node {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(placeholder: TRACED_SVG)
-            }
-          }
-        }
-      }
     }
   }
 `

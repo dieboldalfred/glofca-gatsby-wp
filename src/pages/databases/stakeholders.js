@@ -53,6 +53,7 @@ const Stakeholders = () => {
       {
         Header: "Country",
         accessor: "country",
+        Filter: SelectColumnFilter,
       },
       {
         Header: "Keywords",

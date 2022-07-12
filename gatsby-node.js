@@ -54,7 +54,7 @@ exports.onCreateNode = async ({
   }
 }
 
-// create resolvers for related posts in graphql
+// create resolvers for YARPP related posts in graphql
 exports.createResolvers = ({ createResolvers, schema }) =>
   createResolvers({
     WpPost: {
@@ -90,22 +90,30 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      themes: allWpCategory(filter: { slug: { eq: "themes" } }) {
+      # themes: allWpCategory(filter: { slug: { eq: "themes" } }) {
+      #   nodes {
+      #     pages {
+      #       nodes {
+      #         slug
+      #       }
+      #     }
+      #   }
+      themes: allWpPage(
+        filter: {
+          categories: { nodes: { elemMatch: { slug: { eq: "themes" } } } }
+        }
+      ) {
         nodes {
-          pages {
-            nodes {
-              slug
-            }
-          }
+          slug
         }
       }
-      projects: allWpCategory(filter: { slug: { eq: "projects" } }) {
+      projects: allWpPage(
+        filter: {
+          categories: { nodes: { elemMatch: { slug: { eq: "projects" } } } }
+        }
+      ) {
         nodes {
-          pages {
-            nodes {
-              slug
-            }
-          }
+          slug
         }
       }
       partners: allWpPartner {
@@ -113,7 +121,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           slug
         }
       }
-      allWpPost {
+      news: allWpPost {
         nodes {
           slug
         }
@@ -128,48 +136,40 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // create pages for blogs
-  result.data.allWpPost.nodes.forEach(node => {
+  result.data.news.nodes.forEach(node => {
     const { slug } = node
-
-    languages.forEach(lang => {
-      createPage({
-        path: `/blog/${slug}`,
-        component: blogTemplate,
-        context: {
-          slugQuery: { eq: slug },
-          uri: "/news",
-          title: "News",
-          lang: lang.code,
-        },
-      })
+    createPage({
+      path: `/blog/${slug}`,
+      component: blogTemplate,
+      context: {
+        slugQuery: { eq: slug },
+        uri: "/news",
+        title: "News",
+      },
     })
   })
 
   // create pages for themes
   result.data.themes.nodes.forEach(node => {
-    node.pages.nodes.forEach(theme => {
-      const { slug } = theme
-      createPage({
-        path: `/themes/${slug}`,
-        component: themeTemplate,
-        context: {
-          slugQuery: { eq: slug },
-        },
-      })
+    const { slug } = node
+    createPage({
+      path: `/themes/${slug}`,
+      component: themeTemplate,
+      context: {
+        slug: slug,
+      },
     })
   })
 
   // create pages for projects
   result.data.projects.nodes.forEach(node => {
-    node.pages.nodes.forEach(project => {
-      const { slug } = project
-      createPage({
-        path: `/projects/${slug}`,
-        component: projectTemplate,
-        context: {
-          slugQuery: { eq: slug },
-        },
-      })
+    const { slug } = node
+    createPage({
+      path: `/projects/${slug}`,
+      component: projectTemplate,
+      context: {
+        slug: slug,
+      },
     })
   })
 
