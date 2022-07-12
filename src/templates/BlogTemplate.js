@@ -37,7 +37,7 @@ const BlogTemplate = ({ data, pageContext }) => {
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </SectionContent>
-        <SectionContent>
+        {/* <SectionContent>
           {isTabletorMobile ? (
             <Blogs
               title="Related Posts"
@@ -49,7 +49,7 @@ const BlogTemplate = ({ data, pageContext }) => {
               posts={related_posts.nodes.slice(0, 3)}
             />
           )}
-        </SectionContent>
+        </SectionContent> */}
       </Section>
     </Layout>
   )
@@ -70,23 +70,23 @@ export const query = graphql`
           }
         }
       }
-      related_posts {
-        nodes {
-          title
-          slug
-          uri
-          excerpt
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(placeholder: TRACED_SVG)
-                }
-              }
-            }
-          }
-        }
-      }
+      # related_posts {
+      #   nodes {
+      #     title
+      #     slug
+      #     uri
+      #     excerpt
+      #     featuredImage {
+      #       node {
+      #         localFile {
+      #           childImageSharp {
+      #             gatsbyImageData(placeholder: TRACED_SVG)
+      #           }
+      #         }
+      #       }
+      #     }
+      #   }
+      # }
     }
   }
 `
