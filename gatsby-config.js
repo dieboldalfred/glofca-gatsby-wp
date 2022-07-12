@@ -30,7 +30,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
-        endpoint: process.env.MAILCHIMP_ENDPOINT,
+        endpoint:
+          process.env.MAILCHIMP_ENDPOINT ||
+          "https://thevelvetcell.us14.list-manage.com/subscribe/post?u=f08a426f15d017eb05515ff7e&amp;id=a9cbc57343",
         timeout: 3500,
       },
     },
