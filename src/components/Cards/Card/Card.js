@@ -8,7 +8,7 @@ const Card = ({ id, title, image }) => {
   // image = { node: { localFile: { childImageSharp: { ... }}}}
   // { childImageSharp: {...}}
   return (
-    <article className="card-article" key={id}>
+    <article className="card" key={id}>
       <div className="card-container">
         <GatsbyImage
           image={getImage(image?.node.localFile)}

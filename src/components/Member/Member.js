@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "./member.css"
 
 const Member = ({ title, image, position, company }) => {
+  console.log(position)
   return (
     <article className="team--member">
       <div className="team--member-image">
@@ -13,7 +14,9 @@ const Member = ({ title, image, position, company }) => {
       <div className="team--member-info">
         <h5 className="team--member-title">{title}</h5>
         {position && (
-          <h4 className="team--member-position">{`${position}, ${company}`}</h4>
+          <h4 className="team--member-position">{`${position}${
+            company === null ? "" : `, ${company}`
+          }`}</h4>
         )}
       </div>
     </article>

@@ -22,27 +22,8 @@ const Blurb = ({
         )}
         <div className="underline underline--clr-white"></div>
       </div>
-      {/* <div className="blurb--buttons">
-        {buttonOneText && buttonOneLink && (
-          <a target="_blank" className="btn btn-left" href={buttonOneLink}>
-            {buttonOneText}
-          </a>
-        )}
-        {buttonTwoText && buttonTwoLink && (
-          <a target="_blank" className="btn btn-left" href={buttonTwoLink}>
-            {buttonTwoText}
-          </a>
-        )}
-      </div> */}
-      {/* {buttons &&
-        buttons.map(btn => {
-          ;<a target="_blank" className="btn btn-left" href={btn.link}>
-            {btn.label}
-          </a>
-        })} */}
     </div>
   )
 }
-// buttons = [{ text: '', link: ''}] buttons.map(x => ())
 
 export default Blurb

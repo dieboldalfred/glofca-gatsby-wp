@@ -2,11 +2,11 @@
   .two-col-grid--uneven {
     display: grid;
     grid-template-columns: 1.5fr 2.5fr;
-    column-gap: 16px;
+    column-gap: 32px;
   }
   .two-col-grid--even {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 16px;
+    column-gap: 32px;
   }
 }

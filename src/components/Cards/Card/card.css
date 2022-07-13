@@ -1,5 +1,6 @@
-.card-article {
+.card {
   border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
 }
 .card-container {
   height: 5rem;

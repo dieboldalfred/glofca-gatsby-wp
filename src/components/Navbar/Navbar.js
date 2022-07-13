@@ -72,6 +72,7 @@ const Navbar = ({ openSidebar }) => {
     prevScrollPosition = currentScrollPosition
   }
 
+  console.log(isBrowser)
   // sub and unsub from event when component is mounted/unm from dom
   useEffect(() => {
     if (isBrowser() && isDesktopOrLaptop) {
