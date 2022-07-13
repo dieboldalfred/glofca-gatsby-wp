@@ -40,9 +40,7 @@ const Navbar = ({ openSidebar }) => {
     padding: "24px 0",
   })
 
-  const [logoSize, setLogoSize] = useState(
-    isDesktopOrLaptop ? "medium" : "small"
-  )
+  const [logoSize, setLogoSize] = useState("small")
 
   // display navbar on scroll up
 
@@ -71,6 +69,19 @@ const Navbar = ({ openSidebar }) => {
     // reset scroll position for next call
     prevScrollPosition = currentScrollPosition
   }
+
+  useEffect(() => {
+    setLogoSize(isDesktopOrLaptop ? "medium" : "small")
+
+    if (!isDesktopOrLaptop) {
+      setNavbarStyles({
+        top: 0,
+        padding: "0 0",
+      })
+    } else {
+      displayNavBar()
+    }
+  }, [isDesktopOrLaptop])
 
   // sub and unsub from event when component is mounted/unm from dom
   useEffect(() => {
