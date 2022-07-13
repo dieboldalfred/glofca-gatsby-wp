@@ -6,7 +6,7 @@ import "./cta-area-two-col.css"
 
 const CTAAreaTwoCol = ({ leftColumn, rightColumn, format, customClass }) => {
   return (
-    <Section customClass={customClass}>
+    <Section customClass="cta-two-col">
       <SectionContent customClass="cta-two-col--container">
         <TwoColumnGrid format={format}>
           <GridColumn>{leftColumn}</GridColumn>

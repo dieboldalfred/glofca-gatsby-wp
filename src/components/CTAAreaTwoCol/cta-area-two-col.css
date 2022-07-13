@@ -1,3 +1,6 @@
+.cta-two-col {
+  background-color: var(--clr-primary-4);
+}
 .cta-white {
   background-color: var(--clr-white);
 }
