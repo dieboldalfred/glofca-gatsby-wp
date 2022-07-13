@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import Card from "./Card/Card"
 
 // styles
@@ -15,9 +14,12 @@ const Cards = ({ title, items, link }) => {
         {items.map(item => {
           const { id, title, slug, featuredImage } = item
           return (
-            <Link key={id} to={`/${link}/${slug}`}>
-              <Card title={title} image={featuredImage} />
-            </Link>
+            <Card
+              key={id}
+              to={`/${link}/${slug}`}
+              title={title}
+              image={featuredImage}
+            />
           )
         })}
       </SectionContent>
