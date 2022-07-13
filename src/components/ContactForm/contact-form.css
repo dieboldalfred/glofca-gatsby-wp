@@ -15,7 +15,7 @@
   justify-content: center;
   flex-grow: 1;
   margin-top: 16px;
-  gap: 8px;
+  gap: 16px;
 }
 .contact-form--submit,
 .contact-form--clear {

@@ -72,7 +72,7 @@ const Navbar = ({ openSidebar }) => {
     prevScrollPosition = currentScrollPosition
   }
 
-  console.log(isBrowser())
+  console.log(isDesktopOrLaptop)
   // sub and unsub from event when component is mounted/unm from dom
   useEffect(() => {
     if (isBrowser() && isDesktopOrLaptop) {
@@ -85,7 +85,11 @@ const Navbar = ({ openSidebar }) => {
   }, [isBrowser()])
 
   return (
-    <nav className="navbar" style={isDesktopOrLaptop ? navbarStyles : {}}>
+    <nav
+      key={`navbar-${isDesktopOrLaptop ? "desktpop" : "mobile"}`}
+      className="navbar"
+      style={isDesktopOrLaptop ? navbarStyles : {}}
+    >
       <SectionContent customClass="navbar--content">
         <div className="navbar--left">
           <div className="navbar--menu" onClick={openSidebar}>
