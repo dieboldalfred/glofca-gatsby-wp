@@ -21,9 +21,9 @@ const VideoELibrary = () => {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1224px)",
   })
-  const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
+  const isMobile = useMediaQuery({ query: "(max-width: 764px)" })
   const isTablet = useMediaQuery({
-    query: "(min-width: 993px) and (max-width: 1224px)",
+    query: "(min-width: 765px) and (max-width: 1224px)",
   })
 
   // desktop columns
@@ -57,6 +57,58 @@ const VideoELibrary = () => {
       {
         Header: "Keywords",
         accessor: "keywords",
+      },
+    ],
+    []
+  )
+
+  // tablet columns
+  const columnsTablet = useMemo(
+    () => [
+      {
+        Header: () => null,
+        id: "expander", // 'id' is required
+        Cell: ({ row }) => (
+          <span {...row.getToggleRowExpandedProps()}>
+            {row.isExpanded ? "⬇" : "⮕"}
+          </span>
+        ),
+      },
+      {
+        Header: "Title",
+        accessor: "title",
+      },
+      {
+        Header: "Length",
+        accessor: "length",
+      },
+      {
+        Header: "Producer",
+        accessor: "producer",
+      },
+    ],
+    []
+  )
+
+  // tablet columns
+  const columnsMobile = useMemo(
+    () => [
+      {
+        Header: () => null,
+        id: "expander", // 'id' is required
+        Cell: ({ row }) => (
+          <span {...row.getToggleRowExpandedProps()}>
+            {row.isExpanded ? "⬇" : "⮕"}
+          </span>
+        ),
+      },
+      {
+        Header: "Title",
+        accessor: "title",
+      },
+      {
+        Header: "Length",
+        accessor: "length",
       },
     ],
     []
@@ -125,8 +177,8 @@ const VideoELibrary = () => {
             <CardText>
               <strong>Link</strong>:{" "}
               <a target="_blank" href={link}>
-                {link}
-              </a>{" "}
+                Click Here
+              </a>
               <br />
             </CardText>
           )}
@@ -147,21 +199,30 @@ const VideoELibrary = () => {
 
   return (
     <Layout>
-      <SectionContent>
-        <BreadCrumb />
-      </SectionContent>
       <Section title="Video E-Library">
-        {isDesktopOrLaptop && (
-          <SectionContent>
-            <Container>
-              <TableContainer
-                columns={columns}
-                data={data}
-                renderRowSubComponent={renderRowSubComponent}
-              />
-            </Container>
-          </SectionContent>
-        )}
+        <SectionContent>
+          {isMobile && (
+            <TableContainer
+              columns={columnsMobile}
+              data={data}
+              renderRowSubComponent={renderRowSubComponent}
+            />
+          )}
+          {isTablet && (
+            <TableContainer
+              columns={columnsTablet}
+              data={data}
+              renderRowSubComponent={renderRowSubComponent}
+            />
+          )}
+          {isDesktopOrLaptop && (
+            <TableContainer
+              columns={columns}
+              data={data}
+              renderRowSubComponent={renderRowSubComponent}
+            />
+          )}
+        </SectionContent>
       </Section>
     </Layout>
   )

@@ -12,9 +12,6 @@ import Layout from "../../components/Layout"
 const Projects = () => {
   return (
     <Layout>
-      <SectionContent>
-        <BreadCrumb />
-      </SectionContent>
       <Section title="Projects">
         <SectionContent>
           {/* <Container>

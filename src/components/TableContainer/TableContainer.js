@@ -129,7 +129,7 @@ const TableContainer = ({ columns, data, renderRowSubComponent }) => {
           )}
         </Col>
         <Col md={2}>
-          Page{" "}
+          Page
           <strong>
             {pageIndex + 1} of {pageOptions.length}
           </strong>

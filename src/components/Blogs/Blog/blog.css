@@ -3,6 +3,7 @@
   border-top-right-radius: var(--radius);
   display: flex;
   flex-direction: column;
+  box-shadow: var(--light-shadow);
 }
 .blog-info {
   padding: 1.5rem 1.5rem;

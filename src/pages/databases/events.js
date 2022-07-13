@@ -12,9 +12,6 @@ import Layout from "../../components/Layout"
 const Events = () => {
   return (
     <Layout>
-      <SectionContent>
-        <BreadCrumb />
-      </SectionContent>
       <Section title="Events">
         <SectionContent>
           {/* <Container>

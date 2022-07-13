@@ -268,11 +268,7 @@ export const query = graphql`
           node {
             localFile {
               childImageSharp {
-                gatsbyImageData(
-                  placeholder: TRACED_SVG
-                  width: 200
-                  height: 200
-                )
+                gatsbyImageData(placeholder: TRACED_SVG, width: 200)
               }
             }
           }

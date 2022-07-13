@@ -21,9 +21,9 @@ const Stakeholders = () => {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 1224px)",
   })
-  const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
+  const isMobile = useMediaQuery({ query: "(max-width: 764px)" })
   const isTablet = useMediaQuery({
-    query: "(min-width: 993px) and (max-width: 1224px)",
+    query: "(min-width: 765px) and (max-width: 1224px)",
   })
 
   // desktop columns
@@ -63,7 +63,61 @@ const Stakeholders = () => {
     []
   )
 
-  // desktop sub component
+  // tablet columns
+  const columnsTablet = useMemo(
+    () => [
+      {
+        Header: () => null,
+        id: "expander", // 'id' is required
+        Cell: ({ row }) => (
+          <span {...row.getToggleRowExpandedProps()}>
+            {row.isExpanded ? "⬇" : "⮕"}
+          </span>
+        ),
+      },
+      {
+        Header: "Name",
+        accessor: "name",
+      },
+      {
+        Header: "Region",
+        accessor: "region",
+      },
+      {
+        Header: "Country",
+        accessor: "country",
+        Filter: SelectColumnFilter,
+      },
+    ],
+    []
+  )
+
+  // tablet mobile
+  const columnsMobile = useMemo(
+    () => [
+      {
+        Header: () => null,
+        id: "expander", // 'id' is required
+        Cell: ({ row }) => (
+          <span {...row.getToggleRowExpandedProps()}>
+            {row.isExpanded ? "⬇" : "⮕"}
+          </span>
+        ),
+      },
+      {
+        Header: "Name",
+        accessor: "name",
+      },
+      {
+        Header: "Country",
+        accessor: "country",
+        Filter: SelectColumnFilter,
+      },
+    ],
+    []
+  )
+
+  // sub component
   const renderRowSubComponent = row => {
     const {
       name,
@@ -72,7 +126,6 @@ const Stakeholders = () => {
       contacts,
       contributedBy,
       description,
-      id,
       involvement,
       keywords,
       link,
@@ -83,8 +136,7 @@ const Stakeholders = () => {
 
     return (
       <Card style={{ margin: "0 auto" }}>
-        {/* {logo && <CardImg top src={logo} alt="Card image cap" />} */}
-        <CardBody>
+        <CardBody style={{ backgroundColor: "#F6F6F6" }}>
           <CardTitle tag="h3">
             <strong>{name} </strong> <br />
             <br />
@@ -123,8 +175,8 @@ const Stakeholders = () => {
             <CardText>
               <strong>Link</strong>:{" "}
               <a target="_blank" href={link}>
-                {link}
-              </a>{" "}
+                Click Here
+              </a>
               <br />
             </CardText>
           )}
@@ -145,11 +197,22 @@ const Stakeholders = () => {
 
   return (
     <Layout>
-      <SectionContent>
-        <BreadCrumb />
-      </SectionContent>
       <Section title="Stakeholders">
         <SectionContent>
+          {isMobile && (
+            <TableContainer
+              columns={columnsMobile}
+              data={data}
+              renderRowSubComponent={renderRowSubComponent}
+            />
+          )}
+          {isTablet && (
+            <TableContainer
+              columns={columnsTablet}
+              data={data}
+              renderRowSubComponent={renderRowSubComponent}
+            />
+          )}
           {isDesktopOrLaptop && (
             <TableContainer
               columns={columns}

@@ -59,9 +59,6 @@ const Education = () => {
 
   return (
     <Layout>
-      <SectionContent>
-        <BreadCrumb />
-      </SectionContent>
       <Section title="Education">
         <SectionContent>
           {/* <Container>
