@@ -23,16 +23,14 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        // url: `http://glofca-wp.local/graphql`,
-        url: `http://wordpress.glofca.org/graphql`,
+        url: `http://glofca-wp.local/graphql`,
+        // url: `http://wordpress.glofca.org/graphql`,
       },
     },
     {
       resolve: "gatsby-plugin-mailchimp",
       options: {
-        endpoint:
-          process.env.MAILCHIMP_ENDPOINT ||
-          "https://thevelvetcell.us14.list-manage.com/subscribe/post?u=f08a426f15d017eb05515ff7e&amp;id=a9cbc57343",
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
         timeout: 3500,
       },
     },
@@ -48,8 +46,11 @@ module.exports = {
     {
       resolve: "gatsby-source-google-sheets-flexible",
       options: {
-        apiKey: "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
+        apiKey:
+          process.env.GOOGLE_API_KEY ||
+          "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
         spreadsheetUrl:
+          process.env.GOOGLE_ELIBRARY_SHEET ||
           "https://docs.google.com/spreadsheets/d/182AF4HjSUn1z793MmA-cdeeU-hrt-6O5BxB2K32EO6E/edit#gid=0",
         tabName: "eLibrary",
       },
@@ -57,8 +58,11 @@ module.exports = {
     {
       resolve: "gatsby-source-google-sheets-flexible",
       options: {
-        apiKey: "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
+        apiKey:
+          process.env.GOOGLE_API_KEY ||
+          "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
         spreadsheetUrl:
+          process.env.GOOGLE_STAKEHOLDERS_SHEET ||
           "https://docs.google.com/spreadsheets/d/182AF4HjSUn1z793MmA-cdeeU-hrt-6O5BxB2K32EO6E/edit#gid=0",
         tabName: "Stakeholders",
       },
@@ -66,8 +70,11 @@ module.exports = {
     {
       resolve: "gatsby-source-google-sheets-flexible",
       options: {
-        apiKey: "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
+        apiKey:
+          process.env.GOOGLE_API_KEY ||
+          "AIzaSyAyWuHEuONEltpIuAHkmsaglYF-OtI-NHI",
         spreadsheetUrl:
+          process.env.GOOGLE_VIDEOELIBRARY_SHEET ||
           "https://docs.google.com/spreadsheets/d/182AF4HjSUn1z793MmA-cdeeU-hrt-6O5BxB2K32EO6E/edit#gid=0",
         tabName: "VideoeLibrary",
       },

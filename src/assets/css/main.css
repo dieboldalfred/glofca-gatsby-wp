@@ -66,10 +66,11 @@ body {
   /* font-size: 0.875rem; */
   font-size: 16px;
 }
-.sidebar-open {
+.body-has-sidebar-open {
   position: fixed;
   height: 100vh;
   overflow: hidden;
+  width: 100%;
 }
 .layout {
   display: flex;

@@ -14,7 +14,7 @@ import { Logo, SectionContent } from "../../components"
 import { DESKTOP_BREAKPOINT } from "../../utils/breakpoints"
 
 // Check if window is defined (so if in the browser or in node.js).
-const isBrowser = typeof window !== "undefined"
+const isBrowser = () => typeof window !== "undefined"
 
 const Navbar = ({ openSidebar }) => {
   const data = useStaticQuery(graphql`
@@ -31,8 +31,8 @@ const Navbar = ({ openSidebar }) => {
       }
     }
   `)
-  // useDesktopQuery =
 
+  // useDesktopQuery =
   const isDesktopOrLaptop = useMediaQuery(DESKTOP_BREAKPOINT)
   const menu = data.wpMenu.menuItems.nodes
   const [navbarStyles, setNavbarStyles] = useState({
@@ -46,7 +46,7 @@ const Navbar = ({ openSidebar }) => {
 
   // display navbar on scroll up
 
-  let prevScrollPosition = isBrowser ? window.pageYOffset : 0
+  let prevScrollPosition = isBrowser() ? window.pageYOffset : 0
 
   const displayNavBar = () => {
     // get the current scroll position
@@ -74,14 +74,14 @@ const Navbar = ({ openSidebar }) => {
 
   // sub and unsub from event when component is mounted/unm from dom
   useEffect(() => {
-    if (isBrowser && isDesktopOrLaptop) {
+    if (isBrowser() && isDesktopOrLaptop) {
       window.addEventListener("scroll", displayNavBar)
     }
 
     return () => {
       window.removeEventListener("scroll", displayNavBar)
     }
-  })
+  }, [isBrowser()])
 
   return (
     <nav className="navbar" style={isDesktopOrLaptop ? navbarStyles : {}}>

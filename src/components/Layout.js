@@ -9,17 +9,13 @@ import "../assets/css/main.css"
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  // const toggleSidebar = () => {
-  //   setIsOpen(!isOpen)
-  // }
-
   const openSidebar = () => {
     setIsOpen(true)
-    document.body.classList.add("sidebar-open")
+    document.body.classList.add("body-has-sidebar-open")
   }
 
   const closeSidebar = () => {
-    document.body.classList.remove("sidebar-open")
+    document.body.classList.remove("body-has-sidebar-open")
     setIsOpen(false)
   }
   React.useEffect(() => {
