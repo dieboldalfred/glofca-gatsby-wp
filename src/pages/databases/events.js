@@ -1,12 +1,7 @@
 import React from "react"
 
 // components
-import {
-  TableContainer,
-  Section,
-  SectionContent,
-  BreadCrumb,
-} from "../../components"
+import { Section, SectionContent } from "../../components"
 import Layout from "../../components/Layout"
 
 const Events = () => {

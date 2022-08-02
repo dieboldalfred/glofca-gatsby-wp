@@ -30,9 +30,6 @@ const HomePage = () => {
   const posts = useLatestPostsQuery()
   const home = useGetHomepageFieldsQuery()
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
-  })
   const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
 
   const visiblePosts = isMobile ? posts.slice(0, 3) : posts

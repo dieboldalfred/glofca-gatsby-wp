@@ -1,0 +1,71 @@
+.navbar2 {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
+  padding: 24px 0;
+}
+.navbar2--fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 4px 0;
+  transition: 0.3s linear;
+  z-index: 999;
+  background-color: var(--clr-white);
+}
+.navbar--content2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar--left {
+  color: var(--clr-white);
+  display: flex;
+  align-items: center;
+}
+.navbar--right {
+  color: var(--clr-white);
+  display: flex;
+  align-items: center;
+}
+.navbar--menu {
+  border: transparent;
+  font-size: 32px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding: 10px 0px;
+  text-transform: capitalize;
+  position: relative;
+  color: var(--clr-black);
+  cursor: pointer;
+  margin-right: 32px;
+  display: flex;
+}
+.navbar--funders {
+  display: none;
+}
+.navbar--links ul {
+  display: none;
+}
+@media (min-width: 768px) {
+  .navbar--links ul {
+    display: flex;
+    margin-right: 32px;
+  }
+  .navbar--links ul li {
+    margin: 0 16px;
+    padding: 0;
+    color: var(--clr-black);
+  }
+}
+@media (min-width: 1025px) {
+  .navbar--funders {
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+  }
+  .navbar--funders-logo {
+    margin-right: 16px;
+  }
+}

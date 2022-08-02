@@ -9,7 +9,7 @@ const Blog = () => {
 
   return (
     <Layout>
-      <Blogs title="All Posts" posts={posts} />
+      <Blogs title="News" posts={posts} />
     </Layout>
   )
 }

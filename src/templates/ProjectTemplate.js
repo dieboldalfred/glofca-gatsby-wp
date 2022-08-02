@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // components
-import { Hero, BreadCrumb, Section, SectionContent } from "../components"
+import { BreadCrumb, Section, SectionContent } from "../components"
 import Layout from "../components/Layout"
 
 const ProjectTemplate = data => {

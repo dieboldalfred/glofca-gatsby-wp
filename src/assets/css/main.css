@@ -80,11 +80,6 @@ body {
 .layout-content {
   flex-grow: 1;
 }
-@media screen and (min-width: 1025px) {
-  .layout-content {
-    margin-top: 128px;
-  }
-}
 ul {
   list-style-type: none;
   margin: 0;
