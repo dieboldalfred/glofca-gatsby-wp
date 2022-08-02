@@ -1,15 +1,9 @@
 import React, { useMemo } from "react"
 import { useMediaQuery } from "react-responsive"
-import { Container, Card, CardText, CardBody, CardTitle } from "reactstrap"
+import { Card, CardText, CardBody, CardTitle } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-import {
-  TableContainer,
-  Section,
-  SectionContent,
-  BreadCrumb,
-} from "../../components"
+import { TableContainer, Section, SectionContent } from "../../components"
 import Layout from "../../components/Layout"
-import { DefaultColumnFilter, SelectColumnFilter } from "../../utils/filters"
 
 // utils
 import { clearHtml } from "../../utils/typography"
@@ -162,7 +156,7 @@ const ELibrary = () => {
           {link && (
             <CardText>
               <strong>Link</strong>:{" "}
-              <a target="_blank" href={link}>
+              <a target="_blank" rel="noreferrer" href={link}>
                 Click Here
               </a>
               <br />

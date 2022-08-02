@@ -8,8 +8,6 @@ import "./footer.css"
 import { Logo, SectionContent, LogoBanner } from "../index"
 import FooterMenu from "./Footer-Menu/FooterMenu"
 
-const links = ["item1", "item2", "item3"]
-
 const Footer = () => {
   const data = useStaticQuery(graphql`
     {

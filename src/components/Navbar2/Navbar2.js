@@ -9,7 +9,7 @@ import "./navbar2.css"
 // components
 import { Logo, SectionContent } from "../../components"
 
-const Navbar = ({ openSidebar }) => {
+const Navbar = ({ openSidebar, heightToShowFrom }) => {
   const data = useStaticQuery(graphql`
     {
       wpMenu(name: { eq: "topMenu" }) {
@@ -25,6 +25,9 @@ const Navbar = ({ openSidebar }) => {
     }
   `)
   const menu = data.wpMenu.menuItems.nodes
+
+  const winScroll =
+    document.body.scrollTop || document.documentElement.scrollTop
 
   return (
     <nav id="navbar2" className="navbar2">
@@ -67,26 +70,11 @@ const Navbar = ({ openSidebar }) => {
               })}
             </ul>
           </div>
-          <Logo size="medium" />
+          <Logo size={winScroll > 350 ? "small" : "medium"} />
         </div>
       </SectionContent>
     </nav>
   )
 }
-
-// export const query = graphql`
-//   {
-//     menu: wpMenu(name: { eq: "topMenu" }) {
-//       menuItems {
-//         nodes {
-//           label
-//           path
-//           target
-//           id
-//         }
-//       }
-//     }
-//   }
-// `
 
 export default Navbar

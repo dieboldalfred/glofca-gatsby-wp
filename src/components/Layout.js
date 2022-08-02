@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import Navbar from "./Navbar/Navbar"
 import Navbar2 from "./Navbar2/Navbar2"
 import Sidebar from "./Sidebar/Sidebar"
 import Footer from "./Footer/Footer"

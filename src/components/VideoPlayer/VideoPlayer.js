@@ -21,7 +21,3 @@ const VideoPlayer = ({ videoURL, customClass }) => {
   )
 }
 export default VideoPlayer
-
-{
-  /* <iframe width="1152" height="649" src="https://www.youtube.com/embed/fEVjZN8quro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */
-}

@@ -47,12 +47,6 @@ const Education = () => {
         Header: "Country",
         accessor: "educationFields.educationCountry",
       },
-      // {
-      //   Header: "Keywords",
-      //   accessor: values => values?.keywords?.nodes.map(k => k.name).join(", "),
-      //   // Filter: SelectColumnFilter,
-      //   // filter: equals,
-      // },
     ],
     []
   )
