@@ -3,16 +3,17 @@
   align-items: center;
   box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
   padding: 24px 0;
-}
-.navbar2--fixed {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   left: 0;
-  padding: 4px 0;
-  transition: 0.3s linear;
   z-index: 999;
   background-color: var(--clr-white);
+}
+.navbar2--fixed {
+  position: fixed;
+  padding: 4px 0;
+  transition: 0.3s linear;
 }
 .navbar--content2 {
   display: flex;

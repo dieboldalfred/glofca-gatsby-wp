@@ -35,7 +35,7 @@ const About = () => {
           />
         </SectionContent>
       </Section>
-      <CTAAreaTwoCol rightColumn={<MailchimpForm />} />
+      {/* <CTAAreaTwoCol rightColumn={<MailchimpForm />} /> */}
     </Layout>
   )
 }

@@ -23,25 +23,25 @@ const Layout = ({ children }) => {
     closeSidebar()
   }, [])
 
-  const listenToScroll = () => {
-    let heightToShowFrom = 350
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop
+  // const listenToScroll = () => {
+  //   let heightToShowFrom = 350
+  //   const winScroll =
+  //     document.body.scrollTop || document.documentElement.scrollTop
 
-    if (winScroll > heightToShowFrom) {
-      !showFloatingMenu && // to limit setting state only the first time
-        document.getElementById("navbar2").classList.add("navbar2--fixed")
-      setShowFloatingMenu(true)
-    } else {
-      document.getElementById("navbar2").classList.remove("navbar2--fixed")
-      setShowFloatingMenu(false)
-    }
-  }
+  //   if (winScroll > heightToShowFrom) {
+  //     !showFloatingMenu && // to limit setting state only the first time
+  //       document.getElementById("navbar2").classList.add("navbar2--fixed")
+  //     setShowFloatingMenu(true)
+  //   } else {
+  //     document.getElementById("navbar2").classList.remove("navbar2--fixed")
+  //     setShowFloatingMenu(false)
+  //   }
+  // }
 
-  useEffect(() => {
-    window.addEventListener("scroll", listenToScroll)
-    return () => window.removeEventListener("scroll", listenToScroll)
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener("scroll", listenToScroll)
+  //   return () => window.removeEventListener("scroll", listenToScroll)
+  // }, [])
 
   return (
     <div className="layout">

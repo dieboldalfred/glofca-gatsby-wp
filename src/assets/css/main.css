@@ -79,6 +79,7 @@ body {
 }
 .layout-content {
   flex-grow: 1;
+  margin-top: 128px;
 }
 ul {
   list-style-type: none;

@@ -10,14 +10,23 @@ const MailchimpForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const data = await addToMailchimp(email)
-    if (data.result === "error") {
-      handleError(data)
+
+    try {
+      const data = await addToMailchimp("ererer")
+
+      console.log(data)
+      setSubmitted(true) // -> show thank you for subscription and hide form
+    } catch (e) {
+      handleError(e)
     }
-    setSubmitted(true)
   }
 
-  const handleError = data => {}
+  const handleError = data => {
+    // hasError
+    // edit -> hasError => false
+    // hasError -> data.msg
+    console.log(data)
+  }
 
   const handleChange = e => {
     setEmail(e.target.value)
@@ -42,7 +51,7 @@ const MailchimpForm = () => {
           className="mailchimp-form--button btn"
           label="Submit"
           type="submit"
-          onClick={() => handleSubmit()}
+          onClick={handleSubmit}
         >
           {submitted ? "Already Subscribed" : "Subscribe"}
         </button>
