@@ -32,7 +32,7 @@
   transition: background-color 200ms ease-in;
 }
 @media screen and (min-width: 1025px) {
-  .card-container {
+  /* .card-container {
     height: 15rem;
   }
   .card-container:hover .card-img {
@@ -41,7 +41,7 @@
   .card-info--title {
     color: var(--clr-white);
     font-size: 20px;
-  }
+  } */
 }
 .card-info {
   position: absolute;
@@ -61,6 +61,16 @@
 @media (min-width: 1025px) {
   .card-container {
     height: 12.5rem;
+  }
+  .card-container {
+    height: 15rem;
+  }
+  .card-container:hover .card-img {
+    opacity: 0.2;
+  }
+  .card-info--title {
+    color: var(--clr-white);
+    font-size: 20px;
   }
 }
 @media (min-width: 1200px) {

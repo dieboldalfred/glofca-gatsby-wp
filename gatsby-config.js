@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Glofca`,
-    author: `Eanna Freeney`,
+    description: `Our mission is to provide reliable and credible information and knowledge Glacier Lake Outburst Flood (GLOFs), Disaster Risk Reduction (DRR) and Early Warning Systems (EWS) in Central Asia to all stakeholders and the interested public.`,
   },
   /* Your site config here */
   plugins: [
@@ -23,6 +23,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         url: process.env.REMOTE_WORDPRESS || `http://glofca-wp.local/graphql`,
+        // url: `http://glofca-wp.local/graphql`,
       },
     },
     {

@@ -9,7 +9,7 @@ import {
   MailchimpForm,
   Blurb,
   VideoPlayer,
-  ScrollButton,
+  Seo,
 } from "../components"
 import Layout from "../components/Layout"
 import { useMediaQuery } from "react-responsive"
@@ -36,7 +36,7 @@ const HomePage = () => {
 
   return (
     <Layout>
-      <ScrollButton />
+      <Seo title="Home" />
       <Hero
         title={home.heroTitle}
         image={home.heroImage.localFile}
@@ -59,7 +59,8 @@ const HomePage = () => {
         content={home.ourMissionText}
         image={home.ourMissionImage.localFile}
       />
-      <Cards title="Databases" link="databases" items={databases} />
+      <Cards title="Project" link="projects" items={projects} />
+
       <CTAAreaTwoCol
         leftColumn={
           <Blurb
@@ -77,15 +78,15 @@ const HomePage = () => {
           />
         }
       />
+      <Cards title="Themes" link="themes" items={themes} />
 
-      <Cards title="Projects" link="projects" items={projects} />
       {/* <CTAAreaThreeCol middleColumn={<MailchimpForm />} /> */}
       <Hero
         title={home.ourVisionTitle}
         content={home.ourVisionText}
         image={home.ourVisionImage.localFile}
       />
-      <Cards title="Themes" link="themes" items={themes} />
+      <Cards title="Databases" link="databases" items={databases} />
     </Layout>
   )
 }

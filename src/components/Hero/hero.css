@@ -4,8 +4,7 @@
   min-height: 400px;
 }
 .hero-size-full {
-  height: calc(100vh - 128px);
-  /* height: 100vh; */
+  height: calc(100vh - 108px);
 }
 .hero-size-large {
   min-height: 500px;
@@ -78,5 +77,8 @@
   }
   .hero--article-content {
     font-size: 28px;
+  }
+  .hero-size-full {
+    height: calc(100vh - 128px);
   }
 }

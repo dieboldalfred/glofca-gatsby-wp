@@ -1,10 +1,11 @@
 import React from "react"
-import { GrievanceForm, CTAAreaTwoCol, Blurb } from "../components"
+import { GrievanceForm, CTAAreaTwoCol, Blurb, Seo } from "../components"
 import Layout from "../components/Layout"
 
 const Contact = () => {
   return (
     <Layout>
+      <Seo title="Grievances" />
       <CTAAreaTwoCol
         format="even"
         leftColumn={

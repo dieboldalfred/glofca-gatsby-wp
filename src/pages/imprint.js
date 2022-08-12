@@ -2,13 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // comps
-import { Section, SectionContent } from "../components"
+import { Section, SectionContent, Seo } from "../components"
 import Layout from "../components/Layout"
 
 const Imprint = data => {
   const page = data.data.wpPage
   return (
     <Layout>
+      <Seo title="Imprint" />
       <Section title={page.title}>
         <SectionContent>
           <div

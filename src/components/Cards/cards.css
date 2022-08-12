@@ -3,10 +3,10 @@
   grid-gap: 1rem;
 }
 @media (min-width: 768px) {
-  .cards-center {
+  /* .cards-center {
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
-  }
+  } */
 }
 @media (min-width: 1025px) {
   .cards-center {

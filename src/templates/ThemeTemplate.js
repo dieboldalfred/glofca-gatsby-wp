@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // components
-import { SectionContent, Section, BreadCrumb } from "../components"
+import { SectionContent, Section, BreadCrumb, Seo } from "../components"
 import Layout from "../components/Layout"
 
 const ThemeTemplate = data => {
@@ -10,6 +10,7 @@ const ThemeTemplate = data => {
 
   return (
     <Layout>
+      <Seo title={title} />
       <SectionContent>
         <BreadCrumb />
       </SectionContent>

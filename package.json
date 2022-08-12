@@ -38,7 +38,9 @@
     "react-responsive": "^9.0.0-beta.10",
     "react-table": "^7.8.0",
     "reactstrap": "^9.0.2",
-    "sanitize-html": "^2.7.0"
+    "sanitize-html": "^2.7.0",
+    "gatsby-plugin-react-helmet": "^5.18.0",
+"react-helmet": "^6.1.0"
   },
   "devDependencies": {
     "prettier": "^2.6.2"

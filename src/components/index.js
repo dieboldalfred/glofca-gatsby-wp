@@ -23,7 +23,7 @@ import BreadCrumb from "./BreadCrumb/BreadCrumb"
 import Partner from "./Partner/Partner"
 import GrievanceForm from "./GrievanceForm/GrievanceForm"
 import ScrollButton from "./ScrollButton/ScrollButton"
-import BGImage from "./BG-Image/BG-Image"
+import Seo from "./Seo/Seo"
 
 export {
   Blogs,
@@ -51,5 +51,5 @@ export {
   Partner,
   GrievanceForm,
   ScrollButton,
-  BGImage,
+  Seo,
 }

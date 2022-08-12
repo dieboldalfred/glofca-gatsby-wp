@@ -79,7 +79,12 @@ body {
 }
 .layout-content {
   flex-grow: 1;
-  margin-top: 128px;
+  margin-top: 108px;
+}
+@media screen and (min-width: 992px) {
+  .layout-content {
+    margin-top: 128px;
+  }
 }
 ul {
   list-style-type: none;
@@ -254,6 +259,7 @@ p {
 }
 .partner--role {
   margin-bottom: 20px;
+  text-align: center;
 }
 .partner--description p:last-child {
   margin-bottom: 0;

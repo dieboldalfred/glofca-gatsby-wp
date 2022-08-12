@@ -8,6 +8,7 @@ import {
   Section,
   SectionContent,
   AboutContainer,
+  Seo,
 } from "../components"
 
 // hooks
@@ -18,6 +19,7 @@ const About = () => {
 
   return (
     <Layout>
+      <Seo title="About" />
       <Section title="About">
         <SectionContent customClass="about">
           <AboutContainer text={data.about} />

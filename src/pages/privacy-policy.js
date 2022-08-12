@@ -1,13 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
 // comps
-import { Section, SectionContent } from "../components"
+import { Section, SectionContent, Seo } from "../components"
 import Layout from "../components/Layout"
 
 const PrivacyPolicy = data => {
   const page = data.data.wpPage
   return (
     <Layout>
+      <Seo title={page.title} />
       <Section title={page.title}>
         <SectionContent>
           <div

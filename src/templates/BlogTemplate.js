@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { useMediaQuery } from "react-responsive"
 
 // components
-import { Section, SectionContent, BreadCrumb, Blogs } from "../components"
+import { Section, SectionContent, BreadCrumb, Blogs, Seo } from "../components"
 import Layout from "../components/Layout"
 
 const BlogTemplate = ({ data, pageContext }) => {
@@ -16,6 +16,7 @@ const BlogTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <Seo title={pageContext.title} />
       <SectionContent>
         <BreadCrumb
           parent={{

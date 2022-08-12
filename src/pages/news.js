@@ -1,5 +1,5 @@
 import React from "react"
-import { Blogs } from "../components"
+import { Blogs, Seo } from "../components"
 import Layout from "../components/Layout"
 
 import { useGetAllPostsQuery } from "../hooks/useGetAllPosts"
@@ -9,6 +9,7 @@ const Blog = () => {
 
   return (
     <Layout>
+      <Seo title="News" />
       <Blogs title="News" posts={posts} />
     </Layout>
   )

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
-  padding: 24px 0;
+  padding: 14px 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -68,5 +68,8 @@
   }
   .navbar--funders-logo {
     margin-right: 16px;
+  }
+  .navbar2 {
+    padding: 24px 0;
   }
 }
