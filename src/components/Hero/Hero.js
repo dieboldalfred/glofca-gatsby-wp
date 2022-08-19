@@ -9,6 +9,7 @@ const Hero = ({
   title,
   image,
   content,
+  subText,
   width = "670px",
   align = "left",
   height = "large",
@@ -33,6 +34,7 @@ const Hero = ({
         >
           <h1 className="hero--article-title">{title}</h1>
           <p className="hero--article-content">{content}</p>
+          <p className="hero--article-subtext">{subText}</p>
         </article>
       </div>
     </section>

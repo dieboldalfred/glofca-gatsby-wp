@@ -32,8 +32,6 @@ const HomePage = () => {
 
   const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
 
-  const visiblePosts = isMobile ? posts.slice(0, 3) : posts
-
   return (
     <Layout>
       <Seo title="Home" />
@@ -41,9 +39,10 @@ const HomePage = () => {
         title={home.heroTitle}
         image={home.heroImage.localFile}
         content={home.heroText}
+        subText={home.heroSubtext}
         height="full"
       />
-      <LogoBanner />
+      {/* <LogoBanner /> */}
       <CTAAreaTwoCol
         leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={
@@ -53,13 +52,13 @@ const HomePage = () => {
           />
         }
       />
-      <Blogs title="Latest News" posts={visiblePosts} showLink />
+      <Blogs title="Latest News" posts={posts} showLink />
       <Hero
         title={home.ourMissionTitle}
         content={home.ourMissionText}
         image={home.ourMissionImage.localFile}
       />
-      <Cards title="Project" link="projects" items={projects} />
+      <Cards title="Project" link="project" items={projects} />
 
       <CTAAreaTwoCol
         leftColumn={

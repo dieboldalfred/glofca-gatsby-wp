@@ -68,7 +68,15 @@
   letter-spacing: var(--spacing);
   line-height: 1.25;
   margin-bottom: 0.75rem;
-  font-size: 24px;
+  font-size: 1.5rem;
+}
+.hero--article-subtext {
+  font-weight: 400;
+  color: var(--clr-white);
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
 }
 @media screen and (min-width: 1025px) {
   .hero--article-title {
@@ -79,6 +87,6 @@
     font-size: 28px;
   }
   .hero-size-full {
-    height: calc(100vh - 128px);
+    height: calc(100vh - 108px);
   }
 }

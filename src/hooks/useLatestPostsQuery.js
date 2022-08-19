@@ -7,7 +7,7 @@ export const useLatestPostsQuery = () => {
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "news" } } } }
         }
-        limit: 6
+        limit: 3
         sort: { order: DESC, fields: date }
       ) {
         nodes {
