@@ -1,6 +1,9 @@
 .team--member-image {
   margin-bottom: 16px;
 }
+.team-member--rounded .gatsby-image-wrapper {
+  border-radius: 50%;
+}
 .team--member-image img {
   border-radius: var(--radius);
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */

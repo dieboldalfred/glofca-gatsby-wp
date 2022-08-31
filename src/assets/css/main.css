@@ -33,7 +33,7 @@ Variables
   --clr-light-grey: #a7aabc;
   --clr-white: #fff;
   --clr-black: #222;
-  --transition: all 0.4s ease;
+  --transition: all 0.5s ease;
   --spacing: 0.1rem;
   --radius: 0.5rem;
   --box-shadow: 8px 8px #888888;
@@ -148,7 +148,7 @@ p {
     font-size: 1.75rem;
   }
   h4 {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
   body {
     font-size: 1rem;
@@ -263,4 +263,14 @@ p {
 }
 .partner--description p:last-child {
   margin-bottom: 0;
+}
+/* tashkent conference 2021 page */
+.tashkent-about {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.tashkent-about--text-box {
+  box-shadow: var(--light-shadow);
+  padding: 32px;
 }
