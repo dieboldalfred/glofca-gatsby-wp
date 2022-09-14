@@ -4,6 +4,10 @@
 .team-member--rounded .gatsby-image-wrapper {
   border-radius: 50%;
 }
+.team-member--rounded {
+  width: 200px;
+  height: 200px;
+}
 .team--member-image img {
   border-radius: var(--radius);
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
