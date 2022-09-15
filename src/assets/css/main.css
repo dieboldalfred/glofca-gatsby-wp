@@ -222,37 +222,18 @@ p {
   margin-bottom: 0;
 }
 @media screen and (min-width: 1025px) {
-  .blog-center {
+  .reduced-width {
     width: 70vw;
   }
 }
 .blog-featured-image {
   margin-bottom: 50px;
 }
-/* team */
-.team-center {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 2fr));
-  grid-gap: 16px 32px;
-}
-@media screen and (min-width: 1025px) {
-  .team-center {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
-}
-.team-center--item {
-  align-self: start;
-}
 /* partner image on teams */
 .partner {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.partner-center {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-gap: 36px 32px;
 }
 .partner--logo {
   display: flex;
@@ -273,53 +254,4 @@ p {
 }
 .partner--description p:last-child {
   margin-bottom: 0;
-}
-/* tashkent conference 2021 page */
-.tashkent-talks {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 32px;
-  grid-template-areas:
-    "a a b"
-    "a a c";
-}
-.talk-a {
-  grid-area: a;
-}
-.talk-b {
-  grid-area: b;
-}
-.talk-c {
-  grid-area: c;
-}
-.tashkent-talk {
-}
-.tashkent-section__image {
-  background-image: url("../images/mainBCG.jpg");
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-}
-.tashkent-about {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-.tashkent-about--text-box,
-.tashkent-talk {
-  box-shadow: var(--light-shadow);
-  padding: 32px;
-  height: fit-content;
-  background-color: var(--clr-white);
-  box-shadow: var(--light-shadow);
-}
-.tashkent__sponsors {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  place-items: center;
-}
-.tashkent__sponsor {
-  height: 150px;
-  width: 150px;
 }

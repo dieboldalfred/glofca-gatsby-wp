@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import Navbar2 from "./Navbar2/Navbar2"
+import Navbar from "./Navbar/Navbar"
 import Sidebar from "./Sidebar/Sidebar"
 import Footer from "./Footer/Footer"
 
@@ -8,7 +8,6 @@ import "../assets/css/main.css"
 
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [showFloatingMenu, setShowFloatingMenu] = useState(false)
 
   const openSidebar = () => {
     setIsOpen(true)
@@ -19,13 +18,14 @@ const Layout = ({ children }) => {
     document.body.classList.remove("body-has-sidebar-open")
     setIsOpen(false)
   }
-  React.useEffect(() => {
+
+  useEffect(() => {
     closeSidebar()
   }, [])
 
   return (
     <div className="layout">
-      <Navbar2 openSidebar={openSidebar} />
+      <Navbar openSidebar={openSidebar} />
       <Sidebar isOpen={isOpen} closeSidebar={closeSidebar} />
       <div className="layout-content">{children}</div>
       <Footer />

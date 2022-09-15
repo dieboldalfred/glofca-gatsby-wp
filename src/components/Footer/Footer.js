@@ -6,7 +6,7 @@ import "./footer.css"
 
 // comps
 import { Logo, SectionContent, LogoBanner } from "../index"
-import FooterMenu from "./Footer-Menu/FooterMenu"
+import FooterMenu from "./FooterMenu/FooterMenu"
 
 const Footer = () => {
   const data = useStaticQuery(graphql`

@@ -2,16 +2,7 @@ import React from "react"
 
 import "./blurb.css"
 
-const Blurb = ({
-  heading,
-  subHeading,
-  minorHeading,
-  buttonOneText,
-  buttonOneLink,
-  buttonTwoText,
-  buttonTwoLink,
-  buttons,
-}) => {
+const Blurb = ({ heading, subHeading, minorHeading }) => {
   return (
     <div className="blurb">
       <div className="blurb--headings">

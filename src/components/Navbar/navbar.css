@@ -2,6 +2,18 @@
   display: flex;
   align-items: center;
   box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
+  padding: 14px 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  background-color: var(--clr-white);
+}
+.navbar--fixed {
+  position: fixed;
+  padding: 8px 0;
+  transition: 0.3s linear;
 }
 .navbar--content {
   display: flex;
@@ -49,16 +61,6 @@
   }
 }
 @media (min-width: 1025px) {
-  .navbar {
-    /* styles for changes below*/
-    position: fixed;
-    width: 100%;
-    display: block;
-    transition: 0.3s ease;
-    z-index: 999;
-    background-color: var(--clr-white);
-    overflow: hidden;
-  }
   .navbar--funders {
     display: flex;
     align-items: center;

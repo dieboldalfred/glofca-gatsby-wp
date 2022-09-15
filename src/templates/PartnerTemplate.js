@@ -19,14 +19,12 @@ const PartnerTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <Seo title={title} />
-      <SectionContent>
-        <BreadCrumb
-          parent={{
-            uri: pageContext.uri,
-            title: pageContext.title,
-          }}
-        />
-      </SectionContent>
+      <BreadCrumb
+        parent={{
+          uri: pageContext.uri,
+          title: pageContext.title,
+        }}
+      />
       <div className="partner--logo">
         <GatsbyImage
           image={getImage(featuredImage?.node.localFile)}
@@ -34,7 +32,7 @@ const PartnerTemplate = ({ data, pageContext }) => {
         />
       </div>
       <Section title={title}>
-        <SectionContent customClass="blog-center partner--description">
+        <SectionContent customClass="reduced-width partner--description">
           <p
             className="partner--text"
             dangerouslySetInnerHTML={{ __html: sanitizeHtml(intro) }}

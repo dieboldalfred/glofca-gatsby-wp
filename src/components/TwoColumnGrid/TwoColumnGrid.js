@@ -4,7 +4,7 @@ import classNames from "classnames"
 // styles
 import "./two-column-grid.css"
 
-const TwoColumnGrid = ({ children, customClass, format = "uneven" }) => {
+const TwoColumnGrid = ({ children, customClass, format }) => {
   const classes = classNames(`two-col-grid--${format}`, {
     [customClass]: Boolean(customClass),
   })

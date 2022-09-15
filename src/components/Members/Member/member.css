@@ -1,3 +1,12 @@
+.team--member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.team--member-info {
+  text-align: center;
+}
 .team--member-image {
   margin-bottom: 16px;
 }
@@ -7,6 +16,9 @@
 .team-member--rounded {
   width: 200px;
   height: 200px;
+}
+.team-member--rounded:hover {
+  cursor: pointer;
 }
 .team--member-image img {
   border-radius: var(--radius);

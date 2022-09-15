@@ -9,14 +9,11 @@ const FooterMenu = ({ menuName, list }) => {
     <>
       <h3 className="footer--col-title">{menuName}</h3>
       <ul className="footer--col-menu">
-        {list.menuItems.nodes.map((item, index) => {
-          const { label, id, path } = item
-          return (
-            <li key={id}>
-              <Link to={path}>{label}</Link>
-            </li>
-          )
-        })}
+        {list.menuItems.nodes.map(menuItem => (
+          <li key={menuItem.id}>
+            <Link to={menuItem.path}>{menuItem.label}</Link>
+          </li>
+        ))}
       </ul>
     </>
   )

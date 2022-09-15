@@ -1,17 +1,15 @@
 import React from "react"
-import { Parallax } from "react-parallax"
-import italy from "../../assets/images/italy.jpg"
+import { Link } from "gatsby"
 
 // styles
 import "./banner.css"
 
-const Banner = ({ title, blurb, image }) => (
-  <Parallax className="banner-image" bgImage={italy} strength={300}>
-    <div className="banner-content">
-      <div className="banner-caption">{title}</div>
-      {blurb && <div className="blurb-caption">{blurb}</div>}
-    </div>
-  </Parallax>
+const Banner = ({ link, text }) => (
+  <div className="banner">
+    <Link to={link} className="banner__link">
+      <h5>{text}</h5>
+    </Link>
+  </div>
 )
 
 export default Banner

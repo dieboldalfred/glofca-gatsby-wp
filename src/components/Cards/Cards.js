@@ -9,19 +9,16 @@ import { Section, SectionContent } from "../../components"
 
 const Cards = ({ title, items, link }) => {
   return (
-    <Section customClass="cards" title={title}>
-      <SectionContent customClass="cards-center">
-        {items.map(item => {
-          const { id, title, slug, featuredImage } = item
-          return (
-            <Card
-              key={id}
-              to={`/${link}/${slug}`}
-              title={title}
-              image={featuredImage}
-            />
-          )
-        })}
+    <Section title={title}>
+      <SectionContent customClass="cards__center">
+        {items.map(card => (
+          <Card
+            key={card.id}
+            to={`/${link}/${card.slug}`}
+            title={card.title}
+            image={card.featuredImage}
+          />
+        ))}
       </SectionContent>
     </Section>
   )

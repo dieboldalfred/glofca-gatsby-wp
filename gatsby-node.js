@@ -14,21 +14,6 @@ const languages = [
   },
 ]
 
-// create schema for related posts - yarpp
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-    type WpPost implements Node {
-      related_posts: WpNodePost!
-    }
-
-    type WpNodePost implements Node {
-      nodes: [WpPost]
-    }
-  `
-  createTypes(typeDefs)
-}
-
 // create image nodes from google sheets plugin
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 exports.onCreateNode = async ({
@@ -54,50 +39,16 @@ exports.onCreateNode = async ({
   }
 }
 
-// create resolvers for YARPP related posts in graphql
-exports.createResolvers = ({ createResolvers, schema }) =>
-  createResolvers({
-    WpPost: {
-      related_posts: {
-        resolve: async (source, args, context, info) => {
-          const { databaseId } = source
-
-          const response = await fetch(
-            `${WORDPRESS_BASE}/wp-json/yarpp/v1/related/${databaseId}`
-          ).then(res => res.json())
-
-          if (response && response.length) {
-            const result = await context.nodeModel.runQuery({
-              query: {
-                filter: { databaseId: { in: response.map(({ id }) => id) } },
-              },
-              type: "WpPost",
-            })
-            return { nodes: result }
-          } else return { nodes: [] }
-        },
-      },
-    },
-  })
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
   const themeTemplate = path.resolve("./src/templates/ThemeTemplate.js")
   const projectTemplate = path.resolve("./src/templates/ProjectTemplate.js")
-  const blogTemplate = path.resolve("./src/templates/BlogTemplate.js")
+  const postTemplate = path.resolve("./src/templates/PostTemplate.js")
   const partnerTemplate = path.resolve("./src/templates/PartnerTemplate.js")
 
   const result = await graphql(`
     {
-      # themes: allWpCategory(filter: { slug: { eq: "themes" } }) {
-      #   nodes {
-      #     pages {
-      #       nodes {
-      #         slug
-      #       }
-      #     }
-      #   }
       themes: allWpPage(
         filter: {
           categories: { nodes: { elemMatch: { slug: { eq: "themes" } } } }
@@ -139,8 +90,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   result.data.news.nodes.forEach(node => {
     const { slug } = node
     createPage({
-      path: `/blog/${slug}`,
-      component: blogTemplate,
+      path: `/news/${slug}`,
+      component: postTemplate,
       context: {
         slugQuery: { eq: slug },
         uri: "/news",
@@ -165,7 +116,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   result.data.projects.nodes.forEach(node => {
     const { slug } = node
     createPage({
-      path: `/projects/${slug}`,
+      path: `/project/${slug}`,
       component: projectTemplate,
       context: {
         slug: slug,

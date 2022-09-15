@@ -1,27 +1,34 @@
 .card {
   border-radius: var(--radius);
   box-shadow: var(--light-shadow);
+  margin-bottom: 1rem;
 }
-.card-container {
+.card__container {
   height: 5rem;
   position: relative;
   overflow: hidden;
   background: var(--clr-primary-5);
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
+  border-radius: var(--radius);
 }
-.card-info--title {
+.card__info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
   color: var(--clr-white);
-  font-size: 16px;
-  margin-bottom: 0;
+  text-align: center;
 }
-.card-img {
+.card__info--title {
+  color: var(--clr-white);
+  font-size: 1rem;
+  letter-spacing: var(--spacing);
+}
+.card__img {
   height: 100%;
   border-radius: var(--radius);
 }
-.card-img:after {
+.card__img:after {
   content: "";
   position: absolute;
   top: 0;
@@ -30,51 +37,18 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.25);
   transition: background-color 200ms ease-in;
+  border-radius: var(--radius);
 }
-@media screen and (min-width: 1025px) {
-  /* .card-container {
-    height: 15rem;
-  }
-  .card-container:hover .card-img {
-    opacity: 0.2;
-  }
-  .card-info--title {
-    color: var(--clr-white);
-    font-size: 20px;
-  } */
-}
-.card-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  color: var(--clr-white);
-  text-align: center;
-}
-
 @media (min-width: 768px) {
-  .card-container {
+  .card__container {
     height: 15rem;
+  }
+  .card__container:hover .card-img {
+    opacity: 0.2;
   }
 }
 @media (min-width: 1025px) {
-  .card-container {
-    height: 12.5rem;
-  }
-  .card-container {
-    height: 15rem;
-  }
-  .card-container:hover .card-img {
-    opacity: 0.2;
-  }
-  .card-info--title {
-    color: var(--clr-white);
-    font-size: 20px;
-  }
-}
-@media (min-width: 1200px) {
-  .card-container {
-    height: 15rem;
+  .card__info--title {
+    font-size: 1.2rem;
   }
 }

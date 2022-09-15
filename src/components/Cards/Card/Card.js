@@ -9,14 +9,14 @@ const Card = ({ id, title, image, to }) => {
   return (
     <article className="card" key={id}>
       <Link to={to}>
-        <div className="card-container">
+        <div className="card__container">
           <GatsbyImage
             image={getImage(image?.node.localFile)}
             alt={title}
-            className="card-img"
+            className="card__img"
           />
-          <div className="card-info">
-            <h3 className="card-info--title">{title}</h3>
+          <div className="card__info">
+            <div className="card__info--title">{title}</div>
           </div>
         </div>
       </Link>

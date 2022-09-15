@@ -1,18 +1,18 @@
 import React from "react"
-import { Blogs, Seo } from "../components"
+import { Posts, Seo } from "../components"
 import Layout from "../components/Layout"
 
 import { useGetAllPostsQuery } from "../hooks/useGetAllPosts"
 
-const Blog = () => {
+const News = () => {
   const posts = useGetAllPostsQuery()
 
   return (
     <Layout>
       <Seo title="News" />
-      <Blogs title="News" posts={posts} />
+      <Posts title="News" posts={posts} />
     </Layout>
   )
 }
 
-export default Blog
+export default News

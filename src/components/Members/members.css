@@ -1,0 +1,18 @@
+.members__center {
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .members__center {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 2fr));
+    grid-gap: 16px 32px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .members__center {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+/* .members__center--item {
+  align-self: start;
+} */

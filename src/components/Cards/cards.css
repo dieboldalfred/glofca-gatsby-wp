@@ -1,15 +1,7 @@
-.cards-center {
-  display: grid;
-  grid-gap: 1rem;
-}
 @media (min-width: 768px) {
-  /* .cards-center {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
-  } */
-}
-@media (min-width: 1025px) {
-  .cards-center {
+  .cards__center {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
   }
 }

@@ -1,36 +1,23 @@
 import React from "react"
+import { graphql } from "gatsby"
+
 import {
-  Blogs,
+  Posts,
+  Banner,
   Cards,
   Hero,
-  LogoBanner,
   CTAAreaTwoCol,
-  CTAAreaThreeCol,
-  MailchimpForm,
   Blurb,
   VideoPlayer,
   Seo,
 } from "../components"
 import Layout from "../components/Layout"
-import { useMediaQuery } from "react-responsive"
 
 // hooks
-import { useGetThemesQuery } from "../hooks/useGetThemes"
-// import { useGetPagesQuery } from "../hooks/useGetPages"
-import { useGetDatabasesQuery } from "../hooks/useGetDatabases"
-import { useGetProjectsQuery } from "../hooks/useGetProjects"
-import { useLatestPostsQuery } from "../hooks/useLatestPostsQuery"
 import { useGetHomepageFieldsQuery } from "../hooks/useGetHomepageFields"
 
-const HomePage = () => {
-  // Graphql
-  const themes = useGetThemesQuery()
-  const databases = useGetDatabasesQuery()
-  const projects = useGetProjectsQuery()
-  const posts = useLatestPostsQuery()
+const HomePage = ({ data }) => {
   const home = useGetHomepageFieldsQuery()
-
-  const isMobile = useMediaQuery({ query: "(max-width: 992px)" })
 
   return (
     <Layout>
@@ -42,7 +29,10 @@ const HomePage = () => {
         subText={home.heroSubtext}
         height="full"
       />
-      {/* <LogoBanner /> */}
+      <Banner
+        link="tashkent-conference-2021"
+        text="Visit our Tashkent Conference 2021"
+      />
       <CTAAreaTwoCol
         leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={
@@ -52,14 +42,13 @@ const HomePage = () => {
           />
         }
       />
-      <Blogs title="Latest News" posts={posts} showLink />
+      <Posts title="Latest News" posts={data.posts.nodes} showLink />
       <Hero
         title={home.ourMissionTitle}
         content={home.ourMissionText}
         image={home.ourMissionImage.localFile}
       />
-      <Cards title="Project" link="project" items={projects} />
-
+      <Cards title="Project" link="project" items={data.projects.nodes} />
       <CTAAreaTwoCol
         leftColumn={
           <Blurb
@@ -77,17 +66,118 @@ const HomePage = () => {
           />
         }
       />
-      <Cards title="Themes" link="themes" items={themes} />
-
-      {/* <CTAAreaThreeCol middleColumn={<MailchimpForm />} /> */}
+      <Cards title="Themes" link="themes" items={data.themes.nodes} />
       <Hero
         title={home.ourVisionTitle}
         content={home.ourVisionText}
         image={home.ourVisionImage.localFile}
       />
-      <Cards title="Databases" link="databases" items={databases} />
+      <Cards title="Databases" link="databases" items={data.databases.nodes} />
     </Layout>
   )
 }
+
+export const query = graphql`
+  {
+    themes: allWpPage(
+      filter: {
+        categories: { nodes: { elemMatch: { slug: { eq: "themes" } } } }
+      }
+    ) {
+      nodes {
+        # id
+        # title
+        # slug
+        # featuredImage {
+        #   node {
+        #     localFile {
+        #       childImageSharp {
+        #         gatsbyImageData(
+        #           placeholder: TRACED_SVG
+        #           height: 500
+        #           width: 500
+        #         )
+        #       }
+        #     }
+        #   }
+        # }
+        ...CardParts
+      }
+    }
+    databases: allWpPage(
+      filter: {
+        categories: { nodes: { elemMatch: { slug: { eq: "databases" } } } }
+      }
+    ) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  height: 500
+                  width: 500
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+    projects: allWpPage(
+      filter: {
+        categories: { nodes: { elemMatch: { slug: { eq: "projects" } } } }
+      }
+    ) {
+      nodes {
+        id
+        title
+        slug
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  height: 500
+                  width: 500
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+    posts: allWpPost(
+      filter: { categories: { nodes: { elemMatch: { slug: { eq: "news" } } } } }
+      limit: 3
+      sort: { order: DESC, fields: date }
+    ) {
+      nodes {
+        id
+        title
+        slug
+        excerpt
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  placeholder: TRACED_SVG
+                  width: 600
+                  height: 600
+                )
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default HomePage

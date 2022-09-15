@@ -22,7 +22,8 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.REMOTE_WORDPRESS || `http://glofca-wp.local/graphql`,
+        url: process.env.REMOTE_WORDPRESS,
+        // url: process.env.REMOTE_WORDPRESS || `http://glofca-wp.local/graphql`,
         // url: `http://glofca-wp.local/graphql`,
       },
     },

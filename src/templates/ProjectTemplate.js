@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // components
-import { BreadCrumb, Section, SectionContent, Seo } from "../components"
+import { Article, BreadCrumb, Seo } from "../components"
 import Layout from "../components/Layout"
 
 const ProjectTemplate = data => {
@@ -11,17 +11,8 @@ const ProjectTemplate = data => {
   return (
     <Layout>
       <Seo title={title} />
-      <SectionContent>
-        <BreadCrumb />
-      </SectionContent>
-      <Section title={title}>
-        <SectionContent customClass="blog-center">
-          <div
-            className="blog--content"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </SectionContent>
-      </Section>
+      <BreadCrumb />
+      <Article title={title} content={content} />
     </Layout>
   )
 }

@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { GoThreeBars } from "react-icons/go"
 import { StaticImage } from "gatsby-plugin-image"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { useMediaQuery } from "react-responsive"
 
 // styles
 import "./navbar.css"
 
 // components
-import { Logo, SectionContent } from "../../components"
+import { Logo, SectionContent } from ".."
 
-// utils
-import { DESKTOP_BREAKPOINT } from "../../utils/breakpoints"
+const HEIGHT_TO_SHOW = 350
 
-// Check if window is defined (so if in the browser or in node.js).
+// Check if window is defined (so if in the browser or in node.js.
 const isBrowser = () => typeof window !== "undefined"
+
+const getWinScrollValue = () => {
+  if (!isBrowser()) {
+    return 0
+  }
+  return document.body.scrollTop || document.documentElement.scrollTop
+}
 
 const Navbar = ({ openSidebar }) => {
   const data = useStaticQuery(graphql`
@@ -31,75 +36,35 @@ const Navbar = ({ openSidebar }) => {
       }
     }
   `)
-
-  // useDesktopQuery =
-  const isDesktopOrLaptop = useMediaQuery(DESKTOP_BREAKPOINT)
   const menu = data.wpMenu.menuItems.nodes
-  const [navbarStyles, setNavbarStyles] = useState({
-    top: "0",
-    padding: "24px 0",
-  })
 
-  const [logoSize, setLogoSize] = useState("small")
+  const [navbarIsFixed, setIsNavbarFixed] = useState(
+    getWinScrollValue() > HEIGHT_TO_SHOW
+  )
 
-  // display navbar on scroll up
+  const listenToScroll = () => {
+    const winScroll = getWinScrollValue()
 
-  let prevScrollPosition = isBrowser() ? window.pageYOffset : 0
+    if (winScroll > HEIGHT_TO_SHOW) {
+      // to limit setting state only the first time
+      if (!navbarIsFixed) {
+        document.getElementById("navbar").classList.add("navbar--fixed")
+      }
 
-  const displayNavBar = () => {
-    // get the current scroll position
-    var currentScrollPosition = window.pageYOffset
-
-    // is position > 160? yes, isNavbarSticy = true
-    const isNavBarSticky =
-      document.body.scrollTop > 160 || document.documentElement.scrollTop > 160
-
-    // update navbar styles based on boolean value
-    setNavbarStyles({
-      padding: isNavBarSticky ? "8px 0" : "24px 0",
-      top:
-        prevScrollPosition < currentScrollPosition && isNavBarSticky
-          ? "-128px"
-          : "0",
-    })
-
-    // change logo size based on boolean value
-    setLogoSize(isNavBarSticky ? "small" : "medium")
-
-    // reset scroll position for next call
-    prevScrollPosition = currentScrollPosition
+      setIsNavbarFixed(true)
+    } else {
+      document.getElementById("navbar").classList.remove("navbar--fixed")
+      setIsNavbarFixed(false)
+    }
   }
 
   useEffect(() => {
-    setLogoSize(isDesktopOrLaptop ? "medium" : "small")
-
-    if (!isDesktopOrLaptop) {
-      setNavbarStyles({
-        top: 0,
-        padding: "0 0",
-      })
-    } else {
-      displayNavBar()
-    }
-  }, [isDesktopOrLaptop])
-
-  // sub and unsub from event when component is mounted/unm from dom
-  useEffect(() => {
-    if (isBrowser() && isDesktopOrLaptop) {
-      window.addEventListener("scroll", displayNavBar)
-    }
-
-    return () => {
-      window.removeEventListener("scroll", displayNavBar)
-    }
-  }, [isBrowser()])
+    window.addEventListener("scroll", listenToScroll)
+    return () => window.removeEventListener("scroll", listenToScroll)
+  }, [])
 
   return (
-    <nav
-      key={`navbar-${isDesktopOrLaptop ? "desktop" : "mobile"}`}
-      className="navbar"
-      style={navbarStyles}
-    >
+    <nav id="navbar" className="navbar">
       <SectionContent customClass="navbar--content">
         <div className="navbar--left">
           <div className="navbar--menu" onClick={openSidebar}>
@@ -127,22 +92,20 @@ const Navbar = ({ openSidebar }) => {
         <div className="navbar--right">
           <div className="navbar--links">
             <ul>
-              {menu.map(item => {
-                const { id, path, label } = item
-                return (
-                  <li key={id}>
-                    <Link to={path} activeClassName="active">
-                      {label}
-                    </Link>
-                  </li>
-                )
-              })}
+              {menu.map(link => (
+                <li key={link.id}>
+                  <Link to={link.path} activeClassName="active">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-          <Logo size={logoSize} />
+          <Logo size={navbarIsFixed ? "small" : "medium"} />
         </div>
       </SectionContent>
     </nav>
   )
 }
+
 export default Navbar

@@ -22,7 +22,7 @@ const Hero = ({
     <section className={`hero hero-size-${height}`}>
       <GatsbyImage
         image={getImage(image)}
-        alt={title}
+        alt={title || ""}
         className="hero--image"
         objectFit="cover"
         objectPosition="50% 30%"

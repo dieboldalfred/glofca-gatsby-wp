@@ -1,13 +1,10 @@
-.partner--image {
+.partner__image {
   height: 200px;
   width: 200px;
   object-fit: cover;
   margin: 0 auto 16px auto;
 }
-.partner--image img {
-  border-radius: var(--radius);
-}
-.partner--info-title {
+.partner__title {
   text-align: center;
   text-transform: capitalize;
 }

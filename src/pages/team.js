@@ -4,114 +4,44 @@ import { graphql } from "gatsby"
 
 // comps
 import Layout from "../components/Layout"
-import { Section, SectionContent, Member, Partner } from "../components"
-
-// styles
+import { Members, Partners } from "../components"
 
 const Team = data => {
+  const teamGLOFCA = data.data.allWpTeamMember.nodes
+  const kazakhPartners = data.data.kazakhstanPartners.nodes
+  const kyrgyzPartners = data.data.kyrgyzstanPartners.nodes
+  const tajikiPartners = data.data.tajikistanPartners.nodes
+  const uzbekiPartners = data.data.uzbekistanPartners.nodes
+  const internationalPartners = data.data.internationalPartners.nodes
+
   return (
     <Layout>
-      <Section customClass="team" title="Team GLOFCA">
-        <SectionContent customClass="team-center">
-          {data.data.allWpTeamMember.nodes.map(member => {
-            const {
-              id,
-              featuredImage,
-              title,
-              teamMemberFields: { company, position },
-            } = member
-            return (
-              <Member
-                key={id}
-                image={featuredImage}
-                title={title}
-                position={position}
-                company={company}
-              />
-            )
-          })}
-        </SectionContent>
-      </Section>
-
-      <Section
-        customClass="team section--no-padding-top"
+      <Members title="Team GLOFCA" data={teamGLOFCA} />
+      <Partners
         title="Kazakhstan Partners"
-      >
-        <SectionContent customClass="partner-center">
-          {data.data.kazakhstanPartners.nodes.map(partner => {
-            const { id, featuredImage, title, slug } = partner
-            return (
-              <Link to={`/partners/${slug}`} className="team-center--item">
-                <Partner key={id} image={featuredImage} title={title} />
-              </Link>
-            )
-          })}
-        </SectionContent>
-      </Section>
-
-      <Section
-        customClass="team section--no-padding-top"
+        data={kazakhPartners}
+        customClass="section--no-padding-top"
+      />
+      <Partners
         title="Kyrgyzstan Partners"
-      >
-        <SectionContent customClass="partner-center">
-          {data.data.kyrgyzstanPartners.nodes.map(partner => {
-            const { id, featuredImage, title, slug } = partner
-            return (
-              <Link to={`/partners/${slug}`} className="team-center--item">
-                <Partner key={id} image={featuredImage} title={title} />
-              </Link>
-            )
-          })}
-        </SectionContent>
-      </Section>
-
-      <Section
-        customClass="team section--no-padding-top"
+        data={kyrgyzPartners}
+        customClass="section--no-padding-top"
+      />
+      <Partners
         title="Tajikistan Partners"
-      >
-        <SectionContent customClass="partner-center">
-          {data.data.tajikistanPartners.nodes.map(partner => {
-            const { id, featuredImage, title, slug } = partner
-            return (
-              <Link to={`/partners/${slug}`} className="team-center--item">
-                <Partner key={id} image={featuredImage} title={title} />
-              </Link>
-            )
-          })}
-        </SectionContent>
-      </Section>
-
-      <Section
-        customClass="team section--no-padding-top"
+        data={tajikiPartners}
+        customClass="section--no-padding-top"
+      />
+      <Partners
         title="Uzbekistan Partners"
-      >
-        <SectionContent customClass="partner-center">
-          {data.data.uzbekistanPartners.nodes.map(partner => {
-            const { id, featuredImage, title, slug } = partner
-            return (
-              <Link to={`/partners/${slug}`} className="team-center--item">
-                <Partner key={id} image={featuredImage} title={title} />
-              </Link>
-            )
-          })}
-        </SectionContent>
-      </Section>
-
-      <Section
-        customClass="team section--no-padding-top"
-        title="Regional & International Partners"
-      >
-        <SectionContent customClass="partner-center">
-          {data.data.internationalPartners.nodes.map(partner => {
-            const { id, featuredImage, title, slug } = partner
-            return (
-              <Link to={`/partners/${slug}`} className="team-center--item">
-                <Partner key={id} image={featuredImage} title={title} />
-              </Link>
-            )
-          })}
-        </SectionContent>
-      </Section>
+        data={uzbekiPartners}
+        customClass="section--no-padding-top"
+      />
+      <Partners
+        title="Regional & International Partners Partners"
+        data={internationalPartners}
+        customClass="section--no-padding-top"
+      />
     </Layout>
   )
 }
