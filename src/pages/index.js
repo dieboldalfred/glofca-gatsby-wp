@@ -31,7 +31,7 @@ const HomePage = ({ data }) => {
       />
       <Banner
         link="tashkent-conference-2021"
-        text="Visit our Tashkent Conference 2021"
+        text="Visit Tashkent Conference 2021"
       />
       <CTAAreaTwoCol
         leftColumn={<Blurb subHeading={home.cta1Title} />}

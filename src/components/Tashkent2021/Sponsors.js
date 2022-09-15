@@ -6,8 +6,8 @@ import { Section, SectionContent } from "../index"
 
 const Sponsors = ({ data }) => {
   return (
-    <Section title="Organisers & Sponsors">
-      <SectionContent customClass="tashkent__sponsors">
+    <Section title="Organisers & Sponsors" customClass="tashkent__sponsors">
+      <SectionContent customClass="tashkent__sponsors--grid">
         {data.map((sponsor, i) => {
           return (
             <div key={i}>

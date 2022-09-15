@@ -1,5 +1,7 @@
 .banner {
   background-color: var(--clr-primary-6);
+}
+.banner__content {
   display: grid;
   place-items: center;
   padding: 16px 0;
@@ -7,6 +9,7 @@
 .banner__link {
   color: var(--clr-white);
   letter-spacing: var(--spacing);
+  text-align: center;
 }
 .banner__link:hover {
   cursor: pointer;
