@@ -9,6 +9,9 @@ import { Section, SectionContent, BreadCrumb, Seo } from "../components"
 // utils
 import { sanitizeHtml } from "../utils/typography"
 
+//styles
+import "../assets/css/partner-page.css"
+
 const PartnerTemplate = ({ data, pageContext }) => {
   const {
     title,

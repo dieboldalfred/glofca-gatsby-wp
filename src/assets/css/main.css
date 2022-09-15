@@ -197,12 +197,10 @@ p {
 .btn-left {
   display: block;
   text-align: center;
-  /* margin: 3rem auto 0; */
   width: 12rem;
 }
 .btn:hover {
   background: var(--clr-primary-3);
-  /* color: var(--clr-primary-1); */
 }
 .underline {
   width: 80px;
@@ -228,30 +226,4 @@ p {
 }
 .blog-featured-image {
   margin-bottom: 50px;
-}
-/* partner image on teams */
-.partner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.partner--logo {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-.partner--info {
-  max-width: 70%;
-}
-@media screen and (min-width: 1025px) {
-  .partner--info {
-    max-width: 95%;
-  }
-}
-.partner--role {
-  margin-bottom: 20px;
-  text-align: center;
-}
-.partner--description p:last-child {
-  margin-bottom: 0;
 }

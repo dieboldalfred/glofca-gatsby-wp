@@ -3,12 +3,7 @@ import { graphql } from "gatsby"
 
 // components
 import { CTAAreaOneCol, VideoPlayer, Hero, Members } from "../components"
-import {
-  About,
-  Participants,
-  Sponsors,
-  Talks,
-} from "../components/Tashkent2021"
+import { About, Sponsors, Talks } from "../components/Tashkent2021"
 import Layout from "../components/Layout"
 
 // styles
@@ -54,7 +49,7 @@ const TashkentConference2021 = ({ data }) => {
       <Members
         title="Participants with Presentations"
         data={data.allWpTeamMember.nodes}
-        customClass="team-member--rounded"
+        customClass="member--square member__image--rounded"
       />
       <CTAAreaOneCol
         title="Watch"

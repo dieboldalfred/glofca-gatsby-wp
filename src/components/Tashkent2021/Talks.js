@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 // data
 import { DayOne, DayTwo, DayThree } from "../../data/tashkent2021"
@@ -11,13 +12,14 @@ const TalkSection = ({ title, chair, chairs, speakers, points }) => (
     <h4 className="text__coloured">{title}</h4>
     {chair && (
       <p>
-        <a
-          href={DayOne.partOne.chair.link}
+        <Link
+          to={DayOne.partOne.chair.link}
           target="_blank"
+          rel="noreferrer"
           className="text__italicised"
         >
           {DayOne.partOne.chair.name}
-        </a>
+        </Link>
         , {DayOne.partOne.chair.desc}
       </p>
     )}
@@ -39,9 +41,14 @@ const TalkSection = ({ title, chair, chairs, speakers, points }) => (
       speakers.map((speaker, i) => {
         return (
           <p key={i}>
-            <a href={speaker.link} target="_blank" className="text__coloured">
+            <Link
+              to={speaker.link}
+              target="_blank"
+              rel="noreferrer"
+              className="text__coloured"
+            >
               {speaker.name}
-            </a>
+            </Link>
             , {speaker.desc}
           </p>
         )

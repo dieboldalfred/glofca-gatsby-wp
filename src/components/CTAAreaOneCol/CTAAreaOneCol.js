@@ -7,10 +7,8 @@ import "./cta-area-one-col.css"
 
 const CTAAreaOneCol = ({ title, content }) => {
   return (
-    <Section title={title} customClass="cta-one-col">
-      <SectionContent customClass="cta-one-col--container">
-        {content}
-      </SectionContent>
+    <Section title={title}>
+      <SectionContent>{content}</SectionContent>
     </Section>
   )
 }

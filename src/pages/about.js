@@ -2,14 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 
 // comps
-import {
-  CTAAreaTwoCol,
-  MailchimpForm,
-  Section,
-  SectionContent,
-  AboutContainer,
-  Seo,
-} from "../components"
+import { Section, SectionContent, AboutContainer, Seo } from "../components"
 
 // hooks
 import { useAboutQuery } from "../hooks/useAboutQuery"

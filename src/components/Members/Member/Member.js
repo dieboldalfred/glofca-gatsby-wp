@@ -7,7 +7,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import "./member.css"
 
 const Member = ({ title, image, position, company, link, customClass }) => {
-  const imageClasses = classNames("team--member-image", {
+  const imageClasses = classNames("member__image", {
     [customClass]: Boolean(customClass),
   })
 
@@ -16,7 +16,7 @@ const Member = ({ title, image, position, company, link, customClass }) => {
   )
 
   return (
-    <article className="team--member">
+    <article className="member">
       <div className={imageClasses}>
         {link ? (
           <Link to={link.url} target={link.target}>
@@ -26,10 +26,10 @@ const Member = ({ title, image, position, company, link, customClass }) => {
           imageComponent
         )}
       </div>
-      <div className="team--member-info">
-        <h5 className="team--member-title">{title}</h5>
+      <div className="member__info">
+        <h5 className="member__title">{title}</h5>
         {position && (
-          <p className="team--member-position">{`${position}${
+          <p className="member__position">{`${position}${
             !company ? "" : `, ${company}`
           }`}</p>
         )}

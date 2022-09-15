@@ -1,7 +1,7 @@
 import React from "react"
 
 // components
-import { Section, SectionContent, Posts } from "../index"
+import { Section, SectionContent } from "../index"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Article = ({ title, image, content }) => (

@@ -85,22 +85,6 @@ export const query = graphql`
       }
     ) {
       nodes {
-        # id
-        # title
-        # slug
-        # featuredImage {
-        #   node {
-        #     localFile {
-        #       childImageSharp {
-        #         gatsbyImageData(
-        #           placeholder: TRACED_SVG
-        #           height: 500
-        #           width: 500
-        #         )
-        #       }
-        #     }
-        #   }
-        # }
         ...CardParts
       }
     }
@@ -110,22 +94,7 @@ export const query = graphql`
       }
     ) {
       nodes {
-        id
-        title
-        slug
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: TRACED_SVG
-                  height: 500
-                  width: 500
-                )
-              }
-            }
-          }
-        }
+        ...CardParts
       }
     }
     projects: allWpPage(
@@ -134,22 +103,7 @@ export const query = graphql`
       }
     ) {
       nodes {
-        id
-        title
-        slug
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  placeholder: TRACED_SVG
-                  height: 500
-                  width: 500
-                )
-              }
-            }
-          }
-        }
+        ...CardParts
       }
     }
     posts: allWpPost(
