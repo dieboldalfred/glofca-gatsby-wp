@@ -11,7 +11,7 @@ import "./posts.css"
 const Posts = ({ title, posts, showLink }) => {
   return (
     <Section title={title}>
-      <SectionContent customClass="posts-center">
+      <SectionContent customClass="posts__content">
         {posts.map(post => (
           <Post
             key={post.id}
@@ -22,13 +22,14 @@ const Posts = ({ title, posts, showLink }) => {
           />
         ))}
       </SectionContent>
-      <SectionContent>
-        {showLink && (
+
+      {showLink && (
+        <SectionContent>
           <Link to="/news" className="btn btn-center">
             more posts
           </Link>
-        )}
-      </SectionContent>
+        </SectionContent>
+      )}
     </Section>
   )
 }

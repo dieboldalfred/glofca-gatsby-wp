@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 
 // components
 import Layout from "../components/Layout"
-import { Section, SectionContent, BreadCrumb, Seo } from "../components"
+import { Section, SectionContent, Breadcrumbs, Seo } from "../components"
 
 // utils
 import { sanitizeHtml } from "../utils/typography"
@@ -22,7 +22,7 @@ const PartnerTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <Seo title={title} />
-      <BreadCrumb
+      <Breadcrumbs
         parent={{
           uri: pageContext.uri,
           title: pageContext.title,

@@ -4,23 +4,23 @@ import { Link } from "gatsby"
 import { SectionContent } from ".."
 
 // styles
-import "./breadcrumb.css"
+import "./Breadcrumbs.css"
 
-const BreadCrumb = ({ parent }) => (
-  <SectionContent customClass="breadcrumb">
+const Breadcrumbs = ({ parent }) => (
+  <SectionContent customClass="Breadcrumbs">
     <Link to="/">
       <span>Home</span>
     </Link>
-    <span className="breadcrumb--divider">/</span>
+    <span className="Breadcrumbs--divider">/</span>
     {parent ? (
       <>
         <Link to={parent.uri}>
           <span>{parent.title}</span>
         </Link>
-        <span className="breadcrumb--divider">/</span>
+        <span className="Breadcrumbs--divider">/</span>
       </>
     ) : null}
   </SectionContent>
 )
 
-export default BreadCrumb
+export default Breadcrumbs

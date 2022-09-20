@@ -14,7 +14,7 @@ import {
   TableContainer,
   Section,
   SectionContent,
-  BreadCrumb,
+  Breadcrumbs,
 } from "../../components"
 import Layout from "../../components/Layout"
 

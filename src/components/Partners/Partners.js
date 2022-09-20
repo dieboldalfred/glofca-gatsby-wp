@@ -9,7 +9,7 @@ import "./partners.css"
 
 const Partners = ({ title, data, customClass }) => (
   <Section customClass={customClass} title={title}>
-    <SectionContent customClass="partners-center">
+    <SectionContent customClass="partners__content">
       {data.map(partner => (
         <Link to={`/partners/${partner.slug}`} className="team-center--item">
           <Partner

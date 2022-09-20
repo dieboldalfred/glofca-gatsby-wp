@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 // components
-import { Article, BreadCrumb, Seo } from "../components"
+import { Article, Breadcrumbs, Seo } from "../components"
 import Layout from "../components/Layout"
 
 const PostTemplate = ({ data, pageContext }) => {
@@ -11,7 +11,7 @@ const PostTemplate = ({ data, pageContext }) => {
   return (
     <Layout>
       <Seo title={pageContext.title} />
-      <BreadCrumb
+      <Breadcrumbs
         parent={{
           uri: pageContext.uri,
           title: pageContext.title,
