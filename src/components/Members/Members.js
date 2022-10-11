@@ -6,20 +6,20 @@ import Member from "./Member/Member"
 
 import "./members.css"
 
-const Members = ({ title, data, customClass }) => (
+const Members = ({ title, data, customClass, link }) => (
   <Section customClass="members" title={title}>
     <SectionContent customClass="members__center">
-      {data.map(member => (
-        <Member
-          key={member.id}
-          image={member.featuredImage}
-          title={member.title}
-          position={member.teamMemberFields.position}
-          company={member.teamMemberFields.company}
-          customClass={customClass}
-        />
-      ))}
+      {data.map(member => {
+        return link ? (
+          <a href={member.teamMemberFields.link.url} target="_blank">
+            <Member key={member.id} member={member} customClass={customClass} />
+          </a>
+        ) : (
+          <Member key={member.id} member={member} customClass={customClass} />
+        )
+      })}
     </SectionContent>
   </Section>
 )
+
 export default Members

@@ -4,6 +4,8 @@ import React from "react"
 import { Section, SectionContent } from "../index"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import "./article.css"
+
 const Article = ({ title, image, content }) => (
   <Section title={title}>
     <SectionContent>

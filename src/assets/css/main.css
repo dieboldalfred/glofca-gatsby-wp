@@ -215,6 +215,10 @@ p {
   margin-right: auto;
 }
 /* blog */
+.blog--content {
+  margin: 0 auto;
+}
+
 .blog--content p:last-child,
 .blog--content div:last-child {
   margin-bottom: 0;

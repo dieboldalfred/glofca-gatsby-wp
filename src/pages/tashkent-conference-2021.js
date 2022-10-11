@@ -50,6 +50,7 @@ const TashkentConference2021 = ({ data }) => {
         title="Participants with Presentations"
         data={data.allWpTeamMember.nodes}
         customClass="member--square member__image--rounded"
+        link
       />
       <CTAAreaOneCol
         title="Watch"
@@ -79,6 +80,10 @@ export const query = graphql`
         title
         teamMemberFields {
           position
+          link {
+            target
+            url
+          }
         }
         featuredImage {
           node {

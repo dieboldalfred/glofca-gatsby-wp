@@ -63,6 +63,27 @@ const Navbar = ({ openSidebar }) => {
     return () => window.removeEventListener("scroll", listenToScroll)
   }, [])
 
+  const renderPartnerLogos = () => (
+    <div className="navbar--funders">
+      <StaticImage
+        src="../../assets/images/unesco-large.png"
+        className="navbar--funders-logo"
+        alt="logo"
+        height={63}
+        width={323}
+        transformOptions={{ fit: "fill" }}
+        placeholder="blurred"
+      />
+      <StaticImage
+        src="../../assets/images/AF-Logo.jpeg"
+        className="navbar--funders-logo"
+        alt="logo"
+        height={60}
+        placeholder="blurred"
+      />
+    </div>
+  )
+
   return (
     <nav id="navbar" className="navbar">
       <SectionContent customClass="navbar--content">
@@ -70,24 +91,7 @@ const Navbar = ({ openSidebar }) => {
           <div className="navbar--menu" onClick={openSidebar}>
             <GoThreeBars />
           </div>
-          <div className="navbar--funders">
-            <StaticImage
-              src="../../assets/images/unesco-large.png"
-              className="navbar--funders-logo"
-              alt="logo"
-              height={63}
-              width={323}
-              transformOptions={{ fit: "fill" }}
-              placeholder="blurred"
-            />
-            <StaticImage
-              src="../../assets/images/AF-Logo.jpeg"
-              className="navbar--funders-logo"
-              alt="logo"
-              height={60}
-              placeholder="blurred"
-            />
-          </div>
+          {renderPartnerLogos()}
         </div>
         <div className="navbar--right">
           <div className="navbar--links">
