@@ -1,7 +1,8 @@
 /* tashkent conference 2021 page */
 
 .tashkent-section__image {
-  background-image: url("../images/mainBCG.jpg");
+  /* background-image: url("../images/mainBCG.jpg"); */
+  background-image: url("../images/GLOFCA-team-photo.jpg");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */

@@ -6,7 +6,7 @@ import Footer from "./Footer/Footer"
 // styles
 import "../assets/css/main.css"
 
-const Layout = ({ children }) => {
+const Layout: React.FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const openSidebar = () => {

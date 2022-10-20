@@ -37,7 +37,7 @@ const HomePage = ({ data }) => {
         leftColumn={<Blurb subHeading={home.cta1Title} />}
         rightColumn={
           <VideoPlayer
-            videoURL={home.cta1Media}
+            url={home.cta1Media}
             customClass="videoplayer--shadow videoplayer--cta"
           />
         }
@@ -61,7 +61,7 @@ const HomePage = ({ data }) => {
         }
         rightColumn={
           <VideoPlayer
-            videoURL={home.cta2Video}
+            url={home.cta2Video}
             customClass="videoplayer--shadow videoplayer--cta"
           />
         }
@@ -101,6 +101,7 @@ export const query = graphql`
       filter: {
         categories: { nodes: { elemMatch: { slug: { eq: "projects" } } } }
       }
+      sort: { order: ASC, fields: date }
     ) {
       nodes {
         ...CardParts

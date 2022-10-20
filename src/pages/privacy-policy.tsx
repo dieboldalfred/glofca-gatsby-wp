@@ -1,10 +1,18 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 // comps
 import { Section, SectionContent, Seo } from "../components"
 import Layout from "../components/Layout"
 
-const PrivacyPolicy = data => {
+type GraphQlResult = {
+  wpPage: {
+    id: string
+    content: string
+    title: string
+  }
+}
+
+const PrivacyPolicy: React.FC<PageProps<GraphQlResult>> = data => {
   const page = data.data.wpPage
   return (
     <Layout>

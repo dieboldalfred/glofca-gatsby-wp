@@ -6,8 +6,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 // styles
 import "./member.css"
 
-const Member = ({ member }) => {
-  const { title, featuredImage, position, company, link, customClass } = member
+const Member = ({ customClass, member }) => {
+  const { title, featuredImage, position, company, link } = member
 
   const imageClasses = classNames("member__image", {
     [customClass]: Boolean(customClass),

@@ -6,7 +6,9 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop:gatsby": "gatsby develop",
+    "develop:type-check": "tsc --watch",
+    "develop": "npm-run-all --parallel evelop:gatsby develop:type-check",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
@@ -23,6 +25,7 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^2.14.1",
     "gatsby-plugin-mailchimp": "^5.2.2",
+    "gatsby-plugin-react-helmet": "^5.18.0",
     "gatsby-plugin-sharp": "^4.14.1",
     "gatsby-source-filesystem": "^4.14.0",
     "gatsby-source-google-sheets-flexible": "^1.0.3",
@@ -30,20 +33,21 @@
     "gatsby-transformer-sharp": "^4.14.0",
     "gbimage-bridge": "^0.2.1",
     "node-fetch": "^2.6.7",
+    "npm-run-all": "^4.1.5",
     "react": "^17.0.1",
     "react-bootstrap": "^2.4.0",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-parallax": "^3.5.1",
     "react-responsive": "^9.0.0-beta.10",
     "react-table": "^7.8.0",
     "reactstrap": "^9.0.2",
-    "sanitize-html": "^2.7.0",
-    "gatsby-plugin-react-helmet": "^5.18.0",
-"react-helmet": "^6.1.0"
+    "sanitize-html": "^2.7.0"
   },
   "devDependencies": {
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "typescript": "^4.8.4"
   },
   "repository": {
     "type": "git",

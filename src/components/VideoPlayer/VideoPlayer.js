@@ -3,7 +3,7 @@ import classNames from "classnames"
 
 import "./videoplayer.css"
 
-const VideoPlayer = ({ videoURL, customClass }) => {
+const VideoPlayer = ({ url, customClass }) => {
   const classes = classNames("videoplayer", {
     [customClass]: Boolean(customClass),
   })
@@ -12,7 +12,7 @@ const VideoPlayer = ({ videoURL, customClass }) => {
       <iframe
         width="560"
         height="315"
-        src={videoURL}
+        src={url}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

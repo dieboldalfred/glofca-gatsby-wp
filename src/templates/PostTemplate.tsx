@@ -1,11 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 
 // components
 import { Article, Breadcrumbs, Seo } from "../components"
 import Layout from "../components/Layout"
 
-const PostTemplate = ({ data, pageContext }) => {
+import { PostContentData } from "../types/posts"
+
+type GraphQlResult = {
+  wpPost: PostContentData
+}
+
+const PostTemplate: React.FC<PageProps<GraphQlResult>> = ({
+  data,
+  pageContext,
+}) => {
   const { title, content, featuredImage } = data.wpPost
 
   return (

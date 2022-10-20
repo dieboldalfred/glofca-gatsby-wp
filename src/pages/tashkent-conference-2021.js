@@ -11,7 +11,7 @@ import "../assets/css/tashkent-conference.css"
 
 const TashkentConference2021 = ({ data }) => {
   const coverImage = data.about.tashkentConference2021.coverImage.localFile
-  const videoURL = data.about.tashkentConference2021.video
+  const url = data.about.tashkentConference2021.video
   const aboutTextArray = [
     {
       title: data.about.tashkentConference2021.aboutTitleA,
@@ -56,7 +56,7 @@ const TashkentConference2021 = ({ data }) => {
         title="Watch"
         content={
           <VideoPlayer
-            videoURL={videoURL}
+            url={url}
             customClass="videoplayer--shadow videoplayer--cta"
           />
         }
