@@ -60,10 +60,10 @@ const About: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
             text={valuesText}
             last="about--container-last"
           />
-          <VideoPlayer
+          {/* <VideoPlayer
             url="https://www.youtube.com/watch?v=KnOU1poR_TE&t=8s"
             customClass="videoplayer--shadow videoplayer--cta"
-          />
+          /> */}
         </SectionContent>
       </Section>
     </Layout>
