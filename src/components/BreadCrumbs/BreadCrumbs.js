@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { SectionContent } from ".."
 
 // styles
-import "./Breadcrumbs.css"
+import "./breadcrumbs.css"
 
 const Breadcrumbs = ({ parent }) => (
   <SectionContent customClass="Breadcrumbs">
