@@ -2,7 +2,7 @@ import React, { useMemo } from "react"
 import { useMediaQuery } from "react-responsive"
 import { Card, CardText, CardBody, CardTitle } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { TableContainer, Section, SectionContent } from "../../components"
+import { TableContainer, Section, SectionContent, Seo } from "../../components"
 import Layout from "../../components/Layout"
 import { SelectColumnFilter } from "../../utils/filters"
 
@@ -191,6 +191,7 @@ const Stakeholders = () => {
 
   return (
     <Layout>
+      <Seo title="Stakeholders" />
       <Section title="Stakeholders">
         <SectionContent>
           {isMobile && (
