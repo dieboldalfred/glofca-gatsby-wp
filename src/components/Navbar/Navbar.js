@@ -75,7 +75,7 @@ const Navbar = ({ openSidebar }) => {
         placeholder="blurred"
       />
       <StaticImage
-        src="../../assets/images/AF-Logo.jpeg"
+        src="../../assets/images/AF_Logo.jpg"
         className="navbar--funders-logo"
         alt="logo"
         height={60}
