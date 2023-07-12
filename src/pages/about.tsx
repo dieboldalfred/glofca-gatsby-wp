@@ -22,8 +22,8 @@ type GraphQlResult = {
       ourVisionTitle: string
       goalsTitle: string
       goalsText: string
-      objectivesTitle: string
-      objectivesText: string
+//      objectivesTitle: string
+//      objectivesText: string
       valuesTitle: string
       valuesText: string
     }
@@ -39,8 +39,6 @@ const About: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
     ourVision,
     goalsText,
     goalsTitle,
-    objectivesText,
-    objectivesTitle,
     valuesText,
     valuesTitle,
   } = data.wpPage.about
@@ -54,7 +52,6 @@ const About: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
           <AboutContainer title={ourMissionTitle} text={ourMission} />
           <AboutContainer title={ourVisionTitle} text={ourVision} />
           <AboutContainer title={goalsTitle} text={goalsText} />
-          <AboutContainer title={objectivesTitle} text={objectivesText} />
           <AboutContainer
             title={valuesTitle}
             text={valuesText}
@@ -82,8 +79,6 @@ export const query = graphql`
         ourVisionTitle
         goalsTitle
         goalsText
-        objectivesTitle
-        objectivesText
         valuesTitle
         valuesText
       }
