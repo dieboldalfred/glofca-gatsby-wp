@@ -26,7 +26,7 @@ const LogoBanner = ({ customClass }) => {
       <div className="logo-banner--container">
         <h5 className="logo-banner--container-title">Funded by</h5>
         <StaticImage
-          src="../../assets/images/AF_Logo.jpeg"
+          src="../../assets/images/AF_Logo.jpg"
           className=""
           alt="logo"
           height={60}
