@@ -47,7 +47,7 @@ const About: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
       <Seo title="About" />
       <Section title="About">
         <SectionContent customClass="about">
-          <AboutContainer text={about} />
+          <AboutContainer title={aboutTitle} text={about} />
           <AboutContainer title={ourMissionTitle} text={ourMission} />
           <AboutContainer title={ourVisionTitle} text={ourVision} />
           <AboutContainer title={goalsTitle} text={goalsText} />
