@@ -14,12 +14,12 @@ import {
 type GraphQlResult = {
   wpPage: {
     about: {
-      about: string
-      ourMission: string
-      ourVision: string
       aboutTitle: string
+      about: string
       ourMissionTitle: string
+      ourMission: string
       ourVisionTitle: string
+      ourVision: string
       goalsTitle: string
       goalsText: string
       valuesTitle: string
@@ -31,6 +31,7 @@ type GraphQlResult = {
 const About: React.FC<PageProps<GraphQlResult>> = ({ data }) => {
   const {
     about,
+    aboutTitle,
     ourMissionTitle,
     ourVisionTitle,
     ourMission,
