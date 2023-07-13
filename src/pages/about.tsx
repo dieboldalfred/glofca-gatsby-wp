@@ -22,8 +22,6 @@ type GraphQlResult = {
       ourVisionTitle: string
       goalsTitle: string
       goalsText: string
-//      objectivesTitle: string
-//      objectivesText: string
       valuesTitle: string
       valuesText: string
     }
